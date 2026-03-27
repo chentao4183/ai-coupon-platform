@@ -1,4 +1,4 @@
-import { getPlatforms } from '@/lib/kv-local';
+import { getPlatforms } from '@/lib/kv';
 import PlatformCard from '@/components/PlatformCard';
 
 export const revalidate = 60;
