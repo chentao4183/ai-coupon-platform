@@ -1,0 +1,1162 @@
+{
+  "companies": [
+    {
+      "id": "zhipu",
+      "name": "智谱AI",
+      "nameEn": "Zhipu AI",
+      "logo": "/logos/zhipu.svg",
+      "website": "https://www.bigmodel.cn",
+      "country": "中国",
+      "description": "国内领先的AI大模型公司，GLM系列模型开发者"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "nameEn": "OpenAI",
+      "logo": "/logos/openai.svg",
+      "website": "https://openai.com",
+      "country": "美国",
+      "description": "全球领先的AI研究实验室，GPT系列创建者"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "nameEn": "Anthropic",
+      "logo": "/logos/anthropic.svg",
+      "website": "https://www.anthropic.com",
+      "country": "美国",
+      "description": "AI安全研究公司，Claude系列模型开发者"
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "nameEn": "Google DeepMind",
+      "logo": "/logos/google.svg",
+      "website": "https://ai.google.dev",
+      "country": "美国",
+      "description": "Google旗下AI部门，Gemini系列模型开发者"
+    },
+    {
+      "id": "alibaba",
+      "name": "阿里云",
+      "nameEn": "Alibaba Cloud",
+      "logo": "/logos/alibaba.svg",
+      "website": "https://www.aliyun.com/product/qwen",
+      "country": "中国",
+      "description": "阿里巴巴旗下云计算平台，千问大模型运营方"
+    },
+    {
+      "id": "deepseek",
+      "name": "深度求索",
+      "nameEn": "DeepSeek",
+      "logo": "/logos/deepseek.svg",
+      "website": "https://www.deepseek.com",
+      "country": "中国",
+      "description": "高性能AI模型公司，以深度推理能力著称"
+    },
+    {
+      "id": "moonshot",
+      "name": "月之暗面",
+      "nameEn": "Moonshot AI",
+      "logo": "/logos/moonshot.svg",
+      "website": "https://www.kimi.ai",
+      "country": "中国",
+      "description": "创新型AI公司，Kimi长文本模型开发者"
+    },
+    {
+      "id": "bytedance",
+      "name": "字节跳动",
+      "nameEn": "ByteDance",
+      "logo": "/logos/bytedance.svg",
+      "website": "https://www.volcengine.com/product/doubao",
+      "country": "中国",
+      "description": "字节跳动旗下，豆包大模型运营方"
+    },
+    {
+      "id": "baidu",
+      "name": "百度",
+      "nameEn": "Baidu",
+      "logo": "/logos/baidu.svg",
+      "website": "https://yiyan.baidu.com",
+      "country": "中国",
+      "description": "中国互联网巨头，文心一言大模型开发者"
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "nameEn": "MiniMax",
+      "logo": "/logos/minimax.svg",
+      "website": "https://www.minimaxi.com",
+      "country": "中国",
+      "description": "AI初创公司，提供高性价比大模型服务"
+    }
+  ],
+  "models": [
+    {
+      "id": "glm",
+      "companyId": "zhipu",
+      "name": "GLM系列",
+      "nameEn": "GLM Series",
+      "logo": "/logos/zhipu.svg",
+      "featured": true,
+      "description": "智谱AI旗舰大模型系列，提供从免费到旗舰的完整产品线，GLM-4.7-Flash完全免费使用。",
+      "longDescription": "GLM系列是智谱AI自主研发的大语言模型产品线，涵盖旗舰级GLM-5.1、通用型GLM-4.5、经济型GLM-4.5-Air以及完全免费的GLM-4.7-Flash。GLM系列支持128K超长上下文，具备强大的中文理解与生成能力，广泛应用于代码生成、文档处理、智能客服等场景。其中GLM-4.7-Flash提供永久免费API调用，是个人开发者和中小企业的理想选择。",
+      "tags": ["免费", "国产", "长文本", "API"],
+      "capabilities": ["代码生成", "长文本理解", "中文对话", "文档分析", "多轮对话", "知识问答"],
+      "scenarios": ["编程开发", "内容创作", "数据分析", "智能客服", "文档处理", "教育培训"],
+      "versions": [
+        {
+          "id": "glm-5.1",
+          "name": "GLM-5.1",
+          "description": "最新旗舰模型，综合能力全面领先",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "glm-4.5",
+          "name": "GLM-4.5",
+          "description": "通用型模型，兼顾性能与成本",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "standard"
+        },
+        {
+          "id": "glm-4.5-air",
+          "name": "GLM-4.5-Air",
+          "description": "经济型模型，适合大规模部署",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "cost-effective"
+        },
+        {
+          "id": "glm-4.7-flash",
+          "name": "GLM-4.7-Flash",
+          "description": "完全免费的轻量级模型",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "free"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "glm-flash-free",
+          "versionId": "glm-4.7-flash",
+          "planType": "api",
+          "name": "GLM-4.7-Flash 免费版",
+          "description": "完全免费，适合个人开发和测试",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 0,
+            "outputPrice": 0,
+            "unit": "1M tokens"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["无限API调用", "128K上下文窗口", "流式输出", "函数调用"],
+            "restrictions": ["速率限制", "不保证SLA", "优先级较低"]
+          }
+        },
+        {
+          "id": "glm-air-plan",
+          "versionId": "glm-4.5-air",
+          "planType": "api",
+          "name": "GLM-4.5-Air API",
+          "description": "经济实惠，适合生产环境",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 1.0,
+            "outputPrice": 2.0,
+            "unit": "1M tokens",
+            "cacheHitPrice": 0.2,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文窗口", "缓存加速", "流式输出", "函数调用", "SLA保障"],
+            "restrictions": ["按量计费", "速率限制"]
+          }
+        },
+        {
+          "id": "glm-5.1-plan",
+          "versionId": "glm-5.1",
+          "planType": "api",
+          "name": "GLM-5.1 旗舰API",
+          "description": "旗舰模型，最强性能",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 28,
+            "outputPrice": 28,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文窗口", "流式输出", "函数调用", "最高精度", "SLA保障"],
+            "restrictions": ["价格较高", "按量计费"]
+          }
+        },
+        {
+          "id": "glm-bigmodel-subscription",
+          "versionId": "glm-4.5",
+          "planType": "subscription",
+          "name": "智谱清言会员",
+          "description": "ChatGPT式订阅制，包含GLM-4.5对话",
+          "pricing": {
+            "currency": "CNY",
+            "price": 49,
+            "period": "month"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["GLM-4.5无限制对话", "128K上下文", "图片生成", "文件解析", "联网搜索"],
+            "restrictions": ["不含API调用", "仅供Web端使用"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpt",
+      "companyId": "openai",
+      "name": "GPT系列",
+      "nameEn": "GPT Series",
+      "logo": "/logos/openai.svg",
+      "featured": true,
+      "description": "全球AI行业标杆，GPT-4o和o3系列提供顶级的多模态和推理能力。",
+      "longDescription": "GPT系列是OpenAI开发的大语言模型产品线，包括最新的推理模型o3和o1、多模态旗舰GPT-4o以及经济型GPT-4o-mini。GPT系列在全球范围内被广泛使用，以卓越的代码生成、多模态理解和复杂推理能力著称。ChatGPT Plus和Pro订阅提供网页端完整体验，API接入灵活便捷，是企业和开发者的首选之一。",
+      "tags": ["多模态", "行业标杆", "代码能力强"],
+      "capabilities": ["代码生成", "多模态理解", "图片分析", "复杂推理", "数据提取", "多语言"],
+      "scenarios": ["编程开发", "内容创作", "数据分析", "科研辅助", "企业应用", "图像理解"],
+      "versions": [
+        {
+          "id": "o3",
+          "name": "o3",
+          "description": "最新推理模型，数学和编程能力卓越",
+          "contextLength": 200000,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "o1",
+          "name": "o1",
+          "description": "深度推理模型，擅长复杂问题分解",
+          "contextLength": 200000,
+          "latest": false,
+          "tier": "reasoning"
+        },
+        {
+          "id": "gpt-4o",
+          "name": "GPT-4o",
+          "description": "多模态旗舰模型，支持图文音视频",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "flagship"
+        },
+        {
+          "id": "gpt-4o-mini",
+          "name": "GPT-4o-mini",
+          "description": "经济型模型，适合大规模应用",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "budget"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "gpt-plus-subscription",
+          "versionId": "gpt-4o",
+          "planType": "subscription",
+          "name": "ChatGPT Plus",
+          "description": "最热门的AI对话订阅计划",
+          "pricing": {
+            "currency": "USD",
+            "price": 20,
+            "period": "month"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["GPT-4o完整访问", "128K上下文", "图片生成(DALL-E)", "文件上传分析", "联网搜索", "自定义GPT", "高级语音模式"],
+            "restrictions": ["不含o3/o1完整访问", "有使用量上限"]
+          }
+        },
+        {
+          "id": "gpt-pro-subscription",
+          "versionId": "o3",
+          "planType": "subscription",
+          "name": "ChatGPT Pro",
+          "description": "专业版，无限制使用o3和GPT-4o",
+          "pricing": {
+            "currency": "USD",
+            "price": 200,
+            "period": "month"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["o3完整访问", "GPT-4o无限制", "o1完整访问", "所有Plus功能", "最高优先级", "扩展计算资源"],
+            "restrictions": ["价格较高"]
+          }
+        },
+        {
+          "id": "gpt-4o-api",
+          "versionId": "gpt-4o",
+          "planType": "api",
+          "name": "GPT-4o API",
+          "description": "API按量付费，多模态旗舰",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 2.50,
+            "outputPrice": 10.00,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文", "多模态输入", "函数调用", "流式输出", "JSON模式"],
+            "restrictions": ["按量计费", "需OpenAI API账号"]
+          }
+        },
+        {
+          "id": "gpt-4o-mini-api",
+          "versionId": "gpt-4o-mini",
+          "planType": "api",
+          "name": "GPT-4o-mini API",
+          "description": "超低价API，适合大规模部署",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 0.15,
+            "outputPrice": 0.60,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文", "多模态输入", "函数调用", "流式输出", "JSON模式"],
+            "restrictions": ["按量计费", "能力弱于GPT-4o"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "claude",
+      "companyId": "anthropic",
+      "name": "Claude系列",
+      "nameEn": "Claude Series",
+      "logo": "/logos/anthropic.svg",
+      "featured": true,
+      "description": "以长文本和代码能力著称的AI模型系列，Claude 4提供200K上下文和卓越的编程辅助。",
+      "longDescription": "Claude系列是Anthropic开发的大语言模型产品线，最新一代包括Claude 4 Opus（旗舰）、Claude 4 Sonnet（均衡）和Claude 4 Haiku（轻量）。Claude以出色的长文本理解、代码生成和安全合规著称，200K上下文窗口可处理超长文档。Anthropic独特的宪法AI方法使Claude在安全性和可控性方面表现突出，是企业级应用的理想选择。",
+      "tags": ["长文本", "代码生成", "安全合规"],
+      "capabilities": ["代码生成", "长文本理解", "文档分析", "安全对话", "复杂推理", "结构化输出"],
+      "scenarios": ["编程开发", "文档处理", "法律分析", "企业合规", "内容创作", "科研辅助"],
+      "versions": [
+        {
+          "id": "claude-4-opus",
+          "name": "Claude 4 Opus",
+          "description": "旗舰模型，最强综合能力",
+          "contextLength": 200000,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "claude-4-sonnet",
+          "name": "Claude 4 Sonnet",
+          "description": "均衡型模型，性价比之选",
+          "contextLength": 200000,
+          "latest": true,
+          "tier": "standard"
+        },
+        {
+          "id": "claude-4-haiku",
+          "name": "Claude 4 Haiku",
+          "description": "轻量极速模型，适合高并发场景",
+          "contextLength": 200000,
+          "latest": true,
+          "tier": "budget"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "claude-pro-subscription",
+          "versionId": "claude-4-sonnet",
+          "planType": "subscription",
+          "name": "Claude Pro",
+          "description": "最受欢迎的Claude订阅计划",
+          "pricing": {
+            "currency": "USD",
+            "price": 20,
+            "period": "month"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["Claude 4 Sonnet优先访问", "200K上下文", "项目功能", "文件上传分析", "Artifacts生成", "每日大量使用量"],
+            "restrictions": ["Opus使用有额度限制", "不适用于API"]
+          }
+        },
+        {
+          "id": "claude-max-subscription",
+          "versionId": "claude-4-opus",
+          "planType": "subscription",
+          "name": "Claude Max",
+          "description": "高级订阅，海量使用额度",
+          "pricing": {
+            "currency": "USD",
+            "price": 100,
+            "period": "month"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["Claude 4 Opus大量额度", "Claude 4 Sonnet海量额度", "所有Pro功能", "最高优先级"],
+            "restrictions": ["价格较高", "不适用于API"]
+          }
+        },
+        {
+          "id": "claude-sonnet-api",
+          "versionId": "claude-4-sonnet",
+          "planType": "api",
+          "name": "Claude 4 Sonnet API",
+          "description": "最均衡的Claude API方案",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 3.00,
+            "outputPrice": 15.00,
+            "unit": "1M tokens",
+            "cacheHitPrice": 0.30,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["200K上下文", "提示缓存", "流式输出", "工具使用", "JSON模式"],
+            "restrictions": ["按量计费", "需Anthropic API账号"]
+          }
+        },
+        {
+          "id": "claude-haiku-api",
+          "versionId": "claude-4-haiku",
+          "planType": "api",
+          "name": "Claude 4 Haiku API",
+          "description": "极速低价API方案",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 0.25,
+            "outputPrice": 1.25,
+            "unit": "1M tokens",
+            "cacheHitPrice": 0.05,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["200K上下文", "提示缓存", "流式输出", "工具使用", "极低延迟"],
+            "restrictions": ["按量计费", "综合能力弱于Sonnet/Opus"]
+          }
+        },
+        {
+          "id": "claude-opus-api",
+          "versionId": "claude-4-opus",
+          "planType": "api",
+          "name": "Claude 4 Opus API",
+          "description": "最强Claude API方案",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 15.00,
+            "outputPrice": 75.00,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["200K上下文", "最强综合能力", "流式输出", "工具使用", "复杂推理"],
+            "restrictions": ["价格最高", "按量计费", "推理速度较慢"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "gemini",
+      "companyId": "google",
+      "name": "Gemini系列",
+      "nameEn": "Gemini Series",
+      "logo": "/logos/google.svg",
+      "featured": true,
+      "description": "Google旗下大模型系列，提供高达1M超长上下文和慷慨的免费额度，Flash-Lite价格极低。",
+      "longDescription": "Gemini系列是Google DeepMind开发的多模态大语言模型产品线，包括Gemini 2.5 Pro（旗舰）、Gemini 2.5 Flash（均衡）和Gemini 2.5 Flash-Lite（轻量）。Gemini系列最突出的特点是支持高达100万token的超长上下文，可一次性处理海量文档。Google提供慷慨的免费额度，Flash-Lite的API价格低至每百万token仅$0.05，是性价比极高的选择。Gemini深度集成Google生态，可搜索最新信息。",
+      "tags": ["超长上下文", "免费额度", "Google生态"],
+      "capabilities": ["超长文本理解", "多模态理解", "代码生成", "联网搜索", "视频分析", "数据分析"],
+      "scenarios": ["文档处理", "编程开发", "科研分析", "内容创作", "数据分析", "教育学习"],
+      "versions": [
+        {
+          "id": "gemini-2.5-pro",
+          "name": "Gemini 2.5 Pro",
+          "description": "旗舰模型，1M上下文，综合能力顶尖",
+          "contextLength": 1048576,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "description": "快速均衡模型，1M上下文",
+          "contextLength": 1048576,
+          "latest": true,
+          "tier": "standard"
+        },
+        {
+          "id": "gemini-2.5-flash-lite",
+          "name": "Gemini 2.5 Flash-Lite",
+          "description": "超轻量模型，价格最低",
+          "contextLength": 1048576,
+          "latest": true,
+          "tier": "budget"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "gemini-free-tier",
+          "versionId": "gemini-2.5-flash",
+          "planType": "api",
+          "name": "Gemini 免费层",
+          "description": "Google慷慨的免费额度，每日可大量使用",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 0,
+            "outputPrice": 0,
+            "unit": "1M tokens",
+            "note": "每日有请求次数限制"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["多模型免费", "1M上下文", "流式输出", "函数调用", "Google搜索集成"],
+            "restrictions": ["每日请求上限", "速率限制", "不保证SLA"]
+          }
+        },
+        {
+          "id": "gemini-flash-api",
+          "versionId": "gemini-2.5-flash",
+          "planType": "api",
+          "name": "Gemini 2.5 Flash API",
+          "description": "低价高速API方案",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 0.10,
+            "outputPrice": 0.40,
+            "unit": "1M tokens",
+            "cacheHitPrice": 0.025,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["1M上下文", "上下文缓存", "流式输出", "函数调用", "搜索集成", "SLA保障"],
+            "restrictions": ["按量计费"]
+          }
+        },
+        {
+          "id": "gemini-pro-api",
+          "versionId": "gemini-2.5-pro",
+          "planType": "api",
+          "name": "Gemini 2.5 Pro API",
+          "description": "旗舰API方案，1M超长上下文",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 1.25,
+            "outputPrice": 10.00,
+            "unit": "1M tokens",
+            "cacheHitPrice": 0.175,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["1M上下文", "上下文缓存", "最强综合能力", "流式输出", "函数调用", "搜索集成"],
+            "restrictions": ["按量计费", "输出价格较高"]
+          }
+        },
+        {
+          "id": "gemini-flash-lite-api",
+          "versionId": "gemini-2.5-flash-lite",
+          "planType": "api",
+          "name": "Gemini 2.5 Flash-Lite API",
+          "description": "全行业最低价API之一",
+          "pricing": {
+            "currency": "USD",
+            "inputPrice": 0.05,
+            "outputPrice": 0.15,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["1M上下文", "极低延迟", "流式输出", "大规模部署友好"],
+            "restrictions": ["按量计费", "能力弱于Flash/Pro"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "qwen",
+      "companyId": "alibaba",
+      "name": "通义千问系列",
+      "nameEn": "Qwen3 Series",
+      "logo": "/logos/alibaba.svg",
+      "featured": true,
+      "description": "阿里云旗下千问大模型系列，拥有30+模型矩阵和全行业最低价API，MT-Flash仅0.7元/百万token。",
+      "longDescription": "通义千问Qwen3系列是阿里巴巴达摩院与阿里云联合开发的大语言模型产品线，提供超过30个不同规模和能力的模型。旗舰Qwen3-235B综合能力强劲，Qwen3-32B适合中等规模部署，Qwen3-MT-Flash以0.7元/百万token的价格成为全行业最便宜的API方案之一。千问系列还包含视觉模型Qwen-VL-Max，支持图片理解和生成。作为阿里云产品，千问深度集成阿里云生态，企业可享受一站式AI服务。",
+      "tags": ["极致低价", "30+模型", "全模态", "国产"],
+      "capabilities": ["代码生成", "多模态理解", "长文本处理", "中文理解", "视觉识别", "工具调用"],
+      "scenarios": ["编程开发", "内容创作", "企业客服", "文档处理", "图像理解", "数据分析"],
+      "versions": [
+        {
+          "id": "qwen3-235b",
+          "name": "Qwen3-235B",
+          "description": "旗舰模型，2350亿参数，综合能力最强",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "qwen3-32b",
+          "name": "Qwen3-32B",
+          "description": "中型模型，平衡性能与速度",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "standard"
+        },
+        {
+          "id": "qwen3-mt-flash",
+          "name": "Qwen3-MT-Flash",
+          "description": "极限低价模型，全行业最便宜之一",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "budget"
+        },
+        {
+          "id": "qwen-vl-max",
+          "name": "Qwen-VL-Max",
+          "description": "视觉理解旗舰模型",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "vision"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "qwen-mt-flash-api",
+          "versionId": "qwen3-mt-flash",
+          "planType": "api",
+          "name": "Qwen3-MT-Flash API",
+          "description": "全行业最低价方案，仅0.7元/百万token",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 0.0007,
+            "outputPrice": 0.0007,
+            "unit": "1K tokens",
+            "note": "即0.7元/百万token"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["128K上下文", "流式输出", "函数调用", "大规模部署友好"],
+            "restrictions": ["综合能力弱于大模型", "按量计费"]
+          }
+        },
+        {
+          "id": "qwen3-235b-api",
+          "versionId": "qwen3-235b",
+          "planType": "api",
+          "name": "Qwen3-235B API",
+          "description": "旗舰API方案，综合能力最强",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 4.0,
+            "outputPrice": 16.0,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文", "最强综合能力", "流式输出", "函数调用", "JSON模式"],
+            "restrictions": ["按量计费", "推理速度较慢"]
+          }
+        },
+        {
+          "id": "qwen3-32b-api",
+          "versionId": "qwen3-32b",
+          "planType": "api",
+          "name": "Qwen3-32B API",
+          "description": "均衡API方案，性能价格俱佳",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 1.5,
+            "outputPrice": 6.0,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文", "良好的综合能力", "流式输出", "函数调用"],
+            "restrictions": ["按量计费"]
+          }
+        },
+        {
+          "id": "qwen-free-tier",
+          "versionId": "qwen3-mt-flash",
+          "planType": "subscription",
+          "name": "通义千问免费版",
+          "description": "Web端免费使用千问模型",
+          "pricing": {
+            "currency": "CNY",
+            "price": 0,
+            "period": "month",
+            "note": "免费使用，有额度限制"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["Web端对话", "文件上传", "图片理解", "联网搜索"],
+            "restrictions": ["每日使用量限制", "不含API", "功能受限"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "companyId": "deepseek",
+      "name": "DeepSeek系列",
+      "nameEn": "DeepSeek Series",
+      "logo": "/logos/deepseek.svg",
+      "featured": false,
+      "description": "以深度推理能力著称的高性能AI模型系列，DeepSeek-R1推理能力可媲美o1，价格极低。",
+      "longDescription": "DeepSeek系列是深度求索公司开发的大语言模型产品线，包括推理专精模型DeepSeek-R1和通用模型DeepSeek-V3。DeepSeek-R1以其卓越的数学和逻辑推理能力闻名，性能可媲美OpenAI的o1模型，但价格仅为其零头。DeepSeek-V3在通用任务上表现优异，API价格仅2元/百万输入token。DeepSeek坚持开源理念，多个模型权重已开源，在开源社区拥有极高人气。",
+      "tags": ["推理能力强", "性价比", "开源"],
+      "capabilities": ["深度推理", "代码生成", "数学计算", "中文理解", "长文本处理", "数据分析"],
+      "scenarios": ["数学推理", "编程开发", "科研辅助", "复杂决策", "内容创作", "数据分析"],
+      "versions": [
+        {
+          "id": "deepseek-r1",
+          "name": "DeepSeek-R1",
+          "description": "推理专精模型，数学和逻辑能力卓越",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "deepseek-v3",
+          "name": "DeepSeek-V3",
+          "description": "通用大模型，综合能力强劲",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "standard"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "deepseek-v3-api",
+          "versionId": "deepseek-v3",
+          "planType": "api",
+          "name": "DeepSeek-V3 API",
+          "description": "超低价通用模型API",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 2.0,
+            "outputPrice": 8.0,
+            "unit": "1M tokens"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["128K上下文", "流式输出", "函数调用", "JSON模式", "极速推理"],
+            "restrictions": ["按量计费"]
+          }
+        },
+        {
+          "id": "deepseek-r1-api",
+          "versionId": "deepseek-r1",
+          "planType": "api",
+          "name": "DeepSeek-R1 API",
+          "description": "推理专精模型API，媲美o1",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 4.0,
+            "outputPrice": 16.0,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文", "深度推理链", "数学专精", "流式输出", "函数调用"],
+            "restrictions": ["按量计费", "推理时间较长"]
+          }
+        },
+        {
+          "id": "deepseek-free-chat",
+          "versionId": "deepseek-r1",
+          "planType": "subscription",
+          "name": "DeepSeek官网免费版",
+          "description": "Web端免费使用DeepSeek模型",
+          "pricing": {
+            "currency": "CNY",
+            "price": 0,
+            "period": "month",
+            "note": "基础使用免费"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["DeepSeek-R1对话", "DeepSeek-V3对话", "文件上传", "代码解释器", "联网搜索"],
+            "restrictions": ["使用量有限制", "高峰期排队", "不含API"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "kimi",
+      "companyId": "moonshot",
+      "name": "Kimi系列",
+      "nameEn": "Kimi Series",
+      "logo": "/logos/moonshot.svg",
+      "featured": false,
+      "description": "月之暗面旗下Kimi大模型，以200万字超长上下文著称，是文档处理和长文本分析的首选。",
+      "longDescription": "Kimi系列是月之暗面（Moonshot AI）开发的大语言模型产品线，最新一代Kimi k2在综合能力上大幅提升，同时保持了Kimi一贯的超长上下文优势。Moonshot-v1-128k版本支持高达200万token的超长上下文，可一次性处理数十万字的长篇文档、书籍和法律合同。Kimi在中国市场广受欢迎，尤其在文档解析、长文本摘要和学术研究场景中表现出色。",
+      "tags": ["超长上下文2M", "文档处理", "国产"],
+      "capabilities": ["超长文本理解", "文档分析", "合同审查", "论文解读", "中文对话", "知识问答"],
+      "scenarios": ["文档处理", "法律分析", "学术研究", "合同审查", "内容创作", "知识管理"],
+      "versions": [
+        {
+          "id": "kimi-k2",
+          "name": "Kimi k2",
+          "description": "最新一代模型，综合能力大幅提升",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "moonshot-v1-128k",
+          "name": "Moonshot-v1-128k",
+          "description": "超长上下文模型，支持200万token",
+          "contextLength": 2097152,
+          "latest": false,
+          "tier": "long-context"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "kimi-k2-api",
+          "versionId": "kimi-k2",
+          "planType": "api",
+          "name": "Kimi k2 API",
+          "description": "最新模型API，综合能力强劲",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 2.0,
+            "outputPrice": 8.0,
+            "unit": "1M tokens"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["128K上下文", "流式输出", "函数调用", "文件解析"],
+            "restrictions": ["按量计费"]
+          }
+        },
+        {
+          "id": "kimi-v1-api",
+          "versionId": "moonshot-v1-128k",
+          "planType": "api",
+          "name": "Moonshot-v1-128k API",
+          "description": "200万字超长上下文API",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 2.0,
+            "outputPrice": 8.0,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["2M超长上下文", "流式输出", "文件解析", "长文档处理"],
+            "restrictions": ["按量计费", "长上下文推理较慢"]
+          }
+        },
+        {
+          "id": "kimi-free-chat",
+          "versionId": "kimi-k2",
+          "planType": "subscription",
+          "name": "Kimi免费版",
+          "description": "Web端免费使用Kimi",
+          "pricing": {
+            "currency": "CNY",
+            "price": 0,
+            "period": "month",
+            "note": "基础使用免费"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["Kimi k2对话", "文件上传", "网页解析", "联网搜索"],
+            "restrictions": ["每日使用量限制", "不含API", "长文档处理有上限"]
+          }
+        },
+        {
+          "id": "kimi-vip-subscription",
+          "versionId": "kimi-k2",
+          "planType": "subscription",
+          "name": "Kimi尊享会员",
+          "description": "解锁更长的上下文和更高的使用量",
+          "pricing": {
+            "currency": "CNY",
+            "price": 99,
+            "period": "year"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["Kimi k2优先访问", "更长上下文", "更高速率", "更多使用量", "专属客服"],
+            "restrictions": ["不含API"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "doubao",
+      "companyId": "bytedance",
+      "name": "豆包系列",
+      "nameEn": "Doubao Series",
+      "logo": "/logos/bytedance.svg",
+      "featured": false,
+      "description": "字节跳动旗下豆包大模型，以低价高并发著称，Pro版仅0.5元/百万token，适合大规模应用。",
+      "longDescription": "豆包Doubao系列是字节跳动旗下火山引擎运营的大语言模型产品线，包括Doubao-1.5-Pro（专业版）和Doubao-1.5-Lite（轻量版）。豆包系列依托字节跳动强大的技术基础设施，在低延迟和高并发方面表现突出。API价格极具竞争力，Pro版输入仅0.5元/百万token，Lite版更低至0.3元/百万token。豆包在中国市场拥有庞大用户基础，日均调用量位居行业前列。",
+      "tags": ["低价", "高并发", "国产"],
+      "capabilities": ["中文对话", "代码生成", "内容创作", "长文本理解", "知识问答", "实时翻译"],
+      "scenarios": ["内容创作", "智能客服", "编程开发", "数据分析", "社交媒体", "企业应用"],
+      "versions": [
+        {
+          "id": "doubao-1.5-pro",
+          "name": "Doubao-1.5-Pro",
+          "description": "专业版模型，综合能力优异",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "doubao-1.5-lite",
+          "name": "Doubao-1.5-Lite",
+          "description": "轻量版模型，极低延迟高并发",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "budget"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "doubao-pro-api",
+          "versionId": "doubao-1.5-pro",
+          "planType": "api",
+          "name": "Doubao-1.5-Pro API",
+          "description": "低价高性能API方案",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 0.5,
+            "outputPrice": 2.0,
+            "unit": "1M tokens"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["128K上下文", "流式输出", "函数调用", "高并发支持", "低延迟"],
+            "restrictions": ["按量计费"]
+          }
+        },
+        {
+          "id": "doubao-lite-api",
+          "versionId": "doubao-1.5-lite",
+          "planType": "api",
+          "name": "Doubao-1.5-Lite API",
+          "description": "极限低价API方案",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 0.3,
+            "outputPrice": 0.6,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文", "极低延迟", "超高并发", "大规模部署友好"],
+            "restrictions": ["按量计费", "综合能力弱于Pro"]
+          }
+        },
+        {
+          "id": "doubao-free-chat",
+          "versionId": "doubao-1.5-pro",
+          "planType": "subscription",
+          "name": "豆包免费版",
+          "description": "Web端免费使用豆包",
+          "pricing": {
+            "currency": "CNY",
+            "price": 0,
+            "period": "month",
+            "note": "免费使用"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["豆包Pro对话", "文件上传", "图片生成", "联网搜索"],
+            "restrictions": ["使用量有限制", "不含API"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ernie",
+      "companyId": "baidu",
+      "name": "文心一言系列",
+      "nameEn": "ERNIE Series",
+      "logo": "/logos/baidu.svg",
+      "featured": false,
+      "description": "百度文心一言大模型系列，ERNIE 4.0为企业级应用提供强大的中文理解和多模态能力。",
+      "longDescription": "文心一言ERNIE系列是百度开发的大语言模型产品线，包括旗舰ERNIE 4.0和经济型ERNIE 3.5。作为中国互联网巨头的核心AI产品，文心一言在中文理解、企业级应用和多模态处理方面具有深厚积累。ERNIE 4.0在百度自有基准测试中表现优异，适合对中文理解和内容质量要求较高的企业用户。百度AI Studio提供免费开发环境，方便开发者和研究人员使用。",
+      "tags": ["企业级", "中文理解", "国产"],
+      "capabilities": ["中文理解", "多模态处理", "代码生成", "知识图谱", "内容创作", "企业搜索"],
+      "scenarios": ["企业客服", "内容创作", "智能搜索", "编程开发", "教育培训", "政务服务"],
+      "versions": [
+        {
+          "id": "ernie-4.0",
+          "name": "ERNIE 4.0",
+          "description": "旗舰模型，综合能力最强",
+          "contextLength": 131072,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "ernie-3.5",
+          "name": "ERNIE 3.5",
+          "description": "经济型模型，性价比高",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "budget"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "ernie-3.5-api",
+          "versionId": "ernie-3.5",
+          "planType": "api",
+          "name": "ERNIE 3.5 API",
+          "description": "经济型中文模型API",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 0.8,
+            "outputPrice": 2.0,
+            "unit": "1M tokens"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["128K上下文", "流式输出", "函数调用", "良好的中文理解"],
+            "restrictions": ["按量计费", "综合能力弱于ERNIE 4.0"]
+          }
+        },
+        {
+          "id": "ernie-4.0-api",
+          "versionId": "ernie-4.0",
+          "planType": "api",
+          "name": "ERNIE 4.0 API",
+          "description": "旗舰企业级API",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 12.0,
+            "outputPrice": 12.0,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文", "最强中文理解", "多模态输入", "流式输出", "企业级SLA"],
+            "restrictions": ["按量计费", "价格较高"]
+          }
+        },
+        {
+          "id": "ernie-free-chat",
+          "versionId": "ernie-4.0",
+          "planType": "subscription",
+          "name": "文心一言免费版",
+          "description": "Web端免费使用文心一言",
+          "pricing": {
+            "currency": "CNY",
+            "price": 0,
+            "period": "month",
+            "note": "基础使用免费"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["ERNIE 4.0对话", "图片生成", "文件解析", "联网搜索"],
+            "restrictions": ["使用量有限制", "不含API", "功能受限"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "minimax",
+      "companyId": "minimax",
+      "name": "MiniMax系列",
+      "nameEn": "MiniMax Series",
+      "logo": "/logos/minimax.svg",
+      "featured": false,
+      "description": "MiniMax高性价比大模型，支持1M超长上下文，API价格仅1元/百万token，适合预算有限的企业。",
+      "longDescription": "MiniMax系列是MiniMax公司开发的大语言模型产品线，包括MiniMax-01（通用旗舰）和MiniMax-Text-01（文本专精）。MiniMax系列最突出的特点是支持高达100万token的上下文窗口，同时保持极低的API价格——输入仅1元/百万token。MiniMax致力于为中小企业和个人开发者提供高质量、低成本的AI服务，在性价比方面具有显著优势。其模型在中文理解和长文本处理方面表现良好。",
+      "tags": ["长上下文", "高性价比", "国产"],
+      "capabilities": ["长文本理解", "中文对话", "代码生成", "内容创作", "知识问答", "多轮对话"],
+      "scenarios": ["文档处理", "内容创作", "智能客服", "编程开发", "知识管理", "企业应用"],
+      "versions": [
+        {
+          "id": "minimax-01",
+          "name": "MiniMax-01",
+          "description": "通用旗舰模型，1M超长上下文",
+          "contextLength": 1048576,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "minimax-text-01",
+          "name": "MiniMax-Text-01",
+          "description": "文本专精模型，1M上下文",
+          "contextLength": 1048576,
+          "latest": true,
+          "tier": "text"
+        }
+      ],
+      "pricingPlans": [
+        {
+          "id": "minimax-01-api",
+          "versionId": "minimax-01",
+          "planType": "api",
+          "name": "MiniMax-01 API",
+          "description": "高性价比1M上下文API",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 1.0,
+            "outputPrice": 4.0,
+            "unit": "1M tokens"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["1M超长上下文", "流式输出", "函数调用", "多轮对话", "低延迟"],
+            "restrictions": ["按量计费"]
+          }
+        },
+        {
+          "id": "minimax-text-01-api",
+          "versionId": "minimax-text-01",
+          "planType": "api",
+          "name": "MiniMax-Text-01 API",
+          "description": "文本专精API方案",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 1.0,
+            "outputPrice": 4.0,
+            "unit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["1M超长上下文", "文本理解优化", "流式输出", "长文档处理"],
+            "restrictions": ["按量计费", "通用能力弱于MiniMax-01"]
+          }
+        },
+        {
+          "id": "minimax-free-chat",
+          "versionId": "minimax-01",
+          "planType": "subscription",
+          "name": "MiniMax免费版",
+          "description": "Web端免费体验MiniMax",
+          "pricing": {
+            "currency": "CNY",
+            "price": 0,
+            "period": "month",
+            "note": "基础使用免费"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["MiniMax-01对话", "文件上传", "长文本处理"],
+            "restrictions": ["使用量有限制", "不含API"]
+          }
+        }
+      ]
+    }
+  ]
+}
