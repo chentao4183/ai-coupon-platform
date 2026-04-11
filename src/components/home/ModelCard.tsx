@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -111,11 +112,21 @@ export function ModelCard({ model }: ModelCardProps) {
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-center gap-2.5 min-w-0">
-            <span
-              className={`inline-block size-8 shrink-0 rounded-full ${colorClass} flex items-center justify-center text-white text-sm font-bold`}
-            >
-              {company?.name.charAt(0) || "?"}
-            </span>
+            {company?.logo ? (
+              <Image
+                src={company.logo}
+                alt={company.name}
+                width={32}
+                height={32}
+                className="size-8 shrink-0 rounded-full object-contain bg-muted/50"
+              />
+            ) : (
+              <span
+                className={`inline-block size-8 shrink-0 rounded-full ${colorClass} flex items-center justify-center text-white text-sm font-bold`}
+              >
+                {company?.name.charAt(0) || "?"}
+              </span>
+            )}
             <div className="min-w-0">
               <CardTitle className="text-base truncate">
                 {model.name}
