@@ -99,25 +99,41 @@
       "nameEn": "GLM Series",
       "logo": "/logos/zhipu.svg",
       "featured": true,
-      "description": "智谱AI旗舰大模型系列，提供从免费到旗舰的完整产品线，GLM-4.7-Flash完全免费使用。",
-      "longDescription": "GLM系列是智谱AI自主研发的大语言模型产品线，涵盖旗舰级GLM-5.1、通用型GLM-4.5、经济型GLM-4.5-Air以及完全免费的GLM-4.7-Flash。GLM系列支持128K超长上下文，具备强大的中文理解与生成能力，广泛应用于代码生成、文档处理、智能客服等场景。其中GLM-4.7-Flash提供永久免费API调用，是个人开发者和中小企业的理想选择。",
-      "tags": ["免费", "国产", "长文本", "API"],
-      "capabilities": ["代码生成", "长文本理解", "中文对话", "文档分析", "多轮对话", "知识问答"],
+      "description": "智谱AI旗舰大模型系列，从免费GLM-4.7-Flash到旗舰GLM-5.1完整产品线，另有专为AI编码打造的Coding Plan订阅套餐。",
+      "longDescription": "GLM系列是智谱AI自主研发的大语言模型产品线，涵盖旗舰级GLM-5.1、GLM-5-Turbo、GLM-5、通用型GLM-4.7、经济型GLM-4.5-Air以及完全免费的GLM-4.7-Flash。GLM系列支持最高200K超长上下文，具备强大的中文理解与生成能力，广泛应用于代码生成、文档处理、智能客服等场景。其中GLM-4.7-Flash提供永久免费API调用，GLM Coding Plan（49元起/月）专为AI编码打造，支持Claude Code、OpenClaw等20+编程工具，含视觉理解、联网搜索等专属MCP权益。",
+      "tags": ["免费", "国产", "长文本", "API", "编程套餐"],
+      "capabilities": ["代码生成", "长文本理解", "中文对话", "文档分析", "多轮对话", "知识问答", "Agentic编码"],
       "scenarios": ["编程开发", "内容创作", "数据分析", "智能客服", "文档处理", "教育培训"],
       "versions": [
         {
           "id": "glm-5.1",
           "name": "GLM-5.1",
-          "description": "最新旗舰模型，综合能力全面领先",
+          "description": "最新旗舰模型，面向长程任务设计，可独立工作长达8小时",
           "contextLength": 131072,
           "latest": true,
           "tier": "flagship"
         },
         {
-          "id": "glm-4.5",
-          "name": "GLM-4.5",
-          "description": "通用型模型，兼顾性能与成本",
+          "id": "glm-5-turbo",
+          "name": "GLM-5-Turbo",
+          "description": "高阶模型，对标Claude Opus，速度与性能均衡",
           "contextLength": 131072,
+          "latest": true,
+          "tier": "flagship"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM-5",
+          "description": "高性能模型，推理与代码能力出色",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "standard"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM-4.7",
+          "description": "通用型模型，对标Claude Sonnet，性价比之选",
+          "contextLength": 204800,
           "latest": false,
           "tier": "standard"
         },
@@ -130,12 +146,28 @@
           "tier": "cost-effective"
         },
         {
+          "id": "glm-4.7-flashx",
+          "name": "GLM-4.7-FlashX",
+          "description": "快速经济型模型，200K上下文",
+          "contextLength": 204800,
+          "latest": false,
+          "tier": "cost-effective"
+        },
+        {
           "id": "glm-4.7-flash",
           "name": "GLM-4.7-Flash",
-          "description": "完全免费的轻量级模型",
-          "contextLength": 131072,
+          "description": "完全免费的轻量级模型，200K上下文",
+          "contextLength": 204800,
           "latest": false,
           "tier": "free"
+        },
+        {
+          "id": "glm-coding",
+          "name": "GLM Coding Plan",
+          "description": "专为AI编码打造的订阅套餐，支持Claude Code、OpenClaw等20+编程工具",
+          "contextLength": 131072,
+          "latest": false,
+          "tier": "subscription"
         }
       ],
       "pricingPlans": [
@@ -153,22 +185,42 @@
           },
           "popular": true,
           "limits": {
-            "features": ["无限API调用", "128K上下文窗口", "流式输出", "函数调用"],
+            "features": ["无限API调用", "200K上下文窗口", "流式输出", "函数调用"],
             "restrictions": ["速率限制", "不保证SLA", "优先级较低"]
           }
         },
         {
-          "id": "glm-air-plan",
+          "id": "glm-flashx-api",
+          "versionId": "glm-4.7-flashx",
+          "planType": "api",
+          "name": "GLM-4.7-FlashX API",
+          "description": "快速经济，200K超长上下文",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 0.5,
+            "outputPrice": 3,
+            "unit": "1M tokens",
+            "cacheHitPrice": 0.1,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["200K上下文窗口", "缓存加速", "流式输出", "函数调用"],
+            "restrictions": ["按量计费", "速率限制"]
+          }
+        },
+        {
+          "id": "glm-air-api",
           "versionId": "glm-4.5-air",
           "planType": "api",
           "name": "GLM-4.5-Air API",
-          "description": "经济实惠，适合生产环境",
+          "description": "经济实惠，适合生产环境（输入<32K+输出<0.2K档）",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 1.0,
-            "outputPrice": 2.0,
+            "inputPrice": 0.8,
+            "outputPrice": 2,
             "unit": "1M tokens",
-            "cacheHitPrice": 0.2,
+            "cacheHitPrice": 0.16,
             "cacheHitUnit": "1M tokens"
           },
           "popular": false,
@@ -178,29 +230,91 @@
           }
         },
         {
-          "id": "glm-5.1-plan",
-          "versionId": "glm-5.1",
+          "id": "glm-4.7-api",
+          "versionId": "glm-4.7",
           "planType": "api",
-          "name": "GLM-5.1 旗舰API",
-          "description": "旗舰模型，最强性能",
+          "name": "GLM-4.7 API",
+          "description": "通用型模型，对标Sonnet级别（输入<32K+输出<0.2K档）",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 28,
-            "outputPrice": 28,
-            "unit": "1M tokens"
+            "inputPrice": 2,
+            "outputPrice": 8,
+            "unit": "1M tokens",
+            "cacheHitPrice": 0.4,
+            "cacheHitUnit": "1M tokens"
           },
           "popular": false,
           "limits": {
-            "features": ["128K上下文窗口", "流式输出", "函数调用", "最高精度", "SLA保障"],
+            "features": ["200K上下文窗口", "缓存加速", "流式输出", "函数调用", "SLA保障"],
+            "restrictions": ["按量计费", "速率限制"]
+          }
+        },
+        {
+          "id": "glm-5-api",
+          "versionId": "glm-5",
+          "planType": "api",
+          "name": "GLM-5 API",
+          "description": "高性能模型（输入<32K档）",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 4,
+            "outputPrice": 18,
+            "unit": "1M tokens",
+            "cacheHitPrice": 1,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文窗口", "缓存加速", "流式输出", "函数调用", "SLA保障"],
+            "restrictions": ["按量计费", "速率限制"]
+          }
+        },
+        {
+          "id": "glm-5-turbo-api",
+          "versionId": "glm-5-turbo",
+          "planType": "api",
+          "name": "GLM-5-Turbo API",
+          "description": "高阶模型，对标Claude Opus（输入<32K档）",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 5,
+            "outputPrice": 22,
+            "unit": "1M tokens",
+            "cacheHitPrice": 1.2,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文窗口", "缓存加速", "流式输出", "函数调用", "SLA保障"],
+            "restrictions": ["按量计费", "速率限制"]
+          }
+        },
+        {
+          "id": "glm-5.1-api",
+          "versionId": "glm-5.1",
+          "planType": "api",
+          "name": "GLM-5.1 旗舰API",
+          "description": "最新旗舰模型（输入<32K档）",
+          "pricing": {
+            "currency": "CNY",
+            "inputPrice": 6,
+            "outputPrice": 24,
+            "unit": "1M tokens",
+            "cacheHitPrice": 1.3,
+            "cacheHitUnit": "1M tokens"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["128K上下文窗口", "缓存加速", "流式输出", "函数调用", "最高精度", "SLA保障"],
             "restrictions": ["价格较高", "按量计费"]
           }
         },
         {
-          "id": "glm-bigmodel-subscription",
-          "versionId": "glm-4.5",
+          "id": "glm-coding-lite",
+          "versionId": "glm-coding",
           "planType": "subscription",
-          "name": "智谱清言会员",
-          "description": "ChatGPT式订阅制，包含GLM-4.5对话",
+          "name": "GLM Coding Plan Lite",
+          "description": "3x Claude Pro用量，适合小型Repo轻量迭代，每5小时约80次prompts",
           "pricing": {
             "currency": "CNY",
             "price": 49,
@@ -208,8 +322,57 @@
           },
           "popular": false,
           "limits": {
-            "features": ["GLM-4.5无限制对话", "128K上下文", "图片生成", "文件解析", "联网搜索"],
-            "restrictions": ["不含API调用", "仅供Web端使用"]
+            "features": ["GLM-5.1/5-Turbo/4.7/4.5-Air", "Claude Code/OpenClaw等20+工具", "视觉理解MCP", "联网搜索MCP(100次/月)", "网页读取MCP(100次/月)", "开源仓库MCP(100次/月)"],
+            "restrictions": ["每5小时约80次prompts", "每周约400次prompts", "仅供编程工具使用", "高峰期GLM-5.1/5-Turbo 3倍抵扣"]
+          },
+          "discount": {
+            "type": "包季9折/包年8折",
+            "value": 10,
+            "description": "连续包季44.1元/月，连续包年享8折"
+          }
+        },
+        {
+          "id": "glm-coding-pro",
+          "versionId": "glm-coding",
+          "planType": "subscription",
+          "name": "GLM Coding Plan Pro",
+          "description": "5x Lite用量，最受欢迎，适合中型Repo日常开发，每5小时约400次prompts",
+          "pricing": {
+            "currency": "CNY",
+            "price": 149,
+            "period": "month"
+          },
+          "popular": true,
+          "limits": {
+            "features": ["GLM-5.1/5-Turbo/4.7/4.5-Air", "Claude Code/OpenClaw等20+工具", "视觉理解MCP", "联网搜索MCP(1000次/月)", "网页读取MCP(1000次/月)", "开源仓库MCP(1000次/月)", "更快生成速度"],
+            "restrictions": ["每5小时约400次prompts", "每周约2000次prompts", "仅供编程工具使用", "高峰期GLM-5.1/5-Turbo 3倍抵扣"]
+          },
+          "discount": {
+            "type": "包季9折/包年8折",
+            "value": 10,
+            "description": "连续包季134.1元/月，连续包年享8折"
+          }
+        },
+        {
+          "id": "glm-coding-max",
+          "versionId": "glm-coding",
+          "planType": "subscription",
+          "name": "GLM Coding Plan Max",
+          "description": "20x Lite用量，量大管饱，适合高阶用户中大型Repo深度开发，每5小时约1600次prompts",
+          "pricing": {
+            "currency": "CNY",
+            "price": 469,
+            "period": "month"
+          },
+          "popular": false,
+          "limits": {
+            "features": ["GLM-5.1/5-Turbo/4.7/4.5-Air", "Claude Code/OpenClaw等20+工具", "视觉理解MCP", "联网搜索MCP(4000次/月)", "网页读取MCP(4000次/月)", "开源仓库MCP(4000次/月)", "更快生成速度", "高峰期专属资源优先"],
+            "restrictions": ["每5小时约1600次prompts", "每周约8000次prompts", "仅供编程工具使用", "高峰期GLM-5.1/5-Turbo 3倍抵扣"]
+          },
+          "discount": {
+            "type": "包季9折/包年8折",
+            "value": 10,
+            "description": "连续包季422.1元/月，连续包年享8折"
           }
         }
       ]

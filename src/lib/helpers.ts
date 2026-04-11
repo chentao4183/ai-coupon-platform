@@ -153,6 +153,8 @@ export function tierLabel(tier: string): string {
       return "经济";
     case "text":
       return "文本";
+    case "subscription":
+      return "订阅";
     default:
       return tier;
   }
