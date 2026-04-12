@@ -19,6 +19,10 @@ import {
   ExternalLink,
   Check,
   Trophy,
+  TrendingUp,
+  Star,
+  Zap,
+  Shield,
 } from "lucide-react";
 import {
   asRModel,
@@ -27,7 +31,7 @@ import {
   getCompanyColor,
   formatContextLength,
 } from "@/lib/helpers";
-import type { RModel } from "@/lib/helpers";
+import type { RModel, RVersion } from "@/lib/helpers";
 
 /* ------------------------------------------------------------------ */
 /* Data                                                                */
@@ -58,6 +62,7 @@ const budgetOptions: WizardOption[] = [
   { id: "free", label: "完全免费", icon: <Badge variant="secondary">0元</Badge> },
   { id: "low", label: "月预算100元以内", icon: <Badge variant="secondary">100元</Badge> },
   { id: "medium", label: "月预算100-500元", icon: <Badge variant="secondary">500元</Badge> },
+  { id: "high", label: "月预算500元以上", icon: <Badge variant="secondary">500+</Badge> },
   { id: "unlimited", label: "预算无上限", icon: <Badge variant="secondary">不限</Badge> },
 ];
 
@@ -78,10 +83,82 @@ const scenarioToTags: Record<string, string[]> = {
   "编程开发": ["代码生成", "代码能力强", "编程开发"],
   "内容创作": ["内容创作", "多模态理解"],
   "数据分析": ["数据分析", "数据分析"],
-  "客服对话": ["智能客服", "客服对话"],
-  "学术研究": ["科研辅助", "学术研究", "文档处理", "科研分析"],
+  "客服对话": ["智能客服", "客服对话", "企业客服"],
+  "学术研究": ["科研辅助", "学术研究", "文档处理", "科研分析", "法律分析", "合同审查", "知识管理"],
   "日常使用": ["中文对话", "日常使用"],
 };
+
+/* ------------------------------------------------------------------ */
+/* Benchmark / price helpers                                           */
+/* ------------------------------------------------------------------ */
+
+function getLatestVersion(model: RModel): RVersion | null {
+  return model.versions.find((v) => v.latest) || model.versions[0] || null;
+}
+
+function getMMLU(model: RModel): number | null {
+  const v = getLatestVersion(model);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const bm = v?.benchmarks as any;
+  return bm?.mmlu ?? null;
+}
+
+const USD_TO_CNY = 7.25;
+
+function getLowestApiPriceCNY(model: RModel): number {
+  let minCNY = Infinity;
+  for (const plan of model.pricingPlans) {
+    if (plan.planType !== "api") continue;
+    const p = plan.pricing;
+    const inputP = p.inputPrice ?? 0;
+    const outputP = p.outputPrice ?? 0;
+    if (inputP === 0 && outputP === 0) return 0; // free
+    // Total per-1M cost
+    let unit = 1;
+    if (p.unit === "1K tokens") unit = 1000;
+    const totalPerM = (inputP + outputP) * unit;
+    const cny = p.currency === "USD" ? totalPerM * USD_TO_CNY : totalPerM;
+    if (cny < minCNY) minCNY = cny;
+  }
+  return minCNY === Infinity ? -1 : minCNY;
+}
+
+function hasFreePlan(model: RModel): boolean {
+  return model.pricingPlans.some(
+    (p) =>
+      (p.pricing.inputPrice === 0 && p.pricing.outputPrice === 0) ||
+      p.pricing.price === 0
+  );
+}
+
+/**
+ * Cost-effectiveness score: MMLU / price (per 1M tokens total).
+ * Free models get max score 100.
+ */
+function getCostEffectiveness(model: RModel): number {
+  const mmlu = getMMLU(model);
+  if (mmlu === null) return -1;
+
+  if (hasFreePlan(model)) return 100;
+
+  const price = getLowestApiPriceCNY(model);
+  if (price <= 0) return 100;
+
+  // Score = MMLU / (price / 10), capped at 100
+  // This gives ~88/0.05 = 1760 -> capped. Let's use a softer formula.
+  // score = mmlu * (10 / price), capped at 100
+  const raw = mmlu * (10 / price);
+  return Math.min(100, Math.round(raw * 10) / 10);
+}
+
+function getCostEffectivenessLabel(score: number): { label: string; color: string } {
+  if (score < 0) return { label: "N/A", color: "text-muted-foreground" };
+  if (score >= 90) return { label: "极佳", color: "text-emerald-600 dark:text-emerald-400" };
+  if (score >= 70) return { label: "优秀", color: "text-blue-600 dark:text-blue-400" };
+  if (score >= 50) return { label: "良好", color: "text-amber-600 dark:text-amber-400" };
+  if (score >= 30) return { label: "一般", color: "text-orange-600 dark:text-orange-400" };
+  return { label: "较低", color: "text-red-600 dark:text-red-400" };
+}
 
 /* ------------------------------------------------------------------ */
 /* Recommendation logic                                                */
@@ -91,6 +168,74 @@ interface RecommendedModel {
   model: RModel;
   score: number;
   reasons: string[];
+  recommendationText: string;
+}
+
+function buildRecommendationText(
+  model: RModel,
+  scenarios: string[],
+  budget: string,
+  needs: string[]
+): string {
+  const parts: string[] = [];
+  const mmlu = getMMLU(model);
+  const isFree = hasFreePlan(model);
+  const company = getCompanyById(model.companyId);
+
+  // Scenario-based reason
+  if (scenarios.length > 0) {
+    const matched = scenarios.filter((s) =>
+      model.scenarios.includes(s) ||
+      [...model.tags, ...model.capabilities].some((t) => t.includes(s) || s.includes(t))
+    );
+    if (matched.length > 0) {
+      parts.push(`${model.name}在「${matched[0]}」场景表现突出`);
+    }
+  }
+
+  // Performance reason
+  if (mmlu !== null && mmlu >= 85) {
+    parts.push(`MMLU基准分数达${mmlu}分，综合能力强劲`);
+  }
+
+  // Budget reason
+  if (budget === "free" && isFree) {
+    parts.push("提供完全免费的API方案，零成本即可使用");
+  } else if (budget === "low" && isFree) {
+    parts.push("拥有免费方案，100元预算内绰绰有余");
+  } else if (budget === "low") {
+    const price = getLowestApiPriceCNY(model);
+    if (price > 0 && price < 10) {
+      parts.push(`API价格仅¥${price.toFixed(1)}/百万tokens，低成本使用`);
+    }
+  }
+
+  // Need-based reasons
+  if (needs.includes("long-context")) {
+    const ctx = getMaxContext(model);
+    if (ctx >= 1_000_000) {
+      parts.push(`支持${formatContextLength(ctx)}超长上下文，适合处理大型文档`);
+    }
+  }
+  if (needs.includes("multimodal")) {
+    if (model.capabilities.some((c) => c.includes("多模态") || c.includes("视觉"))) {
+      parts.push("支持多模态理解，可处理图片和文本混合输入");
+    }
+  }
+  if (needs.includes("reasoning")) {
+    if (model.tags.some((t) => t.includes("推理")) || model.capabilities.some((c) => c.includes("推理"))) {
+      parts.push("具备出色的逻辑推理和数学能力");
+    }
+  }
+
+  // Fallback
+  if (parts.length === 0) {
+    if (model.featured) parts.push("行业标杆模型，综合能力均衡");
+    else if (isFree) parts.push("免费可用，适合入门和日常使用");
+    else parts.push("综合能力出色，适合多种场景");
+  }
+
+  return parts.slice(0, 2).join("；") + "。";
 }
 
 function getRecommendations(
@@ -122,23 +267,15 @@ function getRecommendations(
 
     // --- Budget filtering/scoring ---
     if (budget === "free") {
-      const hasFree = model.pricingPlans.some(
-        (p) =>
-          (p.pricing.inputPrice === 0 && p.pricing.outputPrice === 0) ||
-          p.pricing.price === 0
-      );
+      const hasFree = hasFreePlan(model);
       if (!hasFree) {
-        score -= 30; // Penalize non-free models for free budget
+        score -= 30;
       } else {
         score += 15;
         if (!reasons.includes("完全免费")) reasons.push("完全免费");
       }
     } else if (budget === "low") {
-      const hasFree = model.pricingPlans.some(
-        (p) =>
-          (p.pricing.inputPrice === 0 && p.pricing.outputPrice === 0) ||
-          p.pricing.price === 0
-      );
+      const hasFree = hasFreePlan(model);
       if (hasFree) {
         score += 15;
         if (!reasons.includes("完全免费")) reasons.push("完全免费");
@@ -147,10 +284,9 @@ function getRecommendations(
         if (sp.isFree) {
           score += 10;
         } else {
-          // Check if cheapest API plan is under 100 yuan/month equivalent
           const apiPlans = model.pricingPlans.filter((p) => p.planType === "api");
           for (const plan of apiPlans) {
-            const inputCost = (plan.pricing.inputPrice || 0) * 10; // assume 10M tokens
+            const inputCost = (plan.pricing.inputPrice || 0) * 10;
             const outputCost = (plan.pricing.outputPrice || 0) * 5;
             if (inputCost + outputCost < 100) {
               score += 10;
@@ -161,7 +297,11 @@ function getRecommendations(
         }
       }
     } else if (budget === "medium") {
-      score += 5; // No penalty, most models fit
+      score += 5;
+    } else if (budget === "high") {
+      // Prefer flagship/premium models
+      const hasFlagship = model.versions.some((v) => v.tier === "flagship");
+      if (hasFlagship) score += 8;
     }
     // unlimited: no budget constraint
 
@@ -205,7 +345,6 @@ function getRecommendations(
         (c) => c.includes("极速") || c.includes("快速") || c.includes("低延迟")
       );
       if (hasSpeed) score += 8;
-      // Also bonus for budget tier
       const hasBudgetTier = model.versions.some((v) => v.tier === "budget" || v.tier === "cost-effective");
       if (hasBudgetTier) {
         score += 5;
@@ -232,6 +371,21 @@ function getRecommendations(
       }
     }
 
+    // Benchmark bonus
+    const mmlu = getMMLU(model);
+    if (mmlu !== null) {
+      score += Math.round(mmlu / 10); // up to ~9 points for benchmark
+    }
+
+    // Cost-effectiveness bonus
+    const costEff = getCostEffectiveness(model);
+    if (costEff >= 80) {
+      score += 5;
+      if (!reasons.includes("性价比极高")) reasons.push("性价比极高");
+    } else if (costEff >= 50) {
+      score += 3;
+    }
+
     // Ensure at least 1 reason
     if (reasons.length === 0) {
       if (model.featured) reasons.push("行业标杆");
@@ -239,12 +393,14 @@ function getRecommendations(
       else reasons.push("综合能力强");
     }
 
-    return { model, score, reasons: reasons.slice(0, 3) };
+    const recommendationText = buildRecommendationText(model, scenarios, budget, needs);
+
+    return { model, score, reasons: reasons.slice(0, 4), recommendationText };
   });
 
-  // Sort by score descending, take top 3
+  // Sort by score descending, take top 5
   scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, 3);
+  return scored.slice(0, 5);
 }
 
 /* ------------------------------------------------------------------ */
@@ -349,12 +505,15 @@ function ResultCard({
   rec: RecommendedModel;
   rank: number;
 }) {
-  const { model, score, reasons } = rec;
+  const { model, score, reasons, recommendationText } = rec;
   const company = getCompanyById(model.companyId);
   const maxScore = Math.max(80, score);
   const matchPercent = Math.min(99, Math.round((score / maxScore) * 100));
   const startPrice = getStartingPrice(model);
   const maxCtx = getMaxContext(model);
+  const mmlu = getMMLU(model);
+  const costEff = getCostEffectiveness(model);
+  const costEffLabel = getCostEffectivenessLabel(costEff);
 
   const rankColors: Record<number, string> = {
     1: "bg-amber-500",
@@ -363,7 +522,7 @@ function ResultCard({
   };
 
   return (
-    <Card className="overflow-hidden">
+    <Card className={`overflow-hidden ${rank === 1 ? "ring-1 ring-amber-300 dark:ring-amber-700" : ""}`}>
       <CardContent className="p-0">
         <div className="flex items-start gap-4 p-5">
           {/* Rank badge */}
@@ -418,7 +577,38 @@ function ResultCard({
               </div>
             </div>
 
-            {/* Reasons */}
+            {/* Benchmark MMLU + Cost Effectiveness */}
+            <div className="flex items-center gap-4 mb-3">
+              {mmlu !== null && (
+                <div className="flex items-center gap-1.5">
+                  <TrendingUp className="size-3.5 text-blue-500" />
+                  <span className="text-xs text-muted-foreground">MMLU</span>
+                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400">{mmlu}</span>
+                </div>
+              )}
+              {costEff >= 0 && (
+                <div className="flex items-center gap-1.5">
+                  <Zap className="size-3.5 text-amber-500" />
+                  <span className="text-xs text-muted-foreground">性价比</span>
+                  <span className={`text-xs font-bold ${costEffLabel.color}`}>
+                    {costEffLabel.label}
+                  </span>
+                  <span className="text-xs text-muted-foreground">({costEff.toFixed(0)})</span>
+                </div>
+              )}
+            </div>
+
+            {/* Recommendation reason text */}
+            <div className="rounded-md bg-muted/50 px-3 py-2 mb-3">
+              <div className="flex items-start gap-1.5">
+                <Star className="size-3.5 text-emerald-500 mt-0.5 shrink-0" />
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {recommendationText}
+                </p>
+              </div>
+            </div>
+
+            {/* Reasons tags */}
             <div className="flex flex-wrap gap-1.5 mb-3">
               {reasons.map((r) => (
                 <Badge key={r} variant="secondary" className="text-xs">
@@ -495,7 +685,6 @@ export default function RecommendPage() {
   const handleNext = () => {
     if (step < 3) setStep(step + 1);
     else {
-      // Calculate results
       const recs = getRecommendations(selectedScenarios, selectedBudget, selectedNeeds);
       setResults(recs);
       setStep(4);
@@ -541,7 +730,12 @@ export default function RecommendPage() {
       {step === 4 && results ? (
         <div>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold">为你推荐的模型</h2>
+            <div>
+              <h2 className="text-lg font-semibold">为你推荐的模型</h2>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                基于你选择的场景「{selectedScenarios.join("、")}」和预算偏好智能匹配
+              </p>
+            </div>
             <Button
               variant="outline"
               size="sm"
@@ -552,6 +746,22 @@ export default function RecommendPage() {
               重新选择
             </Button>
           </div>
+
+          {/* Summary badges */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            <Badge variant="outline" className="text-xs">
+              {selectedScenarios.length}个场景
+            </Badge>
+            <Badge variant="outline" className="text-xs">
+              {budgetOptions.find((b) => b.id === selectedBudget)?.label}
+            </Badge>
+            {selectedNeeds.length > 0 && (
+              <Badge variant="outline" className="text-xs">
+                {selectedNeeds.length}个需求
+              </Badge>
+            )}
+          </div>
+
           <div className="space-y-4">
             {results.map((rec, idx) => (
               <ResultCard key={rec.model.id} rec={rec} rank={idx + 1} />
@@ -562,6 +772,18 @@ export default function RecommendPage() {
               未找到匹配的模型，请尝试调整筛选条件
             </div>
           )}
+
+          {/* Tip at bottom */}
+          <div className="mt-6 rounded-lg bg-muted/50 px-4 py-3">
+            <div className="flex items-start gap-2">
+              <Shield className="size-4 text-muted-foreground mt-0.5 shrink-0" />
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                推荐结果综合考虑了场景匹配度、基准测试分数（MMLU）、价格性价比和你的预算偏好。
+                性价比评分 = MMLU分数 / API价格系数，免费模型获得最高评分。
+                实际体验可能因使用方式不同而有所差异，建议先试用免费方案。
+              </p>
+            </div>
+          </div>
         </div>
       ) : (
         <>

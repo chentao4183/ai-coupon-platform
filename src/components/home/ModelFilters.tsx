@@ -180,13 +180,13 @@ export function ModelFilters({ models, onFilteredChange }: ModelFiltersProps) {
       </div>
 
       {/* Filter pills */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap">
         {FILTER_OPTIONS.map((option) => (
           <button
             key={option}
             onClick={() => handleFilterChange(option)}
             className={cn(
-              "inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors border",
+              "filter-btn inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-medium border min-h-[44px]",
               activeFilter === option
                 ? "bg-primary text-primary-foreground border-primary"
                 : "bg-background text-muted-foreground border-border hover:bg-accent hover:text-accent-foreground"

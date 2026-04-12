@@ -38,6 +38,7 @@ import {
   getMinOutputPrice,
 } from "@/lib/helpers";
 import type { RModel } from "@/lib/helpers";
+import { BenchmarkBar } from "@/components/benchmark/BenchmarkBar";
 
 /* ------------------------------------------------------------------ */
 /* Constants                                                          */
@@ -323,6 +324,49 @@ export default function ComparePage() {
           );
         },
       },
+      // Benchmark rows
+      {
+        label: "综合知识 (MMLU)",
+        render: (ms, idx) => {
+          const v = getLatestVersions(ms[idx])[0];
+          if (!v) return "-";
+          const bm = (v as unknown as Record<string, unknown>).benchmarks as Record<string, number> | undefined;
+          if (!bm?.mmlu) return "-";
+          return (
+            <div className="w-28">
+              <BenchmarkBar label="" value={bm.mmlu} max={100} />
+            </div>
+          );
+        },
+      },
+      {
+        label: "代码生成 (HumanEval)",
+        render: (ms, idx) => {
+          const v = getLatestVersions(ms[idx])[0];
+          if (!v) return "-";
+          const bm = (v as unknown as Record<string, unknown>).benchmarks as Record<string, number> | undefined;
+          if (!bm?.humaneval) return "-";
+          return (
+            <div className="w-28">
+              <BenchmarkBar label="" value={bm.humaneval} max={100} />
+            </div>
+          );
+        },
+      },
+      {
+        label: "对话能力 (MT-Bench)",
+        render: (ms, idx) => {
+          const v = getLatestVersions(ms[idx])[0];
+          if (!v) return "-";
+          const bm = (v as unknown as Record<string, unknown>).benchmarks as Record<string, number> | undefined;
+          if (!bm?.mt_bench) return "-";
+          return (
+            <div className="w-28">
+              <BenchmarkBar label="" value={bm.mt_bench} max={10} />
+            </div>
+          );
+        },
+      },
     ];
   }, [models]);
 
@@ -438,6 +482,7 @@ export default function ComparePage() {
           请至少选择 2 个模型进行对比
         </div>
       ) : (
+        <div className="overflow-x-auto rounded-lg border border-border/60">
         <Table>
           <TableHeader>
             <TableRow>
@@ -503,6 +548,7 @@ export default function ComparePage() {
             })}
           </TableBody>
         </Table>
+        </div>
       )}
     </div>
   );

@@ -18,6 +18,7 @@ export interface RVersion {
   contextLength: number;
   latest: boolean;
   tier: string;
+  benchmarks?: Record<string, number>;
 }
 
 export interface RPlanPricing {

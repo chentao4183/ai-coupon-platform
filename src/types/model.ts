@@ -26,11 +26,14 @@ export interface PricingPlan {
   id: string;
   versionId: string;
   name: string;
-  planType: 'subscription' | 'pay-per-use' | 'enterprise';
+  description?: string;
+  planType: 'subscription' | 'pay-per-use' | 'enterprise' | 'api';
   pricing: {
-    amount: number;
+    amount?: number;
+    price?: number;
     currency: string;
     period: string;
+    [key: string]: unknown;
   };
   priceDetails?: {
     inputPrice: number;   // per 1M tokens

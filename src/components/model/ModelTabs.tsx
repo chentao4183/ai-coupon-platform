@@ -39,11 +39,14 @@ import {
   Server,
 } from "lucide-react";
 import { VersionCard } from "@/components/model/VersionCard";
+import { BenchmarkSection } from "@/components/benchmark/BenchmarkSection";
+import { PerformanceSection } from "@/components/benchmark/PerformanceSection";
 import type { RModel, RVersion } from "@/lib/helpers";
 import {
   formatContextLength,
   getPlansForVersion,
   tierLabel,
+  getLatestVersions,
 } from "@/lib/helpers";
 
 /* ------------------------------------------------------------------ */
@@ -177,6 +180,49 @@ function VersionsTab({ model }: { model: RModel }) {
 /* Tab 3: Technical Specs                                             */
 /* ------------------------------------------------------------------ */
 
+function LatestBenchmarksAndPerformance({ model }: { model: RModel }) {
+  const latest = getLatestVersions(model)[0];
+  if (!latest) return null;
+
+  const raw = latest as unknown as Record<string, unknown>;
+  const benchmarks = raw.benchmarks as Record<string, number> | undefined;
+  const performance = raw.performance as Record<string, unknown> | undefined;
+
+  if (!benchmarks && !performance) return null;
+
+  return (
+    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {benchmarks && (
+        <BenchmarkSection
+          benchmarks={{
+            mmlu: benchmarks.mmlu as number | undefined,
+            humaneval: benchmarks.humaneval as number | undefined,
+            math: benchmarks.math as number | undefined,
+            gsm8k: benchmarks.gsm8k as number | undefined,
+            mt_bench: benchmarks.mt_bench as number | undefined,
+          }}
+        />
+      )}
+      {performance && (
+        <PerformanceSection
+          performance={
+            {
+              speed: {
+                inputTokensPerSec: (performance.speed as Record<string, number>)?.inputTokensPerSec ?? 0,
+                outputTokensPerSec: (performance.speed as Record<string, number>)?.outputTokensPerSec ?? 0,
+              },
+              concurrency: {
+                maxConcurrentRequests: (performance.concurrency as Record<string, number>)?.maxConcurrentRequests ?? 0,
+                maxTokensPerMinute: (performance.concurrency as Record<string, number>)?.maxTokensPerMinute ?? 0,
+              },
+            } as Parameters<typeof PerformanceSection>[0]["performance"]
+          }
+        />
+      )}
+    </div>
+  );
+}
+
 function SpecsTab({ model }: { model: RModel }) {
   const versions = model.versions;
 
@@ -188,6 +234,7 @@ function SpecsTab({ model }: { model: RModel }) {
   const maxContext = Math.max(...versions.map((v) => v.contextLength));
 
   return (
+    <>
     <Table>
       <TableHeader>
         <TableRow>
@@ -252,6 +299,10 @@ function SpecsTab({ model }: { model: RModel }) {
         </TableRow>
       </TableBody>
     </Table>
+
+    {/* Benchmarks & Performance for the latest version */}
+    <LatestBenchmarksAndPerformance model={model} />
+    </>
   );
 }
 

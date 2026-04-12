@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getModelById, getCompanyById, getAllModels } from "@/lib/data";
@@ -88,11 +89,21 @@ export default async function ModelDetailPage({ params }: PageProps) {
       {/* Model header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-8">
         <div className="flex items-start gap-4">
-          <span
-            className={`inline-flex size-12 shrink-0 items-center justify-center rounded-full ${colorClass} text-white text-lg font-bold`}
-          >
-            {company?.name.charAt(0) || "?"}
-          </span>
+          {company?.logo ? (
+            <Image
+              src={company.logo}
+              alt={company.name}
+              width={48}
+              height={48}
+              className="size-12 shrink-0 rounded-full object-contain bg-muted/50"
+            />
+          ) : (
+            <span
+              className={`inline-flex size-12 shrink-0 items-center justify-center rounded-full ${colorClass} text-white text-lg font-bold`}
+            >
+              {company?.name.charAt(0) || "?"}
+            </span>
+          )}
           <div>
             <div className="flex items-center gap-3 flex-wrap">
               <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -199,11 +210,21 @@ export default async function ModelDetailPage({ params }: PageProps) {
                   <Card className="h-full transition-shadow hover:shadow-md cursor-pointer">
                     <CardContent className="pt-5 pb-4">
                       <div className="flex items-center gap-2.5">
-                        <span
-                          className={`inline-block size-8 shrink-0 rounded-full ${rcColor} flex items-center justify-center text-white text-sm font-bold`}
-                        >
-                          {rc?.name.charAt(0) || "?"}
-                        </span>
+                        {rc?.logo ? (
+                          <Image
+                            src={rc.logo}
+                            alt={rc.name}
+                            width={32}
+                            height={32}
+                            className="size-8 shrink-0 rounded-full object-contain bg-muted/50"
+                          />
+                        ) : (
+                          <span
+                            className={`inline-block size-8 shrink-0 rounded-full ${rcColor} flex items-center justify-center text-white text-sm font-bold`}
+                          >
+                            {rc?.name.charAt(0) || "?"}
+                          </span>
+                        )}
                         <div className="min-w-0">
                           <p className="text-sm font-medium truncate">
                             {rm.name}

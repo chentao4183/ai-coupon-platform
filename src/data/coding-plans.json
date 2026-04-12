@@ -1,0 +1,1625 @@
+{
+  "lastUpdated": "2026-04-12",
+  "description": "专为AI编程设计的订阅/API计划对比数据，包含编程工具支持、配额限制、模型访问等编程专用维度",
+  "plans": [
+    {
+      "id": "glm-coding-lite",
+      "providerId": "zhipu",
+      "providerName": "智谱AI",
+      "providerLogo": "/logos/zhipu.ico",
+      "name": "GLM Coding Plan Lite",
+      "tier": "lite",
+      "pricing": {
+        "currency": "CNY",
+        "price": 49,
+        "period": "month",
+        "discount": "包季9折/包年8折"
+      },
+      "quota": {
+        "promptsPer5h": 80,
+        "promptsPerWeek": 400,
+        "description": "每5小时约80次prompts"
+      },
+      "models": [
+        "GLM-5.1",
+        "GLM-5-Turbo",
+        "GLM-4.7",
+        "GLM-4.5-Air"
+      ],
+      "modelsNote": "高峰期 GLM-5.1/5-Turbo 3倍抵扣",
+      "supportedTools": [
+        "Claude Code",
+        "OpenClaw",
+        "Cursor",
+        "Windsurf",
+        "Continue",
+        "Cline",
+        "Aider",
+        "Copilot",
+        "Augment Code",
+        "Roo Code",
+        "Zed",
+        "Trae",
+        "Trae CN",
+        "Amphion",
+        "Kodu",
+        "Dify",
+        "Coze",
+        "Coze CN",
+        "Langchain",
+        "LlamaIndex"
+      ],
+      "toolCount": "20+",
+      "mcpFeatures": [
+        "视觉理解MCP",
+        "联网搜索MCP (100次/月)",
+        "网页读取MCP (100次/月)",
+        "开源仓库MCP (100次/月)"
+      ],
+      "contextLength": "131K",
+      "website": "https://www.bigmodel.cn",
+      "buyUrl": "https://www.bigmodel.cn/glm-coding?ic=CWJW4TEIY7",
+      "tags": [
+        "国产",
+        "性价比",
+        "最便宜"
+      ],
+      "bestFor": "小型Repo轻量迭代，入门编程辅助",
+      "pros": [
+        "价格最低的编程专用套餐",
+        "支持20+主流编程工具",
+        "含MCP工具权益"
+      ],
+      "cons": [
+        "配额较少",
+        "旗舰模型高峰期3倍抵扣",
+        "仅供编程工具使用"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约0.3x Claude Pro用量",
+      "claudeProPriceRatio": 0.033
+    },
+    {
+      "id": "glm-coding-pro",
+      "providerId": "zhipu",
+      "providerName": "智谱AI",
+      "providerLogo": "/logos/zhipu.ico",
+      "name": "GLM Coding Plan Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "CNY",
+        "price": 149,
+        "period": "month",
+        "discount": "包季9折/包年8折"
+      },
+      "quota": {
+        "promptsPer5h": 400,
+        "promptsPerWeek": 2000,
+        "description": "每5小时约400次prompts"
+      },
+      "models": [
+        "GLM-5.1",
+        "GLM-5-Turbo",
+        "GLM-4.7",
+        "GLM-4.5-Air"
+      ],
+      "modelsNote": "高峰期 GLM-5.1/5-Turbo 3倍抵扣",
+      "supportedTools": [
+        "Claude Code",
+        "OpenClaw",
+        "Cursor",
+        "Windsurf",
+        "Continue",
+        "Cline",
+        "Aider",
+        "Copilot",
+        "Augment Code",
+        "Roo Code",
+        "Zed",
+        "Trae",
+        "Trae CN",
+        "Amphion",
+        "Kodu",
+        "Dify",
+        "Coze",
+        "Coze CN",
+        "Langchain",
+        "LlamaIndex"
+      ],
+      "toolCount": "20+",
+      "mcpFeatures": [
+        "视觉理解MCP",
+        "联网搜索MCP (1000次/月)",
+        "网页读取MCP (1000次/月)",
+        "开源仓库MCP (1000次/月)",
+        "更快生成速度"
+      ],
+      "contextLength": "131K",
+      "website": "https://www.bigmodel.cn",
+      "buyUrl": "https://www.bigmodel.cn/glm-coding?ic=CWJW4TEIY7",
+      "tags": [
+        "国产",
+        "最受欢迎"
+      ],
+      "bestFor": "中型Repo日常开发，主力编程",
+      "pros": [
+        "5倍Lite配额",
+        "最受欢迎",
+        "MCP权益翻10倍",
+        "更快生成速度"
+      ],
+      "cons": [
+        "旗舰模型高峰期3倍抵扣",
+        "仅供编程工具使用"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "约5x Claude Pro用量",
+      "claudeProPriceRatio": 0.101
+    },
+    {
+      "id": "glm-coding-max",
+      "providerId": "zhipu",
+      "providerName": "智谱AI",
+      "providerLogo": "/logos/zhipu.ico",
+      "name": "GLM Coding Plan Max",
+      "tier": "max",
+      "pricing": {
+        "currency": "CNY",
+        "price": 469,
+        "period": "month",
+        "discount": "包季9折/包年8折"
+      },
+      "quota": {
+        "promptsPer5h": 1600,
+        "promptsPerWeek": 8000,
+        "description": "每5小时约1600次prompts"
+      },
+      "models": [
+        "GLM-5.1",
+        "GLM-5-Turbo",
+        "GLM-4.7",
+        "GLM-4.5-Air"
+      ],
+      "modelsNote": "高峰期 GLM-5.1/5-Turbo 3倍抵扣",
+      "supportedTools": [
+        "Claude Code",
+        "OpenClaw",
+        "Cursor",
+        "Windsurf",
+        "Continue",
+        "Cline",
+        "Aider",
+        "Copilot",
+        "Augment Code",
+        "Roo Code",
+        "Zed",
+        "Trae",
+        "Trae CN",
+        "Amphion",
+        "Kodu",
+        "Dify",
+        "Coze",
+        "Coze CN",
+        "Langchain",
+        "LlamaIndex"
+      ],
+      "toolCount": "20+",
+      "mcpFeatures": [
+        "视觉理解MCP",
+        "联网搜索MCP (4000次/月)",
+        "网页读取MCP (4000次/月)",
+        "开源仓库MCP (4000次/月)",
+        "更快生成速度",
+        "高峰期专属资源优先"
+      ],
+      "contextLength": "131K",
+      "website": "https://www.bigmodel.cn",
+      "buyUrl": "https://www.bigmodel.cn/glm-coding?ic=CWJW4TEIY7",
+      "tags": [
+        "国产",
+        "量大管饱"
+      ],
+      "bestFor": "高阶用户，中大型Repo深度开发",
+      "pros": [
+        "20倍Lite配额",
+        "量大管饱",
+        "高峰期资源优先",
+        "MCP权益翻40倍"
+      ],
+      "cons": [
+        "价格较高",
+        "旗舰模型高峰期3倍抵扣",
+        "仅供编程工具使用"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约20x Claude Pro用量",
+      "claudeProPriceRatio": 0.317
+    },
+    {
+      "id": "claude-pro-coding",
+      "providerId": "anthropic",
+      "providerName": "Anthropic",
+      "providerLogo": "/logos/anthropic.ico",
+      "name": "Claude Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "USD",
+        "price": 20,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "每日大量使用量（有上限但未公开精确数字）"
+      },
+      "models": [
+        "Claude 4 Sonnet",
+        "Claude 4 Opus (有限额度)"
+      ],
+      "modelsNote": "Opus使用有额度限制",
+      "supportedTools": [
+        "Claude Code",
+        "Cursor",
+        "Continue",
+        "Cline",
+        "Aider"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "200K上下文",
+        "项目功能",
+        "文件上传分析",
+        "Artifacts生成"
+      ],
+      "contextLength": "200K",
+      "website": "https://www.anthropic.com",
+      "buyUrl": "https://claude.ai/upgrade?from=menu",
+      "tags": [
+        "国际",
+        "编程首选"
+      ],
+      "bestFor": "日常编程辅助，Claude Code主力使用",
+      "pros": [
+        "Claude代码能力业界顶级",
+        "原生Claude Code支持",
+        "200K上下文",
+        "Web端+API双通道"
+      ],
+      "cons": [
+        "Opus额度有限",
+        "有使用量上限",
+        "仅支持Claude自家工具为主"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "1x (基准)",
+      "claudeProPriceRatio": 1.0
+    },
+    {
+      "id": "claude-max-coding",
+      "providerId": "anthropic",
+      "providerName": "Anthropic",
+      "providerLogo": "/logos/anthropic.ico",
+      "name": "Claude Max",
+      "tier": "max",
+      "pricing": {
+        "currency": "USD",
+        "price": 100,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "海量使用额度（5x Pro）"
+      },
+      "models": [
+        "Claude 4 Opus",
+        "Claude 4 Sonnet"
+      ],
+      "modelsNote": "Opus和Sonnet均有大量额度",
+      "supportedTools": [
+        "Claude Code",
+        "Cursor",
+        "Continue",
+        "Cline",
+        "Aider"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "200K上下文",
+        "Claude 4 Opus大量额度",
+        "所有Pro功能",
+        "最高优先级"
+      ],
+      "contextLength": "200K",
+      "website": "https://www.anthropic.com",
+      "buyUrl": "https://claude.ai/upgrade?from=menu",
+      "tags": [
+        "国际",
+        "高端"
+      ],
+      "bestFor": "重度编程用户，全尺寸项目开发",
+      "pros": [
+        "5x Pro额度",
+        "Opus大量可用",
+        "最高优先级",
+        "Claude最强能力"
+      ],
+      "cons": [
+        "价格最高 ($100/月)",
+        "工具生态不如国产丰富"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约5x Claude Pro用量",
+      "claudeProPriceRatio": 5.0
+    },
+    {
+      "id": "chatgpt-plus-coding",
+      "providerId": "openai",
+      "providerName": "OpenAI",
+      "providerLogo": "/logos/openai.svg",
+      "name": "ChatGPT Plus",
+      "tier": "pro",
+      "pricing": {
+        "currency": "USD",
+        "price": 20,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "有使用量上限（o3/o1受限更多）"
+      },
+      "models": [
+        "GPT-4o",
+        "o3 (有限)",
+        "o1 (有限)"
+      ],
+      "modelsNote": "不含o3/o1完整访问",
+      "supportedTools": [
+        "GitHub Copilot",
+        "Cursor",
+        "Continue",
+        "Cline",
+        "Aider"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "128K上下文",
+        "DALL-E图片生成",
+        "文件上传分析",
+        "联网搜索",
+        "自定义GPT",
+        "高级语音模式"
+      ],
+      "contextLength": "128K",
+      "website": "https://openai.com",
+      "buyUrl": "https://chatgpt.com/gg/69c643abc830819a90a58628f3a8b174#pricing",
+      "tags": [
+        "国际",
+        "全能"
+      ],
+      "bestFor": "全能AI助手+编程辅助",
+      "pros": [
+        "GPT-4o能力全面",
+        "DALL-E图片生成",
+        "自定义GPT生态",
+        "联网搜索"
+      ],
+      "cons": [
+        "编程专精度不如Claude",
+        "o3/o1受限",
+        "非编程专用"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "约1x Claude Pro用量",
+      "claudeProPriceRatio": 1.0
+    },
+    {
+      "id": "chatgpt-pro-coding",
+      "providerId": "openai",
+      "providerName": "OpenAI",
+      "providerLogo": "/logos/openai.svg",
+      "name": "ChatGPT Pro",
+      "tier": "max",
+      "pricing": {
+        "currency": "USD",
+        "price": 200,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "扩展计算资源，o3/o1更多额度"
+      },
+      "models": [
+        "o3",
+        "GPT-4o",
+        "o1"
+      ],
+      "modelsNote": "o3完整访问，GPT-4o无限制",
+      "supportedTools": [
+        "GitHub Copilot",
+        "Cursor",
+        "Continue",
+        "Cline",
+        "Aider"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "128K上下文",
+        "o3完整访问",
+        "GPT-4o无限制",
+        "所有Plus功能",
+        "最高优先级",
+        "扩展计算资源"
+      ],
+      "contextLength": "128K",
+      "website": "https://openai.com",
+      "buyUrl": "https://chatgpt.com/gg/69c643abc830819a90a58628f3a8b174#pricing",
+      "tags": [
+        "国际",
+        "最贵"
+      ],
+      "bestFor": "需要o3推理能力的重度用户",
+      "pros": [
+        "o3完整访问",
+        "推理能力最强",
+        "GPT-4o无限制",
+        "扩展计算资源"
+      ],
+      "cons": [
+        "价格极高 ($200/月)",
+        "编程非核心定位"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约10x Claude Pro用量",
+      "claudeProPriceRatio": 10.0
+    },
+    {
+      "id": "copilot-pro",
+      "providerId": "openai",
+      "providerName": "GitHub/Microsoft",
+      "providerLogo": "/logos/openai.svg",
+      "name": "GitHub Copilot Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "USD",
+        "price": 10,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "无限代码补全+多模型对话额度"
+      },
+      "models": [
+        "GPT-4o",
+        "Claude 3.5 Sonnet",
+        "Gemini Pro"
+      ],
+      "modelsNote": "可在VS Code中切换多模型",
+      "supportedTools": [
+        "VS Code",
+        "Visual Studio",
+        "JetBrains IDE",
+        "Neovim",
+        "Xcode"
+      ],
+      "toolCount": "5+ (IDE集成)",
+      "mcpFeatures": [
+        "IDE内代码补全",
+        "Chat对话",
+        "多模型切换",
+        "PR摘要",
+        "CLI辅助"
+      ],
+      "contextLength": "128K",
+      "website": "https://github.com/features/copilot",
+      "buyUrl": "https://github.com/features/copilot/plans",
+      "tags": [
+        "国际",
+        "IDE集成"
+      ],
+      "bestFor": "IDE内编程辅助，代码补全+对话",
+      "pros": [
+        "最便宜的国际编程方案",
+        "原生IDE集成",
+        "可切换多模型",
+        "代码补全体验最佳"
+      ],
+      "cons": [
+        "对话额度有限",
+        "功能局限于IDE",
+        "非通用AI助手"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "约0.5x Claude Pro用量",
+      "claudeProPriceRatio": 0.5
+    },
+    {
+      "id": "cursor-pro",
+      "providerId": "cursor",
+      "providerName": "Cursor",
+      "providerLogo": "/logos/cursor.svg",
+      "name": "Cursor Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "USD",
+        "price": 20,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 500,
+        "promptsPerWeek": null,
+        "description": "每月500次高级请求（fast/strong模式）"
+      },
+      "models": [
+        "Claude 3.5 Sonnet",
+        "GPT-4o",
+        "o1",
+        "o3-mini"
+      ],
+      "modelsNote": "可切换多种后端模型",
+      "supportedTools": [
+        "Cursor Editor"
+      ],
+      "toolCount": "1 (专属IDE)",
+      "mcpFeatures": [
+        "AI代码编辑器",
+        "Composer多文件编辑",
+        "Codebase理解",
+        "Tab补全",
+        "Chat对话"
+      ],
+      "contextLength": "128K",
+      "website": "https://cursor.com",
+      "buyUrl": "https://cursor.com/pricing",
+      "tags": [
+        "国际",
+        "编程IDE"
+      ],
+      "bestFor": "需要AI原生IDE的开发者",
+      "pros": [
+        "AI原生代码编辑器",
+        "Composer多文件编辑",
+        "代码库理解强",
+        "支持多模型"
+      ],
+      "cons": [
+        "需使用Cursor编辑器",
+        "高级请求有月度上限",
+        "离开IDE无法使用"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "约1x Claude Pro用量",
+      "claudeProPriceRatio": 1.0
+    },
+    {
+      "id": "windsurf-pro",
+      "providerId": "windsurf",
+      "providerName": "Windsurf (Codeium)",
+      "providerLogo": "/logos/windsurf.svg",
+      "name": "Windsurf Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "USD",
+        "price": 15,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "不限次数（Cascade模式）"
+      },
+      "models": [
+        "Claude 3.5 Sonnet",
+        "GPT-4o",
+        "Gemini Pro"
+      ],
+      "modelsNote": "Cascade流式推理引擎",
+      "supportedTools": [
+        "Windsurf Editor"
+      ],
+      "toolCount": "1 (专属IDE)",
+      "mcpFeatures": [
+        "Cascade流式推理",
+        "多文件编辑",
+        "代码库理解",
+        "Tab补全",
+        "终端集成"
+      ],
+      "contextLength": "128K",
+      "website": "https://codeium.com/windsurf",
+      "buyUrl": "https://codeium.com/pricing",
+      "tags": [
+        "国际",
+        "编程IDE"
+      ],
+      "bestFor": "需要流式推理和Cascade体验的开发者",
+      "pros": [
+        "Cascade流式推理独特",
+        "不限次数",
+        "价格低于Cursor",
+        "终端集成"
+      ],
+      "cons": [
+        "需使用Windsurf编辑器",
+        "模型能力略弱于Cursor",
+        "社区生态较小"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约1x Claude Pro用量",
+      "claudeProPriceRatio": 0.75
+    },
+    {
+      "id": "minimax-starter",
+      "providerId": "minimax",
+      "providerName": "MiniMax",
+      "providerLogo": "/logos/minimax.ico",
+      "name": "MiniMax Token Plan Starter",
+      "tier": "lite",
+      "pricing": {
+        "currency": "CNY",
+        "price": 29,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 100,
+        "promptsPerWeek": null,
+        "description": "100 prompts / 5小时，标准版 M2.7 (~50TPS)"
+      },
+      "models": [
+        "M2.7",
+        "M2.1",
+        "M2"
+      ],
+      "modelsNote": "标准版 M2.7 约50TPS",
+      "supportedTools": [
+        "Claude Code",
+        "Roo Code",
+        "Kilo Code",
+        "Cline",
+        "Codex CLI",
+        "OpenCode",
+        "Droid",
+        "TRAE",
+        "Grok CLI",
+        "Cursor"
+      ],
+      "toolCount": "10+",
+      "mcpFeatures": [
+        "图像理解 MCP",
+        "联网搜索 MCP",
+        "100+ TPS (极速版)"
+      ],
+      "contextLength": "1M",
+      "website": "https://www.minimaxi.com",
+      "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
+      "tags": [
+        "国产",
+        "最便宜",
+        "大上下文"
+      ],
+      "bestFor": "入门级开发场景，预算有限的开发者",
+      "pros": [
+        "价格最低(¥29/月)",
+        "1M超长上下文",
+        "支持10+编程工具",
+        "100+ TPS极速推理"
+      ],
+      "cons": [
+        "配额较少",
+        "标准版速度一般"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约0.5x Claude Pro用量",
+      "claudeProPriceRatio": 0.145
+    },
+    {
+      "id": "minimax-plus",
+      "providerId": "minimax",
+      "providerName": "MiniMax",
+      "providerLogo": "/logos/minimax.ico",
+      "name": "MiniMax Token Plan Plus",
+      "tier": "pro",
+      "pricing": {
+        "currency": "CNY",
+        "price": 49,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 300,
+        "promptsPerWeek": null,
+        "description": "300 prompts / 5小时，3倍 Starter 用量"
+      },
+      "models": [
+        "M2.7",
+        "M2.1",
+        "M2"
+      ],
+      "modelsNote": "标准版 M2.7 (~50TPS)",
+      "supportedTools": [
+        "Claude Code",
+        "Roo Code",
+        "Kilo Code",
+        "Cline",
+        "Codex CLI",
+        "OpenCode",
+        "Droid",
+        "TRAE",
+        "Grok CLI",
+        "Cursor"
+      ],
+      "toolCount": "10+",
+      "mcpFeatures": [
+        "图像理解 MCP",
+        "联网搜索 MCP",
+        "100+ TPS (极速版)"
+      ],
+      "contextLength": "1M",
+      "website": "https://www.minimaxi.com",
+      "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
+      "tags": [
+        "国产",
+        "性价比"
+      ],
+      "bestFor": "日常开发，需要更多配额的开发者",
+      "pros": [
+        "3倍 Starter 配额",
+        "1M超长上下文",
+        "价格与GLM Lite持平但配额更高"
+      ],
+      "cons": [
+        "标准版速度一般",
+        "旗舰模型需极速版"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约1.5x Claude Pro用量",
+      "claudeProPriceRatio": 0.245
+    },
+    {
+      "id": "minimax-max",
+      "providerId": "minimax",
+      "providerName": "MiniMax",
+      "providerLogo": "/logos/minimax.ico",
+      "name": "MiniMax Token Plan Max",
+      "tier": "max",
+      "pricing": {
+        "currency": "CNY",
+        "price": 119,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 1000,
+        "promptsPerWeek": null,
+        "description": "1000 prompts / 5小时，10倍 Starter 用量"
+      },
+      "models": [
+        "M2.7",
+        "M2.1",
+        "M2"
+      ],
+      "modelsNote": "标准版 M2.7 (~50TPS)",
+      "supportedTools": [
+        "Claude Code",
+        "Roo Code",
+        "Kilo Code",
+        "Cline",
+        "Codex CLI",
+        "OpenCode",
+        "Droid",
+        "TRAE",
+        "Grok CLI",
+        "Cursor"
+      ],
+      "toolCount": "10+",
+      "mcpFeatures": [
+        "图像理解 MCP",
+        "联网搜索 MCP",
+        "100+ TPS (极速版)"
+      ],
+      "contextLength": "1M",
+      "website": "https://www.minimaxi.com",
+      "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
+      "tags": [
+        "国产",
+        "量大管饱"
+      ],
+      "bestFor": "中大型项目开发，需要大量配额",
+      "pros": [
+        "10倍 Starter 配额",
+        "1M超长上下文",
+        "标准版性价比最高"
+      ],
+      "cons": [
+        "标准版速度一般"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约5x Claude Pro用量",
+      "claudeProPriceRatio": 0.595
+    },
+    {
+      "id": "minimax-plus-fast",
+      "providerId": "minimax",
+      "providerName": "MiniMax",
+      "providerLogo": "/logos/minimax.ico",
+      "name": "MiniMax Token Plan Plus 极速版",
+      "tier": "pro",
+      "pricing": {
+        "currency": "CNY",
+        "price": 98,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 300,
+        "promptsPerWeek": null,
+        "description": "300 prompts / 5小时，约100 TPS 极速推理"
+      },
+      "models": [
+        "M2.7-highspeed"
+      ],
+      "modelsNote": "极速版 M2.7-highspeed (~100TPS)",
+      "supportedTools": [
+        "Claude Code",
+        "Roo Code",
+        "Kilo Code",
+        "Cline",
+        "Codex CLI",
+        "OpenCode",
+        "Droid",
+        "TRAE",
+        "Grok CLI",
+        "Cursor"
+      ],
+      "toolCount": "10+",
+      "mcpFeatures": [
+        "图像理解 MCP",
+        "联网搜索 MCP",
+        "100+ TPS 极速推理"
+      ],
+      "contextLength": "1M",
+      "website": "https://www.minimaxi.com",
+      "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
+      "tags": [
+        "国产",
+        "极速"
+      ],
+      "bestFor": "需要极速推理的开发者",
+      "pros": [
+        "100+ TPS 极速推理",
+        "1M超长上下文",
+        "响应速度极快"
+      ],
+      "cons": [
+        "价格翻倍",
+        "配额与 Plus 标准版相同"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约1.5x Claude Pro用量",
+      "claudeProPriceRatio": 0.49
+    },
+    {
+      "id": "minimax-max-fast",
+      "providerId": "minimax",
+      "providerName": "MiniMax",
+      "providerLogo": "/logos/minimax.ico",
+      "name": "MiniMax Token Plan Max 极速版",
+      "tier": "max",
+      "pricing": {
+        "currency": "CNY",
+        "price": 199,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 1000,
+        "promptsPerWeek": null,
+        "description": "1000 prompts / 5小时，约100 TPS 极速推理，超值之选"
+      },
+      "models": [
+        "M2.7-highspeed"
+      ],
+      "modelsNote": "极速版 M2.7-highspeed (~100TPS)",
+      "supportedTools": [
+        "Claude Code",
+        "Roo Code",
+        "Kilo Code",
+        "Cline",
+        "Codex CLI",
+        "OpenCode",
+        "Droid",
+        "TRAE",
+        "Grok CLI",
+        "Cursor"
+      ],
+      "toolCount": "10+",
+      "mcpFeatures": [
+        "图像理解 MCP",
+        "联网搜索 MCP",
+        "100+ TPS 极速推理"
+      ],
+      "contextLength": "1M",
+      "website": "https://www.minimaxi.com",
+      "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
+      "tags": [
+        "国产",
+        "极速推荐"
+      ],
+      "bestFor": "需要大量配额+极速推理的重度开发者",
+      "pros": [
+        "1000 prompts/5h + 100 TPS",
+        "极速版超值之选",
+        "1M超长上下文"
+      ],
+      "cons": [
+        "价格较高"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约5x Claude Pro用量",
+      "claudeProPriceRatio": 0.995
+    },
+    {
+      "id": "minimax-ultra-fast",
+      "providerId": "minimax",
+      "providerName": "MiniMax",
+      "providerLogo": "/logos/minimax.ico",
+      "name": "MiniMax Token Plan Ultra 极速版",
+      "tier": "ultra",
+      "pricing": {
+        "currency": "CNY",
+        "price": 399,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 2000,
+        "promptsPerWeek": null,
+        "description": "2000 prompts / 5小时，20倍 Starter 用量，极速畅用"
+      },
+      "models": [
+        "M2.7-highspeed"
+      ],
+      "modelsNote": "极速版 M2.7-highspeed (~100TPS)",
+      "supportedTools": [
+        "Claude Code",
+        "Roo Code",
+        "Kilo Code",
+        "Cline",
+        "Codex CLI",
+        "OpenCode",
+        "Droid",
+        "TRAE",
+        "Grok CLI",
+        "Cursor"
+      ],
+      "toolCount": "10+",
+      "mcpFeatures": [
+        "图像理解 MCP",
+        "联网搜索 MCP",
+        "100+ TPS 极速推理"
+      ],
+      "contextLength": "1M",
+      "website": "https://www.minimaxi.com",
+      "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
+      "tags": [
+        "国产",
+        "最贵",
+        "极速旗舰"
+      ],
+      "bestFor": "极速畅用，团队重度编程",
+      "pros": [
+        "2000 prompts/5h",
+        "100 TPS 极速推理",
+        "20倍 Starter 用量",
+        "1M超长上下文"
+      ],
+      "cons": [
+        "价格最高(¥399/月)"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约10x Claude Pro用量",
+      "claudeProPriceRatio": 1.995
+    },
+    {
+      "id": "kimi-andante",
+      "providerId": "kimi",
+      "providerName": "Kimi (月之暗面)",
+      "providerLogo": "/logos/moonshot.ico",
+      "name": "Kimi Code Andante",
+      "tier": "lite",
+      "pricing": {
+        "currency": "CNY",
+        "price": 49,
+        "period": "month",
+        "discount": "年付¥39/月 (¥468/年)"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "300-1,200次 API 调用/5h，额度每7天刷新不累积"
+      },
+      "models": [
+        "Kimi K2.5"
+      ],
+      "modelsNote": "旗舰模型抢先体验",
+      "supportedTools": [
+        "Kimi CLI",
+        "Claude Code",
+        "Roo Code",
+        "Kimi Code for VS Code"
+      ],
+      "toolCount": "4",
+      "mcpFeatures": [
+        "Kimi K2.5 旗舰模型",
+        "7天周期刷新",
+        "AI 建站/文档/PPT",
+        "限时3倍扩容"
+      ],
+      "contextLength": "1M",
+      "website": "https://www.kimi.com",
+      "buyUrl": "https://www.kimi.com/code?track_id=f08ed765-c5b6-436a-ad28-9f97784c6fcd",
+      "tags": [
+        "国产",
+        "大上下文"
+      ],
+      "bestFor": "入门编程辅助，Kimi 生态用户",
+      "pros": [
+        "1M超长上下文",
+        "含 Kimi 会员权益",
+        "AI 建站/文档/PPT",
+        "年付¥39/月超值"
+      ],
+      "cons": [
+        "支持的编程工具较少",
+        "额度每7天刷新不累积",
+        "最大并发30"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约1.5x Claude Pro用量",
+      "claudeProPriceRatio": 0.245
+    },
+    {
+      "id": "kimi-moderato",
+      "providerId": "kimi",
+      "providerName": "Kimi (月之暗面)",
+      "providerLogo": "/logos/moonshot.ico",
+      "name": "Kimi Code Moderato",
+      "tier": "pro",
+      "pricing": {
+        "currency": "CNY",
+        "price": 99,
+        "period": "month",
+        "discount": "年付¥79/月 (¥948/年)"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "更大额度，每7天刷新，多设备登录共享额度"
+      },
+      "models": [
+        "Kimi K2.5"
+      ],
+      "modelsNote": "Kimi K2.5 旗舰模型",
+      "supportedTools": [
+        "Kimi CLI",
+        "Claude Code",
+        "Roo Code",
+        "Kimi Code for VS Code"
+      ],
+      "toolCount": "4",
+      "mcpFeatures": [
+        "Kimi K2.5 旗舰模型",
+        "7天周期刷新",
+        "AI 建站/文档/PPT",
+        "多设备登录共享额度",
+        "限时3倍扩容"
+      ],
+      "contextLength": "1M",
+      "website": "https://www.kimi.com",
+      "buyUrl": "https://www.kimi.com/code?track_id=f08ed765-c5b6-436a-ad28-9f97784c6fcd",
+      "tags": [
+        "国产",
+        "推荐"
+      ],
+      "bestFor": "需要大额度+多设备共享的 Kimi 用户",
+      "pros": [
+        "更大额度",
+        "多设备共享",
+        "含 Kimi 会员权益",
+        "年付¥79/月"
+      ],
+      "cons": [
+        "支持的编程工具较少",
+        "额度不累积"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "约3x Claude Pro用量",
+      "claudeProPriceRatio": 0.495
+    },
+    {
+      "id": "volcengine-lite",
+      "providerId": "volcengine",
+      "providerName": "火山引擎 (字节跳动)",
+      "providerLogo": "/logos/bytedance.ico",
+      "name": "火山引擎方舟 Coding Plan Lite",
+      "tier": "lite",
+      "pricing": {
+        "currency": "CNY",
+        "price": 40,
+        "period": "month",
+        "discount": "首月仅¥8.91 (2.5折)，次月再享5折"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "数倍于 Claude Pro 用量，支持多模型自由切换"
+      },
+      "models": [
+        "Doubao-Seed-2.0-Code",
+        "Doubao-Seed-Code",
+        "Kimi-K2.5",
+        "Kimi-K2",
+        "GLM-4.7",
+        "DeepSeek-V3.2"
+      ],
+      "modelsNote": "6款模型，Auto模式智能调度",
+      "supportedTools": [
+        "Claude Code",
+        "Cursor",
+        "Cline",
+        "Codex CLI",
+        "Kilo Code"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "6款模型自由切换",
+        "Auto模式智能调度",
+        "首月2.5折特惠",
+        "邀请好友9折"
+      ],
+      "contextLength": "128K",
+      "website": "https://www.volcengine.com/product/doubao",
+      "buyUrl": "https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=CD3TAS2T",
+      "tags": [
+        "国产",
+        "模型最多",
+        "首月特惠"
+      ],
+      "bestFor": "需要多模型切换的开发者，首月尝鲜",
+      "pros": [
+        "6款模型最多选择",
+        "Auto模式智能调度",
+        "首月仅¥8.91",
+        "含DeepSeek+Kimi+GLM"
+      ],
+      "cons": [
+        "不支持自定义API调用",
+        "工具生态不如GLM丰富"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "数倍 Claude Pro用量",
+      "claudeProPriceRatio": 0.2
+    },
+    {
+      "id": "volcengine-pro",
+      "providerId": "volcengine",
+      "providerName": "火山引擎 (字节跳动)",
+      "providerLogo": "/logos/bytedance.ico",
+      "name": "火山引擎方舟 Coding Plan Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "CNY",
+        "price": 200,
+        "period": "month",
+        "discount": "首月仅¥44.91，次月再享5折"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "5倍 Lite 用量，用量为 Claude Max 数倍"
+      },
+      "models": [
+        "Doubao-Seed-2.0-Code",
+        "Doubao-Seed-Code",
+        "Kimi-K2.5",
+        "Kimi-K2",
+        "GLM-4.7",
+        "DeepSeek-V3.2"
+      ],
+      "modelsNote": "6款模型，Auto模式智能调度",
+      "supportedTools": [
+        "Claude Code",
+        "Cursor",
+        "Cline",
+        "Codex CLI",
+        "Kilo Code"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "6款模型自由切换",
+        "Auto模式智能调度",
+        "5倍 Lite 用量",
+        "用量为 Claude Max 数倍"
+      ],
+      "contextLength": "128K",
+      "website": "https://www.volcengine.com/product/doubao",
+      "buyUrl": "https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=CD3TAS2T",
+      "tags": [
+        "国产",
+        "量大管饱"
+      ],
+      "bestFor": "高阶大规模编程需求",
+      "pros": [
+        "6款模型最多选择",
+        "5倍 Lite 用量",
+        "Claude Max 数倍",
+        "Auto智能调度"
+      ],
+      "cons": [
+        "价格较高",
+        "不支持自定义API调用"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "Claude Max 数倍",
+      "claudeProPriceRatio": 1.0
+    },
+    {
+      "id": "aliyun-lite",
+      "providerId": "aliyun",
+      "providerName": "阿里云百炼",
+      "providerLogo": "/logos/alibaba.ico",
+      "name": "阿里云百炼 Coding Plan Lite",
+      "tier": "lite",
+      "pricing": {
+        "currency": "CNY",
+        "price": 40,
+        "period": "month",
+        "discount": "首月¥7.9，续费次月¥20 (半价)"
+      },
+      "quota": {
+        "promptsPer5h": 1200,
+        "promptsPerWeek": 9000,
+        "description": "1,200次请求/5h，9,000次/周，18,000次/月"
+      },
+      "models": [
+        "qwen3.5-plus",
+        "qwen3-max",
+        "qwen3-coder-next",
+        "qwen3-coder-plus",
+        "glm-4.7",
+        "kimi-k2.5"
+      ],
+      "modelsNote": "千问系列 + 第三方模型 (GLM/Kimi)",
+      "supportedTools": [
+        "Claude Code",
+        "Cursor",
+        "Cline",
+        "Continue",
+        "Aider"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "千问系列模型",
+        "第三方模型 (GLM-4.7/Kimi-K2.5)",
+        "首月最低价¥7.9",
+        "5h+周+月三重限额"
+      ],
+      "contextLength": "131K",
+      "website": "https://www.aliyun.com/product/qwen?utm_content=se_1023293835",
+      "buyUrl": "https://bailian.console.aliyun.com/cn-beijing/?spm=5176.29619931.J_SEsSjsNv72yRuRFS2VknO.2.671b10d7LP4rlD&tab=coding-plan#/efm/coding-plan-index",
+      "tags": [
+        "国产",
+        "首月最低"
+      ],
+      "bestFor": "首月尝鲜，千问生态用户",
+      "pros": [
+        "首月仅¥7.9",
+        "1200次/5h配额高",
+        "千问+GLM+Kimi多模型",
+        "次月半价¥20"
+      ],
+      "cons": [
+        "仅主账号可用",
+        "禁止API调用仅限编程工具",
+        "不支持退订退款",
+        "一次提问触发5-30次调用"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "约数倍 Claude Pro用量",
+      "claudeProPriceRatio": 0.2
+    },
+    {
+      "id": "aliyun-pro",
+      "providerId": "aliyun",
+      "providerName": "阿里云百炼",
+      "providerLogo": "/logos/alibaba.ico",
+      "name": "阿里云百炼 Coding Plan Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "CNY",
+        "price": 200,
+        "period": "month",
+        "discount": "首月¥39.9，续费次月¥100 (半价)"
+      },
+      "quota": {
+        "promptsPer5h": 6000,
+        "promptsPerWeek": 45000,
+        "description": "6,000次请求/5h，45,000次/周，90,000次/月"
+      },
+      "models": [
+        "qwen3.5-plus",
+        "qwen3-max",
+        "qwen3-coder-next",
+        "qwen3-coder-plus",
+        "glm-4.7",
+        "kimi-k2.5"
+      ],
+      "modelsNote": "千问系列 + 第三方模型 (GLM/Kimi)",
+      "supportedTools": [
+        "Claude Code",
+        "Cursor",
+        "Cline",
+        "Continue",
+        "Aider"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "千问系列模型",
+        "第三方模型 (GLM-4.7/Kimi-K2.5)",
+        "5倍 Lite 用量",
+        "5h+周+月三重限额"
+      ],
+      "contextLength": "131K",
+      "website": "https://www.aliyun.com/product/qwen?utm_content=se_1023293835",
+      "buyUrl": "https://bailian.console.aliyun.com/cn-beijing/?spm=5176.29619931.J_SEsSjsNv72yRuRFS2VknO.2.671b10d7LP4rlD&tab=coding-plan#/efm/coding-plan-index",
+      "tags": [
+        "国产",
+        "量大管饱"
+      ],
+      "bestFor": "高阶大规模编程需求",
+      "pros": [
+        "6000次/5h海量配额",
+        "千问+GLM+Kimi多模型",
+        "首月¥39.9",
+        "次月半价¥100"
+      ],
+      "cons": [
+        "仅主账号可用",
+        "禁止API调用仅限编程工具",
+        "不支持退订退款"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约 Claude Max 数倍",
+      "claudeProPriceRatio": 1.0
+    },
+    {
+      "id": "tencent-lite",
+      "providerId": "tencent",
+      "providerName": "腾讯云",
+      "providerLogo": "/logos/tencent.ico",
+      "name": "腾讯云 Coding Plan Lite",
+      "tier": "lite",
+      "pricing": {
+        "currency": "CNY",
+        "price": 40,
+        "period": "month",
+        "discount": "首月¥7.9，次月¥20 (5折)，第三月起¥40/月"
+      },
+      "quota": {
+        "promptsPer5h": 1200,
+        "promptsPerWeek": 9000,
+        "description": "~1,200次请求/5h，~9,000次/周，~18,000次/月"
+      },
+      "models": [
+        "Tencent HY 2.0 Instruct",
+        "GLM-5",
+        "Kimi-K2.5",
+        "MiniMax-M2.7"
+      ],
+      "modelsNote": "腾讯混元自研 + 顶尖第三方模型",
+      "supportedTools": [
+        "OpenClaw",
+        "Codebuddy",
+        "Claude Code",
+        "Cline",
+        "Cursor"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "腾讯混元 HY 2.0 自研",
+        "GLM-5 / Kimi-K2.5 / MiniMax-M2.7",
+        "首月¥7.9 · 次月5折",
+        "5h+周+月三重限额"
+      ],
+      "contextLength": "128K",
+      "website": "https://cloud.tencent.com",
+      "buyUrl": "https://cloud.tencent.com/act/pro/codingplan",
+      "tags": [
+        "国产",
+        "首月特惠",
+        "自研模型"
+      ],
+      "bestFor": "首月尝鲜，腾讯生态用户",
+      "pros": [
+        "首月仅¥7.9",
+        "1200次/5h配额高",
+        "混元自研+第三方模型",
+        "次月5折¥20"
+      ],
+      "cons": [
+        "第三方月起原价¥40",
+        "工具持续接入中"
+      ],
+      "popular": true,
+      "claudeProEquivalent": "约数倍 Claude Pro用量",
+      "claudeProPriceRatio": 0.2
+    },
+    {
+      "id": "tencent-pro",
+      "providerId": "tencent",
+      "providerName": "腾讯云",
+      "providerLogo": "/logos/tencent.ico",
+      "name": "腾讯云 Coding Plan Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "CNY",
+        "price": 200,
+        "period": "month",
+        "discount": "首月¥39.9，次月¥100 (5折)，第三月起¥200/月"
+      },
+      "quota": {
+        "promptsPer5h": 6000,
+        "promptsPerWeek": 45000,
+        "description": "~6,000次请求/5h，~45,000次/周，~90,000次/月"
+      },
+      "models": [
+        "Tencent HY 2.0 Instruct",
+        "GLM-5",
+        "Kimi-K2.5",
+        "MiniMax-M2.7"
+      ],
+      "modelsNote": "腾讯混元自研 + 顶尖第三方模型",
+      "supportedTools": [
+        "OpenClaw",
+        "Codebuddy",
+        "Claude Code",
+        "Cline",
+        "Cursor"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "腾讯混元 HY 2.0 自研",
+        "GLM-5 / Kimi-K2.5 / MiniMax-M2.7",
+        "5倍 Lite 用量配额",
+        "5h+周+月三重限额"
+      ],
+      "contextLength": "128K",
+      "website": "https://cloud.tencent.com",
+      "buyUrl": "https://cloud.tencent.com/act/pro/codingplan",
+      "tags": [
+        "国产",
+        "量大管饱"
+      ],
+      "bestFor": "高阶大规模编程需求",
+      "pros": [
+        "6000次/5h海量配额",
+        "混元自研+第三方模型",
+        "首月¥39.9",
+        "次月5折¥100"
+      ],
+      "cons": [
+        "第三方月起原价¥200",
+        "工具持续接入中"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约 Claude Max 数倍",
+      "claudeProPriceRatio": 1.0
+    },
+    {
+      "id": "baidu-lite",
+      "providerId": "baidu",
+      "providerName": "百度千帆",
+      "providerLogo": "/logos/baidu.ico",
+      "name": "百度千帆 Coding Plan Lite",
+      "tier": "lite",
+      "pricing": {
+        "currency": "CNY",
+        "price": 40,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 1200,
+        "promptsPerWeek": 9000,
+        "description": "~1,200次请求/5h，~9,000次/周，~18,000次/月，达 Claude Pro 的3倍"
+      },
+      "models": [
+        "GLM-5",
+        "MiniMax-M2.5",
+        "DeepSeek-V3.2"
+      ],
+      "modelsNote": "GLM-5、MiniMax-M2.5、DeepSeek-V3.2 等",
+      "supportedTools": [
+        "Claude Code"
+      ],
+      "toolCount": "主流AI开发工具",
+      "mcpFeatures": [
+        "Claude Pro 3倍用量",
+        "GLM-5 / MiniMax-M2.5 / DeepSeek-V3.2",
+        "5h+周+月三重限额"
+      ],
+      "contextLength": "128K",
+      "website": "https://yiyan.baidu.com/",
+      "buyUrl": "https://console.bce.baidu.com/qianfan/resource/subscribe",
+      "tags": [
+        "国产"
+      ],
+      "bestFor": "个人开发者轻量化编码需求",
+      "pros": [
+        "Claude Pro 3倍用量",
+        "1200次/5h配额高",
+        "支持GLM-5+MiniMax+DeepSeek",
+        "¥40/月"
+      ],
+      "cons": [
+        "支持的编程工具较少",
+        "模型选择不如火山引擎丰富"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "Claude Pro 的3倍",
+      "claudeProPriceRatio": 0.2
+    },
+    {
+      "id": "baidu-pro",
+      "providerId": "baidu",
+      "providerName": "百度千帆",
+      "providerLogo": "/logos/baidu.ico",
+      "name": "百度千帆 Coding Plan Pro",
+      "tier": "pro",
+      "pricing": {
+        "currency": "CNY",
+        "price": 200,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": 6000,
+        "promptsPerWeek": 45000,
+        "description": "~6,000次请求/5h，~45,000次/周，~90,000次/月，达 Claude Max 的3倍，Lite的5倍"
+      },
+      "models": [
+        "GLM-5",
+        "MiniMax-M2.5",
+        "DeepSeek-V3.2"
+      ],
+      "modelsNote": "GLM-5、MiniMax-M2.5、DeepSeek-V3.2 等",
+      "supportedTools": [
+        "Claude Code"
+      ],
+      "toolCount": "主流AI开发工具",
+      "mcpFeatures": [
+        "Claude Max 3倍用量",
+        "5倍 Lite 配额",
+        "GLM-5 / MiniMax-M2.5 / DeepSeek-V3.2",
+        "5h+周+月三重限额"
+      ],
+      "contextLength": "128K",
+      "website": "https://yiyan.baidu.com/",
+      "buyUrl": "https://console.bce.baidu.com/qianfan/resource/subscribe",
+      "tags": [
+        "国产",
+        "量大管饱"
+      ],
+      "bestFor": "高阶用户大规模编码需求",
+      "pros": [
+        "Claude Max 3倍用量",
+        "6000次/5h海量配额",
+        "5倍 Lite 用量",
+        "¥200/月"
+      ],
+      "cons": [
+        "支持的编程工具较少",
+        "模型选择不如火山引擎丰富"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "Claude Max 的3倍",
+      "claudeProPriceRatio": 1.0
+    }
+  ]
+}

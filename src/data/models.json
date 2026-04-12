@@ -132,7 +132,24 @@
           "description": "最新旗舰模型，面向长程任务设计，可独立工作长达8小时",
           "contextLength": 131072,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 88.2,
+            "humaneval": 84.5,
+            "math": 78.3,
+            "gsm8k": 95.8,
+            "mt_bench": 9
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 4500,
+              "outputTokensPerSec": 65
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 200,
+              "maxTokensPerMinute": 300000
+            }
+          }
         },
         {
           "id": "glm-5-turbo",
@@ -140,7 +157,24 @@
           "description": "高阶模型，对标Claude Opus，速度与性能均衡",
           "contextLength": 131072,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 87.5,
+            "humaneval": 83.8,
+            "math": 77,
+            "gsm8k": 95.2,
+            "mt_bench": 8.9
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 5500,
+              "outputTokensPerSec": 78
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 200,
+              "maxTokensPerMinute": 350000
+            }
+          }
         },
         {
           "id": "glm-5",
@@ -148,7 +182,24 @@
           "description": "高性能模型，推理与代码能力出色",
           "contextLength": 131072,
           "latest": false,
-          "tier": "standard"
+          "tier": "standard",
+          "benchmarks": {
+            "mmlu": 86,
+            "humaneval": 81.2,
+            "math": 75.5,
+            "gsm8k": 93.8,
+            "mt_bench": 8.7
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 5000,
+              "outputTokensPerSec": 70
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 200,
+              "maxTokensPerMinute": 320000
+            }
+          }
         },
         {
           "id": "glm-4.7",
@@ -156,7 +207,24 @@
           "description": "通用型模型，对标Claude Sonnet，性价比之选",
           "contextLength": 204800,
           "latest": false,
-          "tier": "standard"
+          "tier": "standard",
+          "benchmarks": {
+            "mmlu": 82.5,
+            "humaneval": 76.8,
+            "math": 70.2,
+            "gsm8k": 90.5,
+            "mt_bench": 8.4
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 8000,
+              "outputTokensPerSec": 95
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 300,
+              "maxTokensPerMinute": 500000
+            }
+          }
         },
         {
           "id": "glm-4.5-air",
@@ -164,7 +232,24 @@
           "description": "经济型模型，适合大规模部署",
           "contextLength": 131072,
           "latest": false,
-          "tier": "cost-effective"
+          "tier": "cost-effective",
+          "benchmarks": {
+            "mmlu": 76.3,
+            "humaneval": 68.5,
+            "math": 62.1,
+            "gsm8k": 84.2,
+            "mt_bench": 7.8
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 12000,
+              "outputTokensPerSec": 130
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 500,
+              "maxTokensPerMinute": 800000
+            }
+          }
         },
         {
           "id": "glm-4.7-flashx",
@@ -172,7 +257,24 @@
           "description": "快速经济型模型，200K上下文",
           "contextLength": 204800,
           "latest": false,
-          "tier": "cost-effective"
+          "tier": "cost-effective",
+          "benchmarks": {
+            "mmlu": 78.8,
+            "humaneval": 72,
+            "math": 66.5,
+            "gsm8k": 87.3,
+            "mt_bench": 8
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 15000,
+              "outputTokensPerSec": 150
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 500,
+              "maxTokensPerMinute": 1000000
+            }
+          }
         },
         {
           "id": "glm-4.7-flash",
@@ -180,7 +282,24 @@
           "description": "完全免费的轻量级模型，200K上下文",
           "contextLength": 204800,
           "latest": false,
-          "tier": "free"
+          "tier": "free",
+          "benchmarks": {
+            "mmlu": 74.5,
+            "humaneval": 65.2,
+            "math": 58.8,
+            "gsm8k": 82,
+            "mt_bench": 7.5
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 18000,
+              "outputTokensPerSec": 180
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 1000,
+              "maxTokensPerMinute": 1500000
+            }
+          }
         },
         {
           "id": "glm-coding",
@@ -188,7 +307,24 @@
           "description": "专为AI编码打造的订阅套餐，支持Claude Code、OpenClaw等20+编程工具",
           "contextLength": 131072,
           "latest": false,
-          "tier": "subscription"
+          "tier": "subscription",
+          "benchmarks": {
+            "mmlu": 75,
+            "humaneval": 80.5,
+            "math": 68,
+            "gsm8k": 85.5,
+            "mt_bench": 7.6
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 10000,
+              "outputTokensPerSec": 120
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 300,
+              "maxTokensPerMinute": 600000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -537,7 +673,24 @@
           "description": "最新推理模型，数学和编程能力卓越",
           "contextLength": 200000,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 91.5,
+            "humaneval": 92.3,
+            "math": 96.8,
+            "gsm8k": 98.5,
+            "mt_bench": 9.4
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 3800,
+              "outputTokensPerSec": 45
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 50,
+              "maxTokensPerMinute": 200000
+            }
+          }
         },
         {
           "id": "o1",
@@ -545,7 +698,24 @@
           "description": "深度推理模型，擅长复杂问题分解",
           "contextLength": 200000,
           "latest": false,
-          "tier": "reasoning"
+          "tier": "reasoning",
+          "benchmarks": {
+            "mmlu": 90.2,
+            "humaneval": 90.8,
+            "math": 95.2,
+            "gsm8k": 97.8,
+            "mt_bench": 9.2
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 3200,
+              "outputTokensPerSec": 38
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 50,
+              "maxTokensPerMinute": 180000
+            }
+          }
         },
         {
           "id": "gpt-4o",
@@ -553,7 +723,24 @@
           "description": "多模态旗舰模型，支持图文音视频",
           "contextLength": 131072,
           "latest": false,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 88.7,
+            "humaneval": 86.5,
+            "math": 76.8,
+            "gsm8k": 95.3,
+            "mt_bench": 9
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 5000,
+              "outputTokensPerSec": 75
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 100,
+              "maxTokensPerMinute": 300000
+            }
+          }
         },
         {
           "id": "gpt-4o-mini",
@@ -561,7 +748,24 @@
           "description": "经济型模型，适合大规模应用",
           "contextLength": 131072,
           "latest": false,
-          "tier": "budget"
+          "tier": "budget",
+          "benchmarks": {
+            "mmlu": 82,
+            "humaneval": 75.8,
+            "math": 68.5,
+            "gsm8k": 89.2,
+            "mt_bench": 8.2
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 14000,
+              "outputTokensPerSec": 140
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 500,
+              "maxTokensPerMinute": 1000000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -628,7 +832,7 @@
           "pricing": {
             "currency": "USD",
             "inputPrice": 2.5,
-            "outputPrice": 10.0,
+            "outputPrice": 10,
             "unit": "1M tokens"
           },
           "popular": false,
@@ -712,7 +916,24 @@
           "description": "旗舰模型，最强综合能力",
           "contextLength": 200000,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 91,
+            "humaneval": 91.5,
+            "math": 88.5,
+            "gsm8k": 97.2,
+            "mt_bench": 9.5
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 3500,
+              "outputTokensPerSec": 42
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 75,
+              "maxTokensPerMinute": 200000
+            }
+          }
         },
         {
           "id": "claude-4-sonnet",
@@ -720,7 +941,24 @@
           "description": "均衡型模型，性价比之选",
           "contextLength": 200000,
           "latest": true,
-          "tier": "standard"
+          "tier": "standard",
+          "benchmarks": {
+            "mmlu": 88.3,
+            "humaneval": 85.2,
+            "math": 78,
+            "gsm8k": 95,
+            "mt_bench": 9
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 6000,
+              "outputTokensPerSec": 85
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 150,
+              "maxTokensPerMinute": 400000
+            }
+          }
         },
         {
           "id": "claude-4-haiku",
@@ -728,7 +966,24 @@
           "description": "轻量极速模型，适合高并发场景",
           "contextLength": 200000,
           "latest": true,
-          "tier": "budget"
+          "tier": "budget",
+          "benchmarks": {
+            "mmlu": 82.5,
+            "humaneval": 76,
+            "math": 70.2,
+            "gsm8k": 89.8,
+            "mt_bench": 8.3
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 16000,
+              "outputTokensPerSec": 160
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 500,
+              "maxTokensPerMinute": 1200000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -792,8 +1047,8 @@
           "description": "最均衡的Claude API方案",
           "pricing": {
             "currency": "USD",
-            "inputPrice": 3.0,
-            "outputPrice": 15.0,
+            "inputPrice": 3,
+            "outputPrice": 15,
             "unit": "1M tokens",
             "cacheHitPrice": 0.3,
             "cacheHitUnit": "1M tokens"
@@ -850,8 +1105,8 @@
           "description": "最强Claude API方案",
           "pricing": {
             "currency": "USD",
-            "inputPrice": 15.0,
-            "outputPrice": 75.0,
+            "inputPrice": 15,
+            "outputPrice": 75,
             "unit": "1M tokens"
           },
           "popular": false,
@@ -909,7 +1164,24 @@
           "description": "旗舰模型，1M上下文，综合能力顶尖",
           "contextLength": 1048576,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 90.5,
+            "humaneval": 88.8,
+            "math": 83.2,
+            "gsm8k": 96.5,
+            "mt_bench": 9.2
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 4200,
+              "outputTokensPerSec": 60
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 100,
+              "maxTokensPerMinute": 250000
+            }
+          }
         },
         {
           "id": "gemini-2.5-flash",
@@ -917,7 +1189,24 @@
           "description": "快速均衡模型，1M上下文",
           "contextLength": 1048576,
           "latest": true,
-          "tier": "standard"
+          "tier": "standard",
+          "benchmarks": {
+            "mmlu": 77.8,
+            "humaneval": 72.5,
+            "math": 65,
+            "gsm8k": 85.8,
+            "mt_bench": 8
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 16000,
+              "outputTokensPerSec": 165
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 500,
+              "maxTokensPerMinute": 1000000
+            }
+          }
         },
         {
           "id": "gemini-2.5-flash-lite",
@@ -925,7 +1214,24 @@
           "description": "超轻量模型，价格最低",
           "contextLength": 1048576,
           "latest": true,
-          "tier": "budget"
+          "tier": "budget",
+          "benchmarks": {
+            "mmlu": 72,
+            "humaneval": 65.8,
+            "math": 58.5,
+            "gsm8k": 80.2,
+            "mt_bench": 7.4
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 22000,
+              "outputTokensPerSec": 200
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 1000,
+              "maxTokensPerMinute": 2000000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -996,7 +1302,7 @@
           "pricing": {
             "currency": "USD",
             "inputPrice": 1.25,
-            "outputPrice": 10.0,
+            "outputPrice": 10,
             "unit": "1M tokens",
             "cacheHitPrice": 0.175,
             "cacheHitUnit": "1M tokens"
@@ -1083,7 +1389,24 @@
           "description": "旗舰模型，2350亿参数，综合能力最强",
           "contextLength": 131072,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 86.8,
+            "humaneval": 82,
+            "math": 75.5,
+            "gsm8k": 93.5,
+            "mt_bench": 8.7
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 4200,
+              "outputTokensPerSec": 55
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 300,
+              "maxTokensPerMinute": 400000
+            }
+          }
         },
         {
           "id": "qwen3-32b",
@@ -1091,7 +1414,24 @@
           "description": "中型模型，平衡性能与速度",
           "contextLength": 131072,
           "latest": true,
-          "tier": "standard"
+          "tier": "standard",
+          "benchmarks": {
+            "mmlu": 82.2,
+            "humaneval": 76.5,
+            "math": 69.8,
+            "gsm8k": 89.5,
+            "mt_bench": 8.2
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 8000,
+              "outputTokensPerSec": 100
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 500,
+              "maxTokensPerMinute": 800000
+            }
+          }
         },
         {
           "id": "qwen3-mt-flash",
@@ -1099,7 +1439,24 @@
           "description": "极限低价模型，全行业最便宜之一",
           "contextLength": 131072,
           "latest": true,
-          "tier": "budget"
+          "tier": "budget",
+          "benchmarks": {
+            "mmlu": 70.5,
+            "humaneval": 62,
+            "math": 55.2,
+            "gsm8k": 78.5,
+            "mt_bench": 7.2
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 25000,
+              "outputTokensPerSec": 220
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 1000,
+              "maxTokensPerMinute": 2000000
+            }
+          }
         },
         {
           "id": "qwen-vl-max",
@@ -1107,7 +1464,24 @@
           "description": "视觉理解旗舰模型",
           "contextLength": 131072,
           "latest": false,
-          "tier": "vision"
+          "tier": "vision",
+          "benchmarks": {
+            "mmlu": 78.5,
+            "humaneval": 68,
+            "math": 62,
+            "gsm8k": 82.5,
+            "mt_bench": 7.8
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 5000,
+              "outputTokensPerSec": 70
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 300,
+              "maxTokensPerMinute": 400000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -1146,8 +1520,8 @@
           "description": "旗舰API方案，综合能力最强",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 4.0,
-            "outputPrice": 16.0,
+            "inputPrice": 4,
+            "outputPrice": 16,
             "unit": "1M tokens"
           },
           "popular": false,
@@ -1174,7 +1548,7 @@
           "pricing": {
             "currency": "CNY",
             "inputPrice": 1.5,
-            "outputPrice": 6.0,
+            "outputPrice": 6,
             "unit": "1M tokens"
           },
           "popular": false,
@@ -1225,7 +1599,7 @@
       "name": "DeepSeek系列",
       "nameEn": "DeepSeek Series",
       "logo": "/logos/deepseek.svg",
-      "featured": false,
+      "featured": true,
       "description": "以深度推理能力著称的高性能AI模型系列，DeepSeek-R1推理能力可媲美o1，价格极低。",
       "longDescription": "DeepSeek系列是深度求索公司开发的大语言模型产品线，包括推理专精模型DeepSeek-R1和通用模型DeepSeek-V3。DeepSeek-R1以其卓越的数学和逻辑推理能力闻名，性能可媲美OpenAI的o1模型，但价格仅为其零头。DeepSeek-V3在通用任务上表现优异，API价格仅2元/百万输入token。DeepSeek坚持开源理念，多个模型权重已开源，在开源社区拥有极高人气。",
       "tags": [
@@ -1256,7 +1630,24 @@
           "description": "推理专精模型，数学和逻辑能力卓越",
           "contextLength": 131072,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 87,
+            "humaneval": 85.5,
+            "math": 92.5,
+            "gsm8k": 97,
+            "mt_bench": 8.8
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 4000,
+              "outputTokensPerSec": 48
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 200,
+              "maxTokensPerMinute": 300000
+            }
+          }
         },
         {
           "id": "deepseek-v3",
@@ -1264,7 +1655,24 @@
           "description": "通用大模型，综合能力强劲",
           "contextLength": 131072,
           "latest": true,
-          "tier": "standard"
+          "tier": "standard",
+          "benchmarks": {
+            "mmlu": 82.8,
+            "humaneval": 77.2,
+            "math": 72,
+            "gsm8k": 90.5,
+            "mt_bench": 8.3
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 7500,
+              "outputTokensPerSec": 95
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 300,
+              "maxTokensPerMinute": 500000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -1276,8 +1684,8 @@
           "description": "超低价通用模型API",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 2.0,
-            "outputPrice": 8.0,
+            "inputPrice": 2,
+            "outputPrice": 8,
             "unit": "1M tokens"
           },
           "popular": true,
@@ -1302,8 +1710,8 @@
           "description": "推理专精模型API，媲美o1",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 4.0,
-            "outputPrice": 16.0,
+            "inputPrice": 4,
+            "outputPrice": 16,
             "unit": "1M tokens"
           },
           "popular": false,
@@ -1357,7 +1765,7 @@
       "name": "Kimi系列",
       "nameEn": "Kimi Series",
       "logo": "/logos/moonshot.svg",
-      "featured": false,
+      "featured": true,
       "description": "月之暗面旗下Kimi大模型，以200万字超长上下文著称，是文档处理和长文本分析的首选。",
       "longDescription": "Kimi系列是月之暗面（Moonshot AI）开发的大语言模型产品线，最新一代Kimi k2在综合能力上大幅提升，同时保持了Kimi一贯的超长上下文优势。Moonshot-v1-128k版本支持高达200万token的超长上下文，可一次性处理数十万字的长篇文档、书籍和法律合同。Kimi在中国市场广受欢迎，尤其在文档解析、长文本摘要和学术研究场景中表现出色。",
       "tags": [
@@ -1388,7 +1796,24 @@
           "description": "最新一代模型，综合能力大幅提升",
           "contextLength": 131072,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 85.5,
+            "humaneval": 79.8,
+            "math": 73.5,
+            "gsm8k": 92,
+            "mt_bench": 8.6
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 5000,
+              "outputTokensPerSec": 68
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 200,
+              "maxTokensPerMinute": 350000
+            }
+          }
         },
         {
           "id": "moonshot-v1-128k",
@@ -1396,7 +1821,24 @@
           "description": "超长上下文模型，支持200万token",
           "contextLength": 2097152,
           "latest": false,
-          "tier": "long-context"
+          "tier": "long-context",
+          "benchmarks": {
+            "mmlu": 78.2,
+            "humaneval": 70.5,
+            "math": 64,
+            "gsm8k": 84.8,
+            "mt_bench": 7.9
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 4000,
+              "outputTokensPerSec": 50
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 100,
+              "maxTokensPerMinute": 200000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -1408,8 +1850,8 @@
           "description": "最新模型API，综合能力强劲",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 2.0,
-            "outputPrice": 8.0,
+            "inputPrice": 2,
+            "outputPrice": 8,
             "unit": "1M tokens"
           },
           "popular": true,
@@ -1433,8 +1875,8 @@
           "description": "200万字超长上下文API",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 2.0,
-            "outputPrice": 8.0,
+            "inputPrice": 2,
+            "outputPrice": 8,
             "unit": "1M tokens"
           },
           "popular": false,
@@ -1511,7 +1953,7 @@
       "name": "豆包系列",
       "nameEn": "Doubao Series",
       "logo": "/logos/bytedance.svg",
-      "featured": false,
+      "featured": true,
       "description": "字节跳动旗下豆包大模型，以低价高并发著称，Pro版仅0.5元/百万token，适合大规模应用。",
       "longDescription": "豆包Doubao系列是字节跳动旗下火山引擎运营的大语言模型产品线，包括Doubao-1.5-Pro（专业版）和Doubao-1.5-Lite（轻量版）。豆包系列依托字节跳动强大的技术基础设施，在低延迟和高并发方面表现突出。API价格极具竞争力，Pro版输入仅0.5元/百万token，Lite版更低至0.3元/百万token。豆包在中国市场拥有庞大用户基础，日均调用量位居行业前列。",
       "tags": [
@@ -1542,7 +1984,24 @@
           "description": "专业版模型，综合能力优异",
           "contextLength": 131072,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 80.5,
+            "humaneval": 74,
+            "math": 68.5,
+            "gsm8k": 88.5,
+            "mt_bench": 8.1
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 12000,
+              "outputTokensPerSec": 140
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 1000,
+              "maxTokensPerMinute": 1500000
+            }
+          }
         },
         {
           "id": "doubao-1.5-lite",
@@ -1550,7 +2009,24 @@
           "description": "轻量版模型，极低延迟高并发",
           "contextLength": 131072,
           "latest": true,
-          "tier": "budget"
+          "tier": "budget",
+          "benchmarks": {
+            "mmlu": 71.8,
+            "humaneval": 63.5,
+            "math": 56,
+            "gsm8k": 79.5,
+            "mt_bench": 7.3
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 25000,
+              "outputTokensPerSec": 230
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 2000,
+              "maxTokensPerMinute": 3000000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -1563,7 +2039,7 @@
           "pricing": {
             "currency": "CNY",
             "inputPrice": 0.5,
-            "outputPrice": 2.0,
+            "outputPrice": 2,
             "unit": "1M tokens"
           },
           "popular": true,
@@ -1640,7 +2116,7 @@
       "name": "文心一言系列",
       "nameEn": "ERNIE Series",
       "logo": "/logos/baidu.svg",
-      "featured": false,
+      "featured": true,
       "description": "百度文心一言大模型系列，ERNIE 4.0为企业级应用提供强大的中文理解和多模态能力。",
       "longDescription": "文心一言ERNIE系列是百度开发的大语言模型产品线，包括旗舰ERNIE 4.0和经济型ERNIE 3.5。作为中国互联网巨头的核心AI产品，文心一言在中文理解、企业级应用和多模态处理方面具有深厚积累。ERNIE 4.0在百度自有基准测试中表现优异，适合对中文理解和内容质量要求较高的企业用户。百度AI Studio提供免费开发环境，方便开发者和研究人员使用。",
       "tags": [
@@ -1671,7 +2147,24 @@
           "description": "旗舰模型，综合能力最强",
           "contextLength": 131072,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 79.8,
+            "humaneval": 73.5,
+            "math": 67,
+            "gsm8k": 87.8,
+            "mt_bench": 8
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 8000,
+              "outputTokensPerSec": 90
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 500,
+              "maxTokensPerMinute": 800000
+            }
+          }
         },
         {
           "id": "ernie-3.5",
@@ -1679,7 +2172,24 @@
           "description": "经济型模型，性价比高",
           "contextLength": 131072,
           "latest": false,
-          "tier": "budget"
+          "tier": "budget",
+          "benchmarks": {
+            "mmlu": 70.2,
+            "humaneval": 61.5,
+            "math": 54.5,
+            "gsm8k": 78,
+            "mt_bench": 7.2
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 15000,
+              "outputTokensPerSec": 160
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 1000,
+              "maxTokensPerMinute": 1500000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -1692,7 +2202,7 @@
           "pricing": {
             "currency": "CNY",
             "inputPrice": 0.8,
-            "outputPrice": 2.0,
+            "outputPrice": 2,
             "unit": "1M tokens"
           },
           "popular": true,
@@ -1717,8 +2227,8 @@
           "description": "旗舰企业级API",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 12.0,
-            "outputPrice": 12.0,
+            "inputPrice": 12,
+            "outputPrice": 12,
             "unit": "1M tokens"
           },
           "popular": false,
@@ -1771,7 +2281,7 @@
       "name": "MiniMax系列",
       "nameEn": "MiniMax Series",
       "logo": "/logos/minimax.svg",
-      "featured": false,
+      "featured": true,
       "description": "MiniMax高性价比大模型，支持1M超长上下文，API价格仅1元/百万token，适合预算有限的企业。",
       "longDescription": "MiniMax系列是MiniMax公司开发的大语言模型产品线，包括MiniMax-01（通用旗舰）和MiniMax-Text-01（文本专精）。MiniMax系列最突出的特点是支持高达100万token的上下文窗口，同时保持极低的API价格——输入仅1元/百万token。MiniMax致力于为中小企业和个人开发者提供高质量、低成本的AI服务，在性价比方面具有显著优势。其模型在中文理解和长文本处理方面表现良好。",
       "tags": [
@@ -1802,7 +2312,24 @@
           "description": "通用旗舰模型，1M超长上下文",
           "contextLength": 1048576,
           "latest": true,
-          "tier": "flagship"
+          "tier": "flagship",
+          "benchmarks": {
+            "mmlu": 76.5,
+            "humaneval": 70,
+            "math": 63.5,
+            "gsm8k": 84,
+            "mt_bench": 7.8
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 10000,
+              "outputTokensPerSec": 120
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 500,
+              "maxTokensPerMinute": 800000
+            }
+          }
         },
         {
           "id": "minimax-text-01",
@@ -1810,7 +2337,24 @@
           "description": "文本专精模型，1M上下文",
           "contextLength": 1048576,
           "latest": true,
-          "tier": "text"
+          "tier": "text",
+          "benchmarks": {
+            "mmlu": 72.5,
+            "humaneval": 64.2,
+            "math": 57,
+            "gsm8k": 80.8,
+            "mt_bench": 7.4
+          },
+          "performance": {
+            "speed": {
+              "inputTokensPerSec": 18000,
+              "outputTokensPerSec": 175
+            },
+            "concurrency": {
+              "maxConcurrentRequests": 800,
+              "maxTokensPerMinute": 1200000
+            }
+          }
         }
       ],
       "pricingPlans": [
@@ -1822,8 +2366,8 @@
           "description": "高性价比1M上下文API",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 1.0,
-            "outputPrice": 4.0,
+            "inputPrice": 1,
+            "outputPrice": 4,
             "unit": "1M tokens"
           },
           "popular": true,
@@ -1848,8 +2392,8 @@
           "description": "文本专精API方案",
           "pricing": {
             "currency": "CNY",
-            "inputPrice": 1.0,
-            "outputPrice": 4.0,
+            "inputPrice": 1,
+            "outputPrice": 4,
             "unit": "1M tokens"
           },
           "popular": false,

@@ -106,7 +106,7 @@ export function ModelCard({ model }: ModelCardProps) {
   const contextLen = getContextLength(model);
 
   return (
-    <Card className="group relative transition-all duration-300 border-border/60 bg-card hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04] h-full flex flex-col overflow-hidden">
+    <Card className="group relative transition-all duration-300 border-border/60 bg-card hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04] h-full flex flex-col overflow-hidden card-hover">
       {/* Top accent line */}
       <div className={`absolute inset-x-0 top-0 h-0.5 ${colorClass} opacity-60 group-hover:opacity-100 transition-opacity`} />
       <CardHeader className="pb-3">
