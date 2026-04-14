@@ -44,6 +44,17 @@ export interface RPlan {
   limits: { features: string[]; restrictions: string[] };
 }
 
+export interface RModelLinks {
+  website?: string;
+  chatPlatform?: string;
+  apiPricing?: string;
+  apiDocs?: string;
+  codingPlan?: string;
+  openclawGuide?: string;
+  claudeCodeGuide?: string;
+  subscription?: string;
+}
+
 export interface RModel {
   id: string;
   name: string;
@@ -64,6 +75,7 @@ export interface RModel {
   compliance?: string[];
   privateDeployment?: string;
   free?: boolean;
+  links?: RModelLinks;
 }
 
 /* ------------------------------------------------------------------ */

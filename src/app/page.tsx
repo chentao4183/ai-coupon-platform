@@ -5,7 +5,7 @@ import { getAllModels } from "@/lib/data";
 import { ModelCard } from "@/components/home/ModelCard";
 import { ModelFilters } from "@/components/home/ModelFilters";
 import { AnimatedNumber } from "@/components/animated-number";
-import { FadeIn } from "@/components/fade-in";
+
 import {
   Code2,
   Zap,
@@ -185,7 +185,7 @@ export default function HomePage() {
 
       {/* Featured Models */}
       <section className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
-        <FadeIn>
+        <div>
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-xl font-semibold text-foreground">精选模型</h2>
             {!isShowingAll && (
@@ -232,7 +232,7 @@ export default function HomePage() {
               </Link>
             </div>
           )}
-        </FadeIn>
+        </div>
       </section>
     </div>
   );

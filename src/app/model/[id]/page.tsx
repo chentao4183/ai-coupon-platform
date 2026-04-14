@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getModelById, getCompanyById, getAllModels } from "@/lib/data";
 import { ModelTabs } from "@/components/model/ModelTabs";
+import { OfficialLinks } from "@/components/model/OfficialLinks";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink } from "lucide-react";
 import {
   asRModel,
   formatContextLength,
@@ -113,19 +113,8 @@ export default async function ModelDetailPage({ params }: PageProps) {
                 <Badge className="text-xs">推荐</Badge>
               )}
             </div>
-            <div className="mt-1 flex items-center gap-3 text-sm text-muted-foreground">
-              <span>{company?.name || ""}</span>
-              {company?.website && (
-                <a
-                  href={company.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
-                >
-                  官网
-                  <ExternalLink className="size-3" />
-                </a>
-              )}
+            <div className="mt-1 text-sm text-muted-foreground">
+              {company?.name || ""}
             </div>
           </div>
         </div>
@@ -174,20 +163,8 @@ export default async function ModelDetailPage({ params }: PageProps) {
         <ModelTabs model={model} />
       </div>
 
-      {/* View official pricing */}
-      {model.website && (
-        <div className="mb-12 text-center">
-          <a
-            href={model.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-4 h-9 text-sm font-medium hover:bg-muted hover:text-foreground transition-colors"
-          >
-            查看官方定价
-            <ExternalLink className="size-4" />
-          </a>
-        </div>
-      )}
+      {/* Official Links */}
+      {model.links && <OfficialLinks links={model.links} />}
 
       {/* Related models */}
       {relatedModels.length > 0 && (

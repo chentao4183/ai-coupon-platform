@@ -57,6 +57,16 @@ export interface PricingPlan {
   popular: boolean;
 }
 
+export interface ModelLinks {
+  chatPlatform?: string;
+  apiPricing?: string;
+  apiDocs?: string;
+  codingPlan?: string;
+  openclawGuide?: string;
+  claudeCodeGuide?: string;
+  subscription?: string;
+}
+
 export interface Model {
   id: string;
   name: string;
@@ -77,6 +87,7 @@ export interface Model {
   compliance?: string[];
   privateDeployment?: string;
   free?: boolean;
+  links?: ModelLinks;
 }
 
 export interface ModelData {

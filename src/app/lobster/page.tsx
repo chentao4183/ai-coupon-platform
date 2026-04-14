@@ -5,7 +5,8 @@ import { getAllModels, getCompanyById } from "@/lib/data";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Check, AlertCircle, Flame, ArrowUpDown } from "lucide-react";
+import { Check, AlertCircle, Flame, ArrowUpDown, ExternalLink } from "lucide-react";
+import codingPlansData from "@/data/coding-plans.json";
 
 const EXCHANGE_RATE = 7.2;
 
@@ -114,6 +115,32 @@ function getCountryFlag(country: string): string {
   if (country === "美国") return "🇺🇸";
   if (country === "中国") return "🇨🇳";
   return "🌍";
+}
+
+/** 根据 companyId 返回对应厂商的 coding 套餐购买 URL */
+function getBuyUrlByCompanyId(companyId: string): string {
+  // 优先从 coding-plans.json 匹配 providerId 对应的 buyUrl
+  const plan = (codingPlansData as { plans: { providerId: string; buyUrl?: string; website?: string }[] }).plans.find(
+    (p) => p.providerId === companyId
+  );
+  if (plan?.buyUrl) return plan.buyUrl;
+  if (plan?.website) return plan.website;
+
+  // 硬编码匹配关系
+  const urlMap: Record<string, string> = {
+    zhipu: "https://www.bigmodel.cn/glm-coding?ic=CWJW4TEIY7",
+    openai: "https://chatgpt.com/gg/69c643abc830819a90a58628f3a8b174#pricing",
+    anthropic: "https://claude.ai/upgrade?from=menu",
+    google: "https://ai.google.dev/pricing",
+    moonshot: "https://www.kimi.com/code?track_id=f08ed765-c5b6-436a-ad28-9f97784c6fcd",
+    minimax: "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
+    // 没有 coding 套餐的厂商，用内部模型页作为 fallback
+    bytedance: "/model/doubao",
+    baidu: "/model/ernie",
+    deepseek: "/model/deepseek",
+    alibaba: "/model/qwen",
+  };
+  return urlMap[companyId] ?? `/model/${companyId}`;
 }
 
 function matchesFilter(plan: SubscriptionPlan, filter: FilterKey): boolean {
@@ -514,12 +541,22 @@ function SubscriptionCard({ plan }: { plan: SubscriptionPlan }) {
         <span className="text-xs text-muted-foreground">
           {yearly ? `年付 ¥${yearly.toFixed(0)}` : "月付订阅"}
         </span>
-        <a
-          href={`/model/${plan.modelId}`}
-          className="text-xs font-medium text-primary hover:text-primary/80 transition-colors"
-        >
-          查看详情 →
-        </a>
+        {(() => {
+          const buyUrl = getBuyUrlByCompanyId(plan.companyId);
+          const isExternal = buyUrl.startsWith("http");
+          return (
+            <a
+              href={buyUrl}
+              {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className={`text-xs font-medium text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1${
+                isExternal ? " underline underline-offset-2" : ""
+              }`}
+            >
+              {isExternal && <ExternalLink className="size-3" />}
+              立即订阅
+            </a>
+          );
+        })()}
       </div>
     </Card>
   );

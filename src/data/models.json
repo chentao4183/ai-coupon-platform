@@ -634,7 +634,16 @@
             "description": "连续包季422.1元/月，连续包年享8折"
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://chat.z.ai/",
+        "apiPricing": "https://www.bigmodel.cn/pricing",
+        "apiDocs": "https://docs.bigmodel.cn/cn/coding-plan/overview",
+        "codingPlan": "https://www.bigmodel.cn/glm-coding?ic=CWJW4TEIY7",
+        "openclawGuide": "https://docs.bigmodel.cn/cn/coding-plan/tool/openclaw",
+        "claudeCodeGuide": "https://docs.bigmodel.cn/cn/coding-plan/tool/claude",
+        "website": "https://www.bigmodel.cn/"
+      }
     },
     {
       "id": "gpt",
@@ -877,7 +886,13 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://chatgpt.com/",
+        "apiDocs": "https://developers.openai.com/",
+        "subscription": "https://chatgpt.com/#pricing",
+        "website": "https://chatgpt.com/zh-Hans-CN/overview/"
+      }
     },
     {
       "id": "claude",
@@ -1125,7 +1140,13 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://claude.ai/new",
+        "apiDocs": "https://platform.claude.com/docs/zh-CN/home",
+        "subscription": "https://claude.com/pricing",
+        "website": "https://www.anthropic.com/"
+      }
     },
     {
       "id": "gemini",
@@ -1349,7 +1370,12 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://gemini.google.com/app",
+        "apiDocs": "https://ai.google.dev/gemini-api/docs?hl=zh-cn",
+        "subscription": "https://aistudio.google.com/apps"
+      }
     },
     {
       "id": "qwen",
@@ -1591,7 +1617,14 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://www.qianwen.com/",
+        "apiPricing": "https://bailian.console.aliyun.com/cn-beijing/?tab=doc#/doc/?type=model&url=2987148",
+        "codingPlan": "https://bailian.console.aliyun.com/cn-beijing/?tab=coding-plan#/efm/coding-plan-index",
+        "openclawGuide": "https://bailian.console.aliyun.com/cn-beijing/?tab=doc#/doc/?type=model&url=3023085",
+        "website": "https://www.aliyun.com/product/qwen?utm_content=se_1023293835"
+      }
     },
     {
       "id": "deepseek",
@@ -1757,7 +1790,14 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://chat.deepseek.com/",
+        "apiPricing": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+        "apiDocs": "https://api-docs.deepseek.com/zh-cn/",
+        "openclawGuide": "https://www.notion.so/sitinme/6-304489879d7b81809b2bcf477f4676ba",
+        "website": "https://www.deepseek.com/?via=invadeai"
+      }
     },
     {
       "id": "kimi",
@@ -1945,7 +1985,15 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://www.kimi.com/websites",
+        "apiPricing": "https://platform.kimi.com/docs/pricing/chat",
+        "apiDocs": "https://platform.kimi.com/docs/overview",
+        "codingPlan": "https://www.kimi.com/code?track_id=f08ed765-c5b6-436a-ad28-9f97784c6fcd",
+        "openclawGuide": "https://platform.kimi.com/docs/guide/use-kimi-in-openclaw",
+        "website": "https://www.moonshot.cn/"
+      }
     },
     {
       "id": "doubao",
@@ -2108,7 +2156,14 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://www.doubao.com/chat/",
+        "apiPricing": "https://www.volcengine.com/docs/82379/1544106?lang=zh",
+        "codingPlan": "https://www.volcengine.com/activity/codingplan?ac=MMAP8JTTCAQ2&rc=CD3TAS2T",
+        "openclawGuide": "https://www.volcengine.com/docs/82379/2183190?lang=zh",
+        "website": "https://www.volcengine.com/"
+      }
     },
     {
       "id": "ernie",
@@ -2273,7 +2328,14 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://yiyan.baidu.com/",
+        "apiPricing": "https://cloud.baidu.com/doc/qianfan/s/wmh4sv6ya",
+        "codingPlan": "https://console.bce.baidu.com/qianfan/resource/subscribe",
+        "openclawGuide": "https://cloud.baidu.com/doc/qianfan/s/Rmn2ms2nm",
+        "website": "https://cloud.baidu.com/"
+      }
     },
     {
       "id": "minimax",
@@ -2435,7 +2497,15 @@
             ]
           }
         }
-      ]
+      ],
+      "links": {
+        "chatPlatform": "https://agent.minimaxi.com/",
+        "apiPricing": "https://platform.minimaxi.com/docs/guides/pricing-paygo",
+        "apiDocs": "https://platform.minimaxi.com/docs/guides/models-intro",
+        "codingPlan": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
+        "openclawGuide": "https://platform.minimaxi.com/docs/token-plan/openclaw",
+        "website": "https://www.minimaxi.com/"
+      }
     }
   ]
 }
