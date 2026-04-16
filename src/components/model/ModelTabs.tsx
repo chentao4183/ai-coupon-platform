@@ -272,13 +272,13 @@ function SpecsTab({ model }: { model: RModel }) {
                 <span
                   className={
                     isBest
-                      ? "font-semibold text-emerald-600 dark:text-emerald-400"
+                      ? "font-semibold text-apple-accent"
                       : ""
                   }
                 >
                   {formatContextLength(v.contextLength)}
                   {isBest && (
-                    <span className="ml-1 text-xs text-emerald-600 dark:text-emerald-400">
+                    <span className="ml-1 text-xs text-apple-accent">
                       最优
                     </span>
                   )}
@@ -342,7 +342,7 @@ function ComplianceTab({ model }: { model: RModel }) {
             <ul className="space-y-1.5">
               {model.compliance!.map((c) => (
                 <li key={c} className="flex items-center gap-2 text-sm">
-                  <span className="size-1.5 rounded-full bg-emerald-500 shrink-0" />
+                  <span className="size-1.5 rounded-full bg-apple-accent shrink-0" />
                   {c}
                 </li>
               ))}

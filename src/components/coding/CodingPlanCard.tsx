@@ -33,7 +33,7 @@ const TIER_STYLES: Record<string, { label: string; className: string }> = {
   },
   max: {
     label: "Max",
-    className: "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300",
+    className: "bg-apple-accent/10 text-apple-accent",
   },
   ultra: {
     label: "Ultra",
@@ -131,7 +131,7 @@ export function CodingPlanCard({ plan }: CodingPlanCardProps) {
         {/* Quota */}
         <div className="rounded-lg border border-border/50 bg-muted/30 p-3">
           <div className="flex items-center gap-1.5 mb-1.5">
-            <Zap className="size-3.5 text-amber-500" />
+            <Zap className="size-3.5 text-apple-accent" />
             <span className="text-xs font-medium text-foreground">配额</span>
           </div>
           <p className="text-sm text-muted-foreground">

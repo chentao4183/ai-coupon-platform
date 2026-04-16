@@ -13,9 +13,32 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI模型比价 - 一站式大模型套餐对比平台",
+  title: {
+    default: "AIdeals - AI 模型价格与能力全景对比",
+    template: "%s | AIdeals",
+  },
   description:
-    "全面对比国内外主流AI大模型的定价方案，包括GPT、Claude、Gemini、GLM、通义千问等，帮助您找到最具性价比的AI模型方案。",
+    "一站式 AI 大模型定价对比平台，覆盖 Claude、GPT、Gemini、GLM、DeepSeek 等主流模型。编程套餐订阅与 API 按量付费双维度对比，帮助开发者和企业找到最优方案。",
+  keywords: [
+    "AI模型比价",
+    "Claude价格",
+    "GPT价格",
+    "Gemini价格",
+    "AI编程套餐",
+    "API定价对比",
+    "大模型成本",
+    "DeepSeek",
+    "GLM",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "zh_CN",
+    siteName: "AIdeals",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

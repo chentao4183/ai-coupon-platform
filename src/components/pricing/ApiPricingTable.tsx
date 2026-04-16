@@ -16,19 +16,19 @@ import { Info, ChevronDown, ChevronUp, Sparkles } from "lucide-react";
 const TIER_BADGES: Record<string, { label: string; className: string }> = {
   free: {
     label: "免费",
-    className: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300",
+    className: "bg-apple-accent/10 text-apple-accent",
   },
   "cost-effective": {
     label: "经济",
-    className: "bg-sky-100 text-sky-700 dark:bg-sky-900 dark:text-sky-300",
+    className: "bg-apple-surface-elevated text-apple-text-secondary",
   },
   standard: {
     label: "标准",
-    className: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
+    className: "bg-apple-surface-elevated text-apple-text-secondary",
   },
   flagship: {
     label: "旗舰",
-    className: "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300",
+    className: "bg-apple-accent/10 text-apple-accent",
   },
 };
 
@@ -44,17 +44,17 @@ export function ApiPricingTable({ rows }: ApiPricingTableProps) {
   };
 
   return (
-    <div className="overflow-x-auto rounded-lg border border-border/60">
+    <div className="overflow-x-auto rounded-xl">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-border/60 bg-muted/40">
-            <th className="px-4 py-3 text-left font-medium text-muted-foreground text-xs uppercase tracking-wide">
+          <tr className="border-b border-apple-divider bg-apple-surface-elevated">
+            <th className="px-4 py-3 text-left label-text text-apple-text-tertiary">
               模型
             </th>
-            <th className="px-4 py-3 text-left font-medium text-muted-foreground text-xs uppercase tracking-wide">
+            <th className="px-4 py-3 text-left label-text text-apple-text-tertiary">
               厂商
             </th>
-            <th className="px-4 py-3 text-right font-medium text-muted-foreground text-xs uppercase tracking-wide whitespace-nowrap">
+            <th className="px-4 py-3 text-right label-text text-apple-text-tertiary whitespace-nowrap">
               输入价
               <Tooltip>
                 <TooltipTrigger>
@@ -63,7 +63,7 @@ export function ApiPricingTable({ rows }: ApiPricingTableProps) {
                 <TooltipContent>每百万 Token 输入价格（统一换算 USD）</TooltipContent>
               </Tooltip>
             </th>
-            <th className="px-4 py-3 text-right font-medium text-muted-foreground text-xs uppercase tracking-wide whitespace-nowrap">
+            <th className="px-4 py-3 text-right label-text text-apple-text-tertiary whitespace-nowrap">
               输出价
               <Tooltip>
                 <TooltipTrigger>
@@ -72,16 +72,16 @@ export function ApiPricingTable({ rows }: ApiPricingTableProps) {
                 <TooltipContent>每百万 Token 输出价格（统一换算 USD）</TooltipContent>
               </Tooltip>
             </th>
-            <th className="px-4 py-3 text-right font-medium text-muted-foreground text-xs uppercase tracking-wide whitespace-nowrap">
+            <th className="px-4 py-3 text-right label-text text-apple-text-tertiary whitespace-nowrap">
               缓存价
             </th>
-            <th className="px-4 py-3 text-center font-medium text-muted-foreground text-xs uppercase tracking-wide">
+            <th className="px-4 py-3 text-center label-text text-apple-text-tertiary">
               等级
             </th>
-            <th className="px-4 py-3 text-center font-medium text-muted-foreground text-xs uppercase tracking-wide">
+            <th className="px-4 py-3 text-center label-text text-apple-text-tertiary">
               上下文
             </th>
-            <th className="px-4 py-3 text-center font-medium text-muted-foreground text-xs uppercase tracking-wide whitespace-nowrap">
+            <th className="px-4 py-3 text-center label-text text-apple-text-tertiary whitespace-nowrap">
               <Tooltip>
                 <TooltipTrigger>
                   综合评分
@@ -90,7 +90,7 @@ export function ApiPricingTable({ rows }: ApiPricingTableProps) {
                 <TooltipContent>MMLU 综合知识评测分数</TooltipContent>
               </Tooltip>
             </th>
-            <th className="px-4 py-3 text-center font-medium text-muted-foreground text-xs uppercase tracking-wide w-8">
+            <th className="px-4 py-3 text-center label-text text-apple-text-tertiary w-8">
             </th>
           </tr>
         </thead>
@@ -103,14 +103,14 @@ export function ApiPricingTable({ rows }: ApiPricingTableProps) {
             const mainRow = (
               <tr
                 key={row.id}
-                className={`border-b border-border/40 transition-colors hover:bg-muted/30 ${
-                  isFree ? "bg-emerald-50/50 dark:bg-emerald-950/20" : ""
-                } ${idx % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
+                className={`border-b border-apple-divider transition-colors hover:bg-apple-surface-elevated ${
+                  isFree ? "bg-apple-accent/[0.03]" : ""
+                }`}
               >
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-2">
                     {row.popular && (
-                      <Sparkles className="size-3 text-amber-500 shrink-0" />
+                      <Sparkles className="size-3 text-apple-accent shrink-0" />
                     )}
                     <div>
                       <div className="font-medium text-foreground whitespace-nowrap">
@@ -154,7 +154,7 @@ export function ApiPricingTable({ rows }: ApiPricingTableProps) {
                 </td>
                 <td className="px-4 py-3 text-right">
                   {row.cacheHitPrice != null ? (
-                    <span className="text-sm text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
+                    <span className="text-sm text-apple-accent whitespace-nowrap">
                       {formatApiPrice(row.cacheHitPrice, row.currency)}
                     </span>
                   ) : (
@@ -209,7 +209,7 @@ export function ApiPricingTable({ rows }: ApiPricingTableProps) {
 
             return [
               mainRow,
-              <tr key={`${row.id}-detail`} className="bg-muted/20">
+              <tr key={`${row.id}-detail`} className="bg-apple-surface-elevated/50">
                 <td colSpan={9} className="px-6 py-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -250,7 +250,7 @@ export function ApiPricingTable({ rows }: ApiPricingTableProps) {
                                 key={i}
                                 className="text-sm text-muted-foreground flex items-center gap-1.5"
                               >
-                                <span className="size-1 rounded-full bg-amber-400/60 shrink-0" />
+                                <span className="size-1 rounded-full bg-apple-accent/60 shrink-0" />
                                 {r}
                               </li>
                             ))}

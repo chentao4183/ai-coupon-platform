@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* shadcn 语义色 */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -46,93 +47,216 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Apple 设计扩展色 */
+  --color-apple-accent: var(--apple-accent);
+  --color-apple-link: var(--apple-link);
+  --color-apple-text-secondary: var(--apple-text-secondary);
+  --color-apple-text-tertiary: var(--apple-text-tertiary);
+  --color-apple-surface: var(--apple-surface);
+  --color-apple-surface-elevated: var(--apple-surface-elevated);
+  --color-apple-divider: var(--apple-divider);
 }
 
+/* ========== 亮色模式 ========== */
 :root {
-  --background: oklch(0.98 0.005 270);
-  --foreground: oklch(0.18 0.02 270);
-  --card: oklch(0.995 0.002 270);
-  --card-foreground: oklch(0.18 0.02 270);
-  --popover: oklch(0.995 0.002 270);
-  --popover-foreground: oklch(0.18 0.02 270);
-  --primary: oklch(0.55 0.2 270);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.94 0.02 270);
-  --secondary-foreground: oklch(0.25 0.02 270);
-  --muted: oklch(0.95 0.01 270);
-  --muted-foreground: oklch(0.50 0.02 270);
-  --accent: oklch(0.93 0.03 270);
-  --accent-foreground: oklch(0.25 0.02 270);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.90 0.015 270);
-  --input: oklch(0.90 0.015 270);
-  --ring: oklch(0.55 0.2 270);
-  --chart-1: oklch(0.65 0.2 270);
-  --chart-2: oklch(0.60 0.15 200);
-  --chart-3: oklch(0.55 0.18 300);
-  --chart-4: oklch(0.70 0.15 160);
-  --chart-5: oklch(0.50 0.10 30);
+  /* Apple 原始色值 */
+  --apple-bg: #f5f5f7;
+  --apple-text: #1d1d1f;
+  --apple-accent: #0a84ff;
+  --apple-link: #0066cc;
+  --apple-text-secondary: rgba(0, 0, 0, 0.8);
+  --apple-text-tertiary: rgba(0, 0, 0, 0.48);
+  --apple-surface: #ffffff;
+  --apple-surface-elevated: #ffffff;
+  --apple-nav-bg: rgba(255, 255, 255, 0.72);
+  --apple-divider: rgba(0, 0, 0, 0.08);
+
+  /* shadcn 语义映射 → Apple 色值 */
+  --background: var(--apple-bg);
+  --foreground: var(--apple-text);
+  --card: var(--apple-surface);
+  --card-foreground: var(--apple-text);
+  --popover: var(--apple-surface);
+  --popover-foreground: var(--apple-text);
+  --primary: var(--apple-accent);
+  --primary-foreground: #ffffff;
+  --secondary: #e8e8ed;
+  --secondary-foreground: var(--apple-text);
+  --muted: #e8e8ed;
+  --muted-foreground: var(--apple-text-tertiary);
+  --accent: rgba(0, 0, 0, 0.04);
+  --accent-foreground: var(--apple-text);
+  --destructive: #ff3b30;
+  --border: var(--apple-divider);
+  --input: rgba(0, 0, 0, 0.08);
+  --ring: var(--apple-accent);
+
+  /* 图表色（中性灰阶） */
+  --chart-1: #1d1d1f;
+  --chart-2: #6e6e73;
+  --chart-3: #86868b;
+  --chart-4: #aeaeb2;
+  --chart-5: #d2d2d7;
+
   --radius: 0.75rem;
-  --sidebar: oklch(0.98 0.005 270);
-  --sidebar-foreground: oklch(0.18 0.02 270);
-  --sidebar-primary: oklch(0.55 0.2 270);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.94 0.02 270);
-  --sidebar-accent-foreground: oklch(0.25 0.02 270);
-  --sidebar-border: oklch(0.90 0.015 270);
-  --sidebar-ring: oklch(0.55 0.2 270);
+
+  /* 侧边栏 */
+  --sidebar: var(--apple-bg);
+  --sidebar-foreground: var(--apple-text);
+  --sidebar-primary: var(--apple-accent);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8e8ed;
+  --sidebar-accent-foreground: var(--apple-text);
+  --sidebar-border: var(--apple-divider);
+  --sidebar-ring: var(--apple-accent);
+
+  /* T2 排版系统 */
+  --text-hero: 56px;
+  --text-hero-weight: 600;
+  --text-hero-line-height: 1.07;
+  --text-hero-tracking: -0.015em;
+
+  --text-section: 40px;
+  --text-section-weight: 600;
+  --text-section-line-height: 1.10;
+  --text-section-tracking: -0.012em;
+
+  --text-card: 28px;
+  --text-card-weight: 400;
+  --text-card-line-height: 1.14;
+  --text-card-tracking: -0.01em;
+
+  --text-body: 17px;
+  --text-body-weight: 400;
+  --text-body-line-height: 1.47;
+  --text-body-tracking: -0.022em;
+
+  --text-label: 12px;
+  --text-label-weight: 600;
+  --text-label-tracking: 0.06em;
+
+  --text-caption: 14px;
+  --text-caption-weight: 400;
+  --text-caption-line-height: 1.29;
+
+  /* T4 间距系统 */
+  --section-spacing: 100px;
+  --content-max-width: 980px;
+  --card-padding: 24px;
 }
 
+/* ========== 暗色模式 ========== */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Apple 暗色原始色值 */
+  --apple-bg: #000000;
+  --apple-text: #ffffff;
+  --apple-accent: #0a84ff;
+  --apple-link: #2997ff;
+  --apple-text-secondary: rgba(255, 255, 255, 0.8);
+  --apple-text-tertiary: rgba(255, 255, 255, 0.48);
+  --apple-surface: #1c1c1e;
+  --apple-surface-elevated: #2c2c2e;
+  --apple-nav-bg: rgba(0, 0, 0, 0.72);
+  --apple-divider: rgba(255, 255, 255, 0.08);
+
+  /* shadcn 语义映射 → Apple 暗色 */
+  --background: var(--apple-bg);
+  --foreground: var(--apple-text);
+  --card: var(--apple-surface);
+  --card-foreground: var(--apple-text);
+  --popover: var(--apple-surface);
+  --popover-foreground: var(--apple-text);
+  --primary: var(--apple-accent);
+  --primary-foreground: #ffffff;
+  --secondary: #2c2c2e;
+  --secondary-foreground: #ffffff;
+  --muted: #2c2c2e;
+  --muted-foreground: var(--apple-text-tertiary);
+  --accent: rgba(255, 255, 255, 0.08);
+  --accent-foreground: #ffffff;
+  --destructive: #ff453a;
+  --border: var(--apple-divider);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: var(--apple-accent);
+
+  /* 图表色（暗色灰阶） */
+  --chart-1: #ffffff;
+  --chart-2: #aeaeb2;
+  --chart-3: #86868b;
+  --chart-4: #6e6e73;
+  --chart-5: #48484a;
+
+  /* 侧边栏 */
+  --sidebar: var(--apple-surface);
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: var(--apple-accent);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2c2c2e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: var(--apple-divider);
+  --sidebar-ring: var(--apple-accent);
 }
 
+/* ========== 基础层 ========== */
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    font-size: var(--text-body);
+    font-weight: var(--text-body-weight);
+    line-height: var(--text-body-line-height);
+    letter-spacing: var(--text-body-tracking);
   }
   html {
     @apply font-sans;
   }
 }
 
-/* Design system utility classes */
+/* ========== 工具类 ========== */
 
-/* Smooth transitions for interactive elements */
+/* Apple 排版系统 */
 @layer utilities {
+  .heading-hero {
+    font-size: var(--text-hero);
+    font-weight: var(--text-hero-weight);
+    line-height: var(--text-hero-line-height);
+    letter-spacing: var(--text-hero-tracking);
+  }
+  .heading-section {
+    font-size: var(--text-section);
+    font-weight: var(--text-section-weight);
+    line-height: var(--text-section-line-height);
+    letter-spacing: var(--text-section-tracking);
+  }
+  .heading-card {
+    font-size: var(--text-card);
+    font-weight: var(--text-card-weight);
+    line-height: var(--text-card-line-height);
+    letter-spacing: var(--text-card-tracking);
+  }
+  .label-text {
+    font-size: var(--text-label);
+    font-weight: var(--text-label-weight);
+    letter-spacing: var(--text-label-tracking);
+    text-transform: uppercase;
+  }
+  .caption-text {
+    font-size: var(--text-caption);
+    font-weight: var(--text-caption-weight);
+    line-height: var(--text-caption-line-height);
+  }
+
+  /* 毛玻璃导航栏 */
+  .nav-frosted {
+    background: var(--apple-nav-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  /* 交互元素过渡 */
   .transition-lift {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -142,7 +266,9 @@
   }
 }
 
-/* Dark mode badge adjustments */
+/* ========== 组件样式 ========== */
+
+/* 暗色模式徽章适配（保留原有组件色） */
 .dark .border-emerald-200 {
   border-color: oklch(0.6 0.1 160);
 }
@@ -171,7 +297,7 @@
   color: oklch(0.7 0.15 290);
 }
 
-/* Nav link hover underline animation */
+/* 导航链接下划线动画 */
 .nav-link {
   position: relative;
 }
@@ -191,7 +317,7 @@
   left: 20%;
 }
 
-/* Card hover lift effect */
+/* 卡片悬停效果 */
 .card-hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -199,7 +325,7 @@
   transform: translateY(-2px);
 }
 
-/* Filter button press effect */
+/* 筛选按钮按压效果 */
 .filter-btn {
   transition: transform 0.1s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
@@ -207,7 +333,7 @@
   transform: scale(0.97);
 }
 
-/* Fade in animation for page content */
+/* 页面内容淡入动画 */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -223,7 +349,7 @@
   animation: fadeInUp 0.5s ease-out forwards;
 }
 
-/* Stagger children fade-in */
+/* 子元素交错淡入 */
 .stagger-fade-in > * {
   opacity: 0;
   animation: fadeInUp 0.4s ease-out forwards;

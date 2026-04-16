@@ -2,10 +2,38 @@
 
 import { useMemo } from "react";
 import { getAllCodingPlans } from "@/lib/coding-plans";
-import { Code2, ExternalLink } from "lucide-react";
-import Link from "next/link";
+import { Code2, ExternalLink, Zap, TrendingDown, ChevronRight } from "lucide-react";
 
 const allPlans = getAllCodingPlans();
+
+/** 首月特惠套餐 — discount 包含"首月"关键词 */
+const firstMonthPlans = allPlans.filter(
+  (p) => p.pricing.discount && p.pricing.discount.includes("首月")
+);
+
+function normalizeToCNY(plan: (typeof allPlans)[number]): number {
+  const monthly =
+    plan.pricing.period === "year"
+      ? plan.pricing.price / 12
+      : plan.pricing.price;
+  return plan.pricing.currency === "USD" ? monthly * 7.25 : monthly;
+}
+
+/** 各厂商 Pro 档位 — 用于快速对比表（取每个 providerId 的 pro tier，优先 popular） */
+function getProPlansForComparison() {
+  const map = new Map<string, (typeof allPlans)[number]>();
+  for (const p of allPlans) {
+    if (p.tier === "pro") {
+      const existing = map.get(p.providerId);
+      if (!existing || (p.popular && !existing.popular)) {
+        map.set(p.providerId, p);
+      }
+    }
+  }
+  return Array.from(map.values()).sort(
+    (a, b) => normalizeToCNY(a) - normalizeToCNY(b)
+  );
+}
 
 interface ProviderGroup {
   providerId: string;
@@ -54,13 +82,6 @@ const TIER_LABELS: Record<string, string> = {
   ultra: "Ultra",
 };
 
-const TIER_CLASS: Record<string, string> = {
-  lite: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
-  pro: "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300",
-  max: "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300",
-  ultra: "bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300",
-};
-
 function formatPrice(plan: (typeof allPlans)[number]): string {
   if (plan.pricing.currency === "USD") {
     const cny = Math.round(plan.pricing.price * 7.25);
@@ -71,61 +92,70 @@ function formatPrice(plan: (typeof allPlans)[number]): string {
 
 export default function CodingPlansPage() {
   const providers = useMemo(() => groupByProvider(allPlans), []);
+  const proPlans = useMemo(() => getProPlansForComparison(), []);
 
+  // coding 页面使用更宽的布局
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" style={{ "--coding-max-width": "1280px" } as React.CSSProperties}>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border/60 bg-gradient-to-b from-primary/[0.04] via-background to-background">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-20%,var(--color-primary)/0.08,transparent)]" />
-        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6 sm:pb-14 sm:pt-18 text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-5">
+      <section className="bg-[#000000]">
+        <div className="mx-auto flex min-h-[420px] max-w-[var(--coding-max-width)] flex-col items-center justify-center px-6 py-20 text-center sm:min-h-[480px] sm:py-28">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80 mb-6">
             <Code2 className="size-3" />
             <span>{allPlans.length} 个套餐 · {providers.length} 家厂商</span>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h1 className="heading-hero text-white">
             AI 编程套餐
-            <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent"> 横向对比</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-base text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-xl text-[21px] font-normal leading-relaxed text-white/80">
             按厂商分类，一行一个套餐，配额与价格一目了然
           </p>
         </div>
       </section>
 
+      {/* 首月特惠 */}
+      {firstMonthPlans.length > 0 && <FirstMonthDeals plans={firstMonthPlans} />}
+
+      {/* 快速对比表 */}
+      <QuickComparisonTable plans={proPlans} />
+
       {/* Provider Sections */}
-      <section className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
-        <div className="space-y-8">
+      <section className="mx-auto w-full px-4 py-8 sm:px-6 sm:py-10" style={{ maxWidth: "var(--coding-max-width)" }}>
+        <div className="space-y-10">
           {providers.map((group) => (
             <ProviderSection key={group.providerId} group={group} />
           ))}
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQSection />
     </div>
   );
 }
 
 function ProviderSection({ group }: { group: ProviderGroup }) {
   return (
-    <div className="rounded-2xl border border-border/60 bg-card overflow-hidden">
-      {/* Provider Header */}
-      <div className="px-5 py-4 border-b border-border/50 bg-muted/20">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div className="rounded-2xl bg-apple-surface overflow-hidden">
+      {/* Provider Header — T8: 28px name, caption meta, pill buy button */}
+      <div className="px-6 py-5 sm:px-8 sm:py-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           {/* Left: logo + name + meta */}
-          <div className="flex items-center gap-3 min-w-0">
+          <div className="flex items-center gap-4 min-w-0">
             <img
               src={group.providerLogo}
               alt={group.providerName}
-              width={36}
-              height={36}
-              className="size-9 shrink-0 rounded-full object-contain bg-muted/50"
+              width={40}
+              height={40}
+              className="size-10 shrink-0 rounded-full object-contain bg-apple-surface-elevated"
             />
             <div className="min-w-0">
-              <h2 className="text-lg font-semibold text-foreground leading-tight">
+              <h2 className="heading-card font-semibold text-foreground">
                 {group.providerName}
               </h2>
-              <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                <span className="inline-flex items-center gap-1">
-                  模型: {group.models.slice(0, 4).join("、")}
+              <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 caption-text text-apple-text-tertiary">
+                <span>
+                  {group.models.slice(0, 4).join("、")}
                   {group.models.length > 4 && ` +${group.models.length - 4}`}
                 </span>
                 <span>·</span>
@@ -138,17 +168,17 @@ function ProviderSection({ group }: { group: ProviderGroup }) {
 
           {/* Right: tools + buy link */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="hidden md:flex flex-wrap gap-1 max-w-[280px]">
+            <div className="hidden lg:flex flex-wrap gap-1.5 max-w-[300px]">
               {group.supportedTools.slice(0, 6).map((tool) => (
                 <span
                   key={tool}
-                  className="inline-flex items-center rounded-md bg-muted/60 px-1.5 py-0.5 text-[11px] text-muted-foreground"
+                  className="inline-flex items-center rounded-full bg-apple-surface-elevated px-2 py-0.5 text-[11px] text-apple-text-tertiary"
                 >
                   {tool}
                 </span>
               ))}
               {group.supportedTools.length > 6 && (
-                <span className="text-[11px] text-muted-foreground">
+                <span className="text-[11px] text-apple-text-tertiary">
                   +{group.supportedTools.length - 6}
                 </span>
               )}
@@ -157,7 +187,7 @@ function ProviderSection({ group }: { group: ProviderGroup }) {
               href={group.buyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex items-center gap-1.5 rounded-full bg-apple-accent px-4 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-85"
             >
               前往购买
               <ExternalLink className="size-3" />
@@ -166,16 +196,15 @@ function ProviderSection({ group }: { group: ProviderGroup }) {
         </div>
       </div>
 
-      {/* Plans Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-border/50 text-xs text-muted-foreground">
-              <th className="px-5 py-2.5 text-left font-medium w-[90px]">档位</th>
-              <th className="px-5 py-2.5 text-left font-medium">配额</th>
-              <th className="px-5 py-2.5 text-left font-medium hidden sm:table-cell">等效用量</th>
-              <th className="px-5 py-2.5 text-left font-medium hidden lg:table-cell">亮点</th>
-              <th className="px-5 py-2.5 text-right font-medium w-[140px]">价格</th>
+      {/* Plans Table — T7: clean Apple table */}
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="label-text text-apple-text-tertiary">
+            <th className="px-6 py-3 text-left sm:px-8 w-[90px]">档位</th>
+            <th className="px-6 py-3 text-left sm:px-8 whitespace-nowrap">配额</th>
+            <th className="px-6 py-3 text-left sm:px-8 whitespace-nowrap">等效用量</th>
+            <th className="px-6 py-3 text-left sm:px-8 whitespace-nowrap">亮点</th>
+            <th className="px-6 py-3 text-right sm:px-8 w-[140px]">价格</th>
             </tr>
           </thead>
           <tbody>
@@ -189,7 +218,6 @@ function ProviderSection({ group }: { group: ProviderGroup }) {
             ))}
           </tbody>
         </table>
-      </div>
     </div>
   );
 }
@@ -204,70 +232,309 @@ function PlanRow({
   defaultModelsNote: string;
 }) {
   const tierLabel = TIER_LABELS[plan.tier] || plan.tier;
-  const tierClass = TIER_CLASS[plan.tier] || TIER_CLASS.pro;
 
   return (
     <tr
-      className={`border-b border-border/30 transition-colors hover:bg-muted/20 ${
+      className={`border-b border-apple-divider transition-colors hover:bg-apple-surface-elevated ${
         isLast ? "border-b-0" : ""
-      } ${plan.popular ? "bg-primary/[0.03]" : ""}`}
+      }`}
     >
       {/* Tier */}
-      <td className="px-5 py-3">
-        <span
-          className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold ${tierClass}`}
-        >
-          {tierLabel}
-        </span>
-        {plan.popular && (
-          <span className="ml-1.5 text-[10px] font-medium text-primary">
-            热门
+      <td className="px-6 py-3.5 sm:px-8">
+        <div className="flex items-center gap-1.5">
+          <span className="inline-flex items-center rounded-full bg-apple-accent/10 px-2 py-0.5 text-xs font-semibold text-apple-accent">
+            {tierLabel}
           </span>
-        )}
+          {plan.popular && (
+            <span className="inline-flex items-center rounded-full bg-apple-accent/10 px-1.5 py-0.5 text-[10px] font-medium text-apple-accent">
+              热门
+            </span>
+          )}
+        </div>
       </td>
 
       {/* Quota */}
-      <td className="px-5 py-3 text-muted-foreground">
-        <span className="text-foreground font-medium">
+      <td className="px-6 py-3.5 sm:px-8 whitespace-nowrap">
+        <span className="font-medium text-foreground">
           {plan.quota.promptsPer5h
             ? `${plan.quota.promptsPer5h.toLocaleString()} 次/5h`
             : plan.quota.description.split("，")[0]}
         </span>
         {plan.quota.promptsPerWeek && (
-          <span className="ml-2 text-xs text-muted-foreground">
+          <span className="ml-2 caption-text text-apple-text-tertiary">
             {plan.quota.promptsPerWeek.toLocaleString()} 次/周
           </span>
         )}
       </td>
 
       {/* Claude Equivalent */}
-      <td className="px-5 py-3 text-muted-foreground hidden sm:table-cell">
+      <td className="px-6 py-3.5 caption-text text-apple-text-tertiary sm:px-8 whitespace-nowrap">
         {plan.claudeProEquivalent}
       </td>
 
       {/* Highlights */}
-      <td className="px-5 py-3 hidden lg:table-cell">
+      <td className="px-6 py-3.5 sm:px-8 whitespace-nowrap">
         {plan.pricing.discount ? (
-          <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+          <span className="inline-flex items-center rounded-full bg-apple-accent/10 px-2 py-0.5 text-xs font-medium text-apple-accent">
             {plan.pricing.discount}
           </span>
         ) : plan.modelsNote && plan.modelsNote !== defaultModelsNote ? (
-          <span className="text-xs text-muted-foreground">
+          <span className="caption-text text-apple-text-tertiary">
             {plan.modelsNote}
           </span>
         ) : (
-          <span className="text-xs text-muted-foreground">
+          <span className="caption-text text-apple-text-tertiary">
             {plan.mcpFeatures[0]}
           </span>
         )}
       </td>
 
       {/* Price */}
-      <td className="px-5 py-3 text-right whitespace-nowrap">
-        <span className="text-base font-bold text-foreground">
+      <td className="px-6 py-3.5 text-right whitespace-nowrap sm:px-8">
+        <span className="text-base font-semibold text-apple-accent">
           {formatPrice(plan)}
         </span>
       </td>
     </tr>
+  );
+}
+
+/* ============================================================
+   首月特惠区域
+   ============================================================ */
+function FirstMonthDeals({ plans }: { plans: (typeof allPlans)[number][] }) {
+  return (
+    <section className="mx-auto w-full px-4 pt-8 sm:px-6 sm:pt-10" style={{ maxWidth: "var(--coding-max-width)" }}>
+      <div className="flex items-center gap-2 mb-5">
+        <div className="flex items-center gap-1.5 rounded-full bg-apple-accent/10 px-3 py-1 text-xs font-medium text-apple-accent">
+          <TrendingDown className="size-3" />
+          <span>首月特惠</span>
+        </div>
+        <span className="caption-text text-apple-text-tertiary">
+          {plans.length} 个套餐限时低价体验
+        </span>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        {plans.map((plan) => (
+          <a
+            key={plan.id}
+            href={plan.buyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-xl bg-apple-surface p-4 transition-colors hover:bg-apple-surface-elevated"
+          >
+            {/* Discount badge */}
+            <div className="absolute -top-2.5 right-3">
+              <span className="inline-flex items-center rounded-full bg-apple-accent px-2 py-0.5 text-[10px] font-semibold text-white">
+                {plan.pricing.discount?.match(/([\d.]+折)/)?.[0] || (plan.pricing.discount?.includes("半价") ? "半价" : "特惠")}
+              </span>
+            </div>
+
+            {/* Provider + name */}
+            <div className="flex items-center gap-2 mb-2.5">
+              <img
+                src={plan.providerLogo}
+                alt={plan.providerName}
+                width={24}
+                height={24}
+                className="size-6 shrink-0 rounded-full object-contain bg-apple-surface-elevated"
+              />
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-foreground truncate">
+                  {plan.providerName}
+                </p>
+                <p className="caption-text text-apple-text-tertiary">
+                  {plan.models[0]}
+                </p>
+              </div>
+            </div>
+
+            {/* Pricing */}
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-xl font-semibold text-foreground">
+                {(() => {
+                  const m = plan.pricing.discount?.match(/首月[仅]?[¥$]?([\d.]+)/);
+                  return m ? `¥${m[1]}` : formatPrice(plan);
+                })()}
+              </span>
+              {(() => {
+                const disc = plan.pricing.discount?.match(/([\d.]+折)/);
+                return disc ? (
+                  <span className="text-[10px] font-medium text-apple-accent ml-1">
+                    {disc[1]}
+                  </span>
+                ) : null;
+              })()}
+            </div>
+            <p className="caption-text text-apple-text-tertiary mt-0.5">
+              原价 {plan.pricing.currency === "CNY" ? "¥" : "$"}{plan.pricing.price}/月
+            </p>
+
+            {/* Quota hint */}
+            <p className="caption-text text-apple-text-tertiary mt-2 truncate">
+              {plan.quota.promptsPer5h
+                ? `${plan.quota.promptsPer5h} 次/5h`
+                : plan.quota.description.split("，")[0]}
+            </p>
+
+            {/* Arrow */}
+            <div className="flex items-center gap-1 mt-2 text-xs font-medium text-apple-accent opacity-0 group-hover:opacity-100 transition-opacity">
+              立即体验
+              <ChevronRight className="size-3" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   FAQ 模块
+   ============================================================ */
+const FAQ_ITEMS = [
+  {
+    q: "AI 编程套餐和普通 API 按量计费有什么区别？",
+    a: "编程套餐是月付订阅制，提供固定配额（如每 5 小时 N 次调用），适合日常编码使用，成本可预测。API 按量计费按实际 token 用量扣费，适合流量不固定或需要灵活扩缩的场景。如果你每天都在用 Claude Code、Cursor 等工具编程，套餐通常比按量便宜 3-5 倍。",
+  },
+  {
+    q: "\"等效用量\"是怎么算的？",
+    a: "以 Claude Pro（$20/月）为基准 1x，根据各套餐的实际配额换算。例如某套餐每 5 小时 400 次，约为 Claude Pro 的 5 倍，即 5x。这个数字仅供参考，实际体验还受模型质量、响应速度、上下文长度等因素影响。",
+  },
+  {
+    q: "支持哪些编程工具？",
+    a: "不同厂商支持的工具范围差异很大。国内厂商（如智谱、MiniMax）通常通过 OpenAI 兼容 API 接入，支持 Claude Code、Cursor、Windsurf、Cline、Aider 等主流工具。海外厂商（如 Anthropic、OpenAI）只支持自家工具。具体支持列表见各厂商详情。",
+  },
+  {
+    q: "国产模型的编程能力够用吗？",
+    a: "2025-2026 年国产模型进步很快。GLM-5、DeepSeek、Qwen 等在代码补全和简单重构上已经接近 GPT-4o 水平。但在复杂架构设计、多文件重构、长上下文推理等场景下，Claude 和 GPT 仍有优势。建议先用便宜的 Lite 档位试一试，再决定是否升级。",
+  },
+  {
+    q: "首月特惠靠谱吗？有什么坑？",
+    a: "火山引擎、阿里云、腾讯云等厂商的\"首月特惠\"是官方活动，可以放心购买。需要注意：1) 特惠价格仅限首月，次月恢复原价；2) 部分活动要求绑定手机号/实名认证；3) 取消订阅通常随时可以，不会自动续费扣款。建议先薅首月羊毛体验，满意再续。",
+  },
+  {
+    q: "如何选择适合自己的套餐？",
+    a: "三个维度：预算、使用强度、工具偏好。轻度使用（每天几小时）→ Lite 档 ¥29-49/月；日常开发（全职编程）→ Pro 档 ¥99-200/月；重度使用（多项目并行）→ Max 档 ¥119-725/月。如果不确定，先选最便宜的试一周。",
+  },
+];
+
+function FAQSection() {
+  return (
+    <section className="mx-auto w-full px-4 py-8 sm:px-6 sm:py-10 border-t border-apple-divider" style={{ maxWidth: "var(--coding-max-width)" }}>
+      <h2 className="heading-card font-semibold text-foreground mb-6">
+        常见问题
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
+        {FAQ_ITEMS.map((item, i) => (
+          <details
+            key={i}
+            className="group py-3 border-b border-apple-divider last:border-b-0"
+          >
+            <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-foreground hover:text-apple-accent transition-colors select-none list-none [&::-webkit-details-marker]:hidden">
+              <span>{item.q}</span>
+              <ChevronRight className="size-4 shrink-0 text-apple-text-tertiary transition-transform group-open:rotate-90 ml-3" />
+            </summary>
+            <p className="mt-2 caption-text text-apple-text-secondary" style={{ lineHeight: "1.6" }}>
+              {item.a}
+            </p>
+          </details>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   快速对比表 — 各厂商 Pro 档位一览
+   ============================================================ */
+function QuickComparisonTable({ plans }: { plans: (typeof allPlans)[number][] }) {
+  return (
+    <section className="mx-auto w-full px-4 py-8 sm:px-6 sm:py-10" style={{ maxWidth: "var(--coding-max-width)" }}>
+      <div className="flex items-center gap-2 mb-5">
+        <div className="flex items-center gap-1.5 rounded-full bg-apple-accent/10 px-3 py-1 text-xs font-medium text-apple-accent">
+          <Zap className="size-3" />
+          <span>快速对比</span>
+        </div>
+        <span className="caption-text text-apple-text-tertiary">
+          各厂商 Pro 档位核心参数一览
+        </span>
+      </div>
+
+      <div className="rounded-xl bg-apple-surface">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="label-text text-apple-text-tertiary">
+              <th className="px-5 py-3 text-left min-w-[120px]">厂商</th>
+              <th className="px-5 py-3 text-left">模型</th>
+              <th className="px-5 py-3 text-left">配额</th>
+              <th className="px-5 py-3 text-left">等效用量</th>
+              <th className="px-5 py-3 text-left">上下文</th>
+              <th className="px-5 py-3 text-right min-w-[100px]">价格</th>
+            </tr>
+          </thead>
+          <tbody>
+            {plans.map((plan) => (
+              <tr
+                key={plan.id}
+                className="border-b border-apple-divider last:border-b-0 transition-colors hover:bg-apple-surface-elevated"
+              >
+                {/* Provider */}
+                <td className="px-5 py-3">
+                  <div className="flex items-center gap-2">
+                    <img
+                      src={plan.providerLogo}
+                      alt={plan.providerName}
+                      width={20}
+                      height={20}
+                      className="size-5 shrink-0 rounded-full object-contain bg-apple-surface-elevated"
+                    />
+                    <span className="text-sm font-medium text-foreground whitespace-nowrap">
+                      {plan.providerName}
+                    </span>
+                    {plan.popular && (
+                      <span className="inline-flex items-center rounded-full bg-apple-accent/10 px-1.5 py-0.5 text-[10px] font-medium text-apple-accent">热门</span>
+                    )}
+                  </div>
+                </td>
+
+                {/* Models */}
+                <td className="px-5 py-3 caption-text text-apple-text-tertiary">
+                  {plan.models.slice(0, 2).join("、")}
+                  {plan.models.length > 2 && ` +${plan.models.length - 2}`}
+                </td>
+
+                {/* Quota */}
+                <td className="px-5 py-3 caption-text text-apple-text-tertiary whitespace-nowrap">
+                  {plan.quota.promptsPer5h
+                    ? `${plan.quota.promptsPer5h.toLocaleString()} 次/5h`
+                    : plan.quota.description.split("，")[0]}
+                </td>
+
+                {/* Equivalent */}
+                <td className="px-5 py-3 caption-text text-apple-text-tertiary">
+                  {plan.claudeProEquivalent}
+                </td>
+
+                {/* Context */}
+                <td className="px-5 py-3 caption-text text-apple-text-tertiary">
+                  {plan.contextLength}
+                </td>
+
+                {/* Price */}
+                <td className="px-5 py-3 text-right whitespace-nowrap">
+                  <span className="text-sm font-semibold text-apple-accent">
+                    {formatPrice(plan)}
+                  </span>
+                  {plan.pricing.discount && (
+                    <p className="text-[10px] text-apple-accent/70 truncate">{plan.pricing.discount}</p>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 }

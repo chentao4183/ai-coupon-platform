@@ -196,7 +196,7 @@ export default function ComparePage() {
               <span
                 className={
                   isBest
-                    ? "font-semibold text-emerald-600 dark:text-emerald-400"
+                    ? "font-semibold text-apple-accent"
                     : ""
                 }
               >
@@ -205,7 +205,7 @@ export default function ComparePage() {
               {isBest && (
                 <Badge
                   variant="outline"
-                  className="text-xs text-emerald-600 border-emerald-300 dark:text-emerald-400 dark:border-emerald-700"
+                  className="text-xs text-apple-accent border-apple-accent/30"
                 >
                   最优
                 </Badge>
@@ -225,7 +225,7 @@ export default function ComparePage() {
               <span
                 className={
                   isBest
-                    ? "font-semibold text-emerald-600 dark:text-emerald-400"
+                    ? "font-semibold text-apple-accent"
                     : ""
                 }
               >
@@ -234,7 +234,7 @@ export default function ComparePage() {
               {isBest && (
                 <Badge
                   variant="outline"
-                  className="text-xs text-emerald-600 border-emerald-300 dark:text-emerald-400 dark:border-emerald-700"
+                  className="text-xs text-apple-accent border-apple-accent/30"
                 >
                   最优
                 </Badge>
@@ -260,7 +260,7 @@ export default function ComparePage() {
             Infinity
           );
           return (
-            <span className="text-emerald-600 dark:text-emerald-400 text-sm">
+            <span className="text-apple-accent text-sm">
               {formatPrice(cheapest, plans[0].pricing.currency)}/1M
             </span>
           );
@@ -385,7 +385,7 @@ export default function ComparePage() {
   }, [rows, models]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
+    <div className="mx-auto max-w-[var(--content-max-width)] px-6 py-8 sm:px-8 sm:py-12">
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
@@ -397,7 +397,7 @@ export default function ComparePage() {
             返回首页
           </Link>
         </div>
-        <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <h1 className="heading-section">
           模型对比
         </h1>
         <p className="mt-1 text-muted-foreground">
@@ -482,7 +482,7 @@ export default function ComparePage() {
           请至少选择 2 个模型进行对比
         </div>
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-border/60">
+        <div className="overflow-x-auto rounded-xl">
         <Table>
           <TableHeader>
             <TableRow>
@@ -533,7 +533,7 @@ export default function ComparePage() {
                         key={`${m.id}-${row.label}`}
                         className={`text-center ${
                           isBestCell
-                            ? "bg-emerald-50/50 dark:bg-emerald-950/20"
+                            ? "bg-apple-accent/[0.05]"
                             : ""
                         }`}
                       >

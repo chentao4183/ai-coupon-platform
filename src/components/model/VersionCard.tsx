@@ -43,7 +43,7 @@ function PricingPlanRow({ plan }: { plan: RPlan }) {
         {plan.popular && (
           <Badge
             variant="outline"
-            className="text-xs border-amber-300 text-amber-700 dark:border-amber-600 dark:text-amber-400"
+            className="text-xs border-apple-accent/30 text-apple-accent"
           >
             热门
           </Badge>
@@ -90,8 +90,8 @@ function PricingPlanRow({ plan }: { plan: RPlan }) {
       {/* Cache price */}
       {plan.pricing.cacheHitPrice !== undefined &&
         plan.pricing.cacheHitPrice > 0 && (
-          <div className="rounded-md bg-emerald-50 px-2 py-1 dark:bg-emerald-950/40">
-            <span className="text-xs text-emerald-700 dark:text-emerald-400">
+          <div className="rounded-md bg-apple-accent/10 px-2 py-1">
+            <span className="text-xs text-apple-accent">
               缓存命中:{" "}
               {formatPrice(plan.pricing.cacheHitPrice, plan.pricing.currency)}{" "}
               /1M tokens

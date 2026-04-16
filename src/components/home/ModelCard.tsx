@@ -2,29 +2,14 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { getCompanyById } from "@/lib/data";
-
-const COMPANY_COLORS: Record<string, string> = {
-  zhipu: "bg-blue-500",
-  openai: "bg-emerald-600",
-  anthropic: "bg-orange-500",
-  google: "bg-blue-600",
-  alibaba: "bg-orange-600",
-  deepseek: "bg-indigo-500",
-  moonshot: "bg-purple-500",
-  bytedance: "bg-sky-500",
-  baidu: "bg-red-500",
-  minimax: "bg-teal-500",
-};
 
 function formatContextLength(tokens: number): string {
   if (tokens >= 1000000) return `${(tokens / 1000000).toFixed(0)}M`;
@@ -101,74 +86,68 @@ interface ModelCardProps {
 
 export function ModelCard({ model }: ModelCardProps) {
   const company = getCompanyById(model.companyId);
-  const colorClass = COMPANY_COLORS[model.companyId] || "bg-gray-500";
   const price = getStartingPrice(model);
   const contextLen = getContextLength(model);
 
   return (
-    <Card className="group relative transition-all duration-300 border-border/60 bg-card hover:border-primary/20 hover:shadow-lg hover:shadow-primary/[0.04] h-full flex flex-col overflow-hidden card-hover">
-      {/* Top accent line */}
-      <div className={`absolute inset-x-0 top-0 h-0.5 ${colorClass} opacity-60 group-hover:opacity-100 transition-opacity`} />
+    <Card className="group h-full flex flex-col overflow-hidden border-0 bg-apple-surface-elevated transition-colors duration-200 hover:bg-apple-surface-elevated/80">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between gap-2">
-          <div className="flex items-center gap-2.5 min-w-0">
+          <div className="flex items-center gap-3 min-w-0">
             {company?.logo ? (
               <Image
                 src={company.logo}
                 alt={company.name}
                 width={32}
                 height={32}
-                className="size-8 shrink-0 rounded-full object-contain bg-muted/50"
+                className="size-8 shrink-0 rounded-full object-contain bg-apple-surface"
               />
             ) : (
-              <span
-                className={`inline-block size-8 shrink-0 rounded-full ${colorClass} flex items-center justify-center text-white text-sm font-bold`}
-              >
+              <span className="inline-block size-8 shrink-0 rounded-full bg-apple-accent/10 flex items-center justify-center text-apple-accent text-sm font-bold">
                 {company?.name.charAt(0) || "?"}
               </span>
             )}
             <div className="min-w-0">
-              <CardTitle className="text-base truncate">
-                {model.name}
-              </CardTitle>
-              <p className="text-xs text-muted-foreground mt-0.5">
+              <p className="label-text text-apple-text-tertiary">
                 {company?.name || ""}
               </p>
+              <h3 className="heading-card truncate mt-0.5">
+                {model.name}
+              </h3>
             </div>
           </div>
           {model.featured && (
-            <Badge variant="secondary" className="shrink-0 text-xs">
+            <span className="inline-flex shrink-0 items-center rounded-full bg-apple-accent px-2.5 py-0.5 text-[11px] font-medium text-white">
               推荐
-            </Badge>
+            </span>
           )}
         </div>
       </CardHeader>
 
       <CardContent className="flex-1 flex flex-col gap-3">
-        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+        <p className="text-[15px] text-apple-text-secondary line-clamp-2 leading-relaxed">
           {model.description}
         </p>
 
         <div className="flex flex-wrap gap-1.5">
           {(model.tags || []).slice(0, 4).map((tag: string) => (
-            <Badge
+            <span
               key={tag}
-              variant="outline"
-              className="text-xs font-normal"
+              className="inline-flex items-center rounded-full bg-apple-surface px-2.5 py-0.5 text-xs font-normal text-apple-text-tertiary"
             >
               {tag}
-            </Badge>
+            </span>
           ))}
           {contextLen > 0 && (
-            <Badge variant="outline" className="text-xs font-normal">
+            <span className="inline-flex items-center rounded-full bg-apple-surface px-2.5 py-0.5 text-xs font-normal text-apple-text-tertiary">
               {formatContextLength(contextLen)}上下文
-            </Badge>
+            </span>
           )}
         </div>
 
         <div className="flex items-center gap-2 pt-1">
           {price.isFree ? (
-            <span className="inline-flex items-center rounded-md bg-emerald-50 px-2 py-0.5 text-sm font-semibold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
+            <span className="inline-flex items-center rounded-full bg-apple-accent/10 px-2.5 py-0.5 text-sm font-medium text-apple-accent">
               {price.label}
             </span>
           ) : (
@@ -177,17 +156,16 @@ export function ModelCard({ model }: ModelCardProps) {
             </span>
           )}
         </div>
-      </CardContent>
 
-      <CardFooter className="border-t-0 bg-transparent">
+        {/* Pill link */}
         <Link
           href={`/model/${model.id}`}
-          className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          className="inline-flex items-center gap-0.5 text-[15px] font-medium text-apple-link transition-colors hover:text-apple-link/70 mt-auto pt-2"
         >
           查看详情
-          <ArrowRight className="size-3.5" />
+          <ChevronRight className="size-3.5" />
         </Link>
-      </CardFooter>
+      </CardContent>
     </Card>
   );
 }

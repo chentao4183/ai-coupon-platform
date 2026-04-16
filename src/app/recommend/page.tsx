@@ -152,12 +152,12 @@ function getCostEffectiveness(model: RModel): number {
 }
 
 function getCostEffectivenessLabel(score: number): { label: string; color: string } {
-  if (score < 0) return { label: "N/A", color: "text-muted-foreground" };
-  if (score >= 90) return { label: "极佳", color: "text-emerald-600 dark:text-emerald-400" };
-  if (score >= 70) return { label: "优秀", color: "text-blue-600 dark:text-blue-400" };
-  if (score >= 50) return { label: "良好", color: "text-amber-600 dark:text-amber-400" };
-  if (score >= 30) return { label: "一般", color: "text-orange-600 dark:text-orange-400" };
-  return { label: "较低", color: "text-red-600 dark:text-red-400" };
+  if (score < 0) return { label: "N/A", color: "text-apple-text-tertiary" };
+  if (score >= 90) return { label: "极佳", color: "text-apple-accent" };
+  if (score >= 70) return { label: "优秀", color: "text-apple-accent" };
+  if (score >= 50) return { label: "良好", color: "text-apple-text-secondary" };
+  if (score >= 30) return { label: "一般", color: "text-apple-text-secondary" };
+  return { label: "较低", color: "text-apple-text-tertiary" };
 }
 
 /* ------------------------------------------------------------------ */
@@ -421,9 +421,9 @@ function StepIndicator({
           <div
             className={`flex items-center justify-center size-8 rounded-full text-sm font-medium transition-colors ${
               step < currentStep
-                ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400"
+                ? "bg-apple-accent/10 text-apple-accent dark:bg-apple-accent/10 dark:text-apple-accent"
                 : step === currentStep
-                  ? "bg-emerald-600 text-white"
+                  ? "bg-apple-accent text-white"
                   : "bg-muted text-muted-foreground"
             }`}
           >
@@ -433,7 +433,7 @@ function StepIndicator({
             <div
               className={`w-12 h-0.5 ${
                 step < currentStep
-                  ? "bg-emerald-300 dark:bg-emerald-700"
+                  ? "bg-apple-accent/30 dark:bg-apple-accent/30"
                   : "bg-muted"
               }`}
             />
@@ -467,14 +467,14 @@ function SelectableCard({
         large ? "p-4" : ""
       } ${
         selected
-          ? "border-emerald-500 bg-emerald-50 ring-1 ring-emerald-500 dark:bg-emerald-950/30"
-          : "border-border hover:border-emerald-300 dark:hover:border-emerald-700"
+          ? "border-apple-accent bg-apple-accent/5 ring-1 ring-apple-accent dark:bg-apple-accent/10"
+          : "border-border hover:border-apple-accent/40"
       }`}
     >
       <div
         className={`flex items-center justify-center size-10 rounded-lg shrink-0 ${
           selected
-            ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
+            ? "bg-apple-accent/10 text-apple-accent dark:bg-apple-accent/10 dark:text-apple-accent"
             : "bg-muted text-muted-foreground"
         }`}
       >
@@ -482,13 +482,13 @@ function SelectableCard({
       </div>
       <span
         className={`font-medium ${
-          selected ? "text-emerald-700 dark:text-emerald-300" : ""
+          selected ? "text-apple-accent" : ""
         }`}
       >
         {option.label}
       </span>
       {selected && (
-        <Check className="size-4 text-emerald-600 ml-auto shrink-0" />
+        <Check className="size-4 text-apple-accent ml-auto shrink-0" />
       )}
     </button>
   );
@@ -516,13 +516,13 @@ function ResultCard({
   const costEffLabel = getCostEffectivenessLabel(costEff);
 
   const rankColors: Record<number, string> = {
-    1: "bg-amber-500",
-    2: "bg-gray-400",
-    3: "bg-amber-700",
+    1: "bg-apple-accent",
+    2: "bg-apple-text-tertiary",
+    3: "bg-apple-text-tertiary",
   };
 
   return (
-    <Card className={`overflow-hidden ${rank === 1 ? "ring-1 ring-amber-300 dark:ring-amber-700" : ""}`}>
+    <Card className={`overflow-hidden ${rank === 1 ? "ring-1 ring-apple-accent/40" : ""}`}>
       <CardContent className="p-0">
         <div className="flex items-start gap-4 p-5">
           {/* Rank badge */}
@@ -536,7 +536,7 @@ function ResultCard({
             </div>
             <div className="flex items-center justify-center size-10 rounded-full bg-muted">
               {rank === 1 ? (
-                <Trophy className="size-5 text-amber-500" />
+                <Trophy className="size-5 text-apple-accent" />
               ) : (
                 <span className="text-xs font-bold text-muted-foreground">
                   {matchPercent}%
@@ -565,13 +565,13 @@ function ResultCard({
             <div className="mt-2 mb-3">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs text-muted-foreground">匹配度</span>
-                <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                <span className="text-xs font-semibold text-apple-accent">
                   {matchPercent}%
                 </span>
               </div>
               <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-emerald-500 rounded-full transition-all"
+                  className="h-full bg-apple-accent rounded-full transition-all"
                   style={{ width: `${matchPercent}%` }}
                 />
               </div>
@@ -588,7 +588,7 @@ function ResultCard({
               )}
               {costEff >= 0 && (
                 <div className="flex items-center gap-1.5">
-                  <Zap className="size-3.5 text-amber-500" />
+                  <Zap className="size-3.5 text-apple-accent" />
                   <span className="text-xs text-muted-foreground">性价比</span>
                   <span className={`text-xs font-bold ${costEffLabel.color}`}>
                     {costEffLabel.label}
@@ -601,7 +601,7 @@ function ResultCard({
             {/* Recommendation reason text */}
             <div className="rounded-md bg-muted/50 px-3 py-2 mb-3">
               <div className="flex items-start gap-1.5">
-                <Star className="size-3.5 text-emerald-500 mt-0.5 shrink-0" />
+                <Star className="size-3.5 text-apple-accent mt-0.5 shrink-0" />
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   {recommendationText}
                 </p>
@@ -625,7 +625,7 @@ function ResultCard({
                 <span
                   className={
                     startPrice.isFree
-                      ? "text-emerald-600 dark:text-emerald-400 font-medium"
+                      ? "text-apple-accent font-medium"
                       : "font-medium"
                   }
                 >
@@ -706,7 +706,7 @@ export default function RecommendPage() {
   const stepTitles = ["使用场景", "预算范围", "核心需求"];
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
+    <div className="mx-auto max-w-[var(--content-max-width)] px-6 py-8 sm:px-8 sm:py-12">
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
@@ -718,7 +718,7 @@ export default function RecommendPage() {
             返回首页
           </Link>
         </div>
-        <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <h1 className="heading-section">
           智能推荐
         </h1>
         <p className="mt-1 text-muted-foreground">
@@ -795,7 +795,7 @@ export default function RecommendPage() {
             <CardContent className="p-6 sm:p-8">
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="inline-flex items-center justify-center size-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold dark:bg-emerald-950 dark:text-emerald-400">
+                  <span className="inline-flex items-center justify-center size-6 rounded-full bg-apple-accent/10 text-apple-accent text-xs font-bold">
                     {step}
                   </span>
                   <h2 className="text-lg font-semibold">{stepTitles[step - 1]}</h2>

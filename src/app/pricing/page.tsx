@@ -134,33 +134,30 @@ export default function PricingPage() {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border/60 bg-gradient-to-b from-primary/[0.04] via-background to-background">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-20%,var(--color-primary)/0.08,transparent)]" />
-        <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-16 sm:px-6 sm:pb-16 sm:pt-20 text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-6">
+      <section className="bg-[#000000]">
+        <div className="mx-auto flex min-h-[420px] max-w-[980px] flex-col items-center justify-center px-6 py-20 text-center sm:min-h-[480px] sm:py-28">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80 mb-6">
             <DollarSign className="size-3" />
             <span>{stats.total} 个 API 定价，{stats.freeCount} 个免费</span>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-            API 按量付费
-            <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent"> 精确对比 </span>
+          <h1 className="heading-hero text-white">
+            API 按量付费<br className="sm:hidden" />精确对比
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            精确到每百万 Token 的 API 定价。覆盖国内外主流大模型，
-            统一换算为美元便于跨国对比。
+          <p className="mx-auto mt-5 max-w-xl text-[21px] font-normal leading-relaxed text-white/80">
+            精确到每百万 Token 的 API 定价，覆盖国内外主流大模型，统一换算为美元便于跨国对比。
           </p>
 
           {/* Quick stats */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             {stats.freeCount > 0 && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
                 {stats.freeCount} 个模型完全免费
               </span>
             )}
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
               最低输入 {formatUSDPrice(stats.minInput)}/1M tokens
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-purple-200 bg-purple-50 px-3 py-1 text-xs font-medium text-purple-700">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
               最低输出 {formatUSDPrice(stats.minOutput)}/1M tokens
             </span>
           </div>
@@ -168,7 +165,7 @@ export default function PricingPage() {
       </section>
 
       {/* Content */}
-      <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-10">
+      <section className="mx-auto w-full max-w-[var(--content-max-width)] px-6 py-8 sm:px-8 sm:py-10">
         {/* Search + Controls row */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           {/* Search */}
@@ -259,7 +256,7 @@ export default function PricingPage() {
 
         {/* Expanded filters */}
         {showFilters && (
-          <div className="mt-4 rounded-lg border border-border bg-muted/20 p-4 space-y-4 animate-in fade-in-0 slide-in-from-top-2 duration-200">
+          <div className="mt-4 rounded-xl bg-apple-surface-elevated p-4 space-y-4 animate-in fade-in-0 slide-in-from-top-2 duration-200">
             {/* Country filter */}
             <div>
               <label className="text-xs font-medium text-muted-foreground mb-2 block">

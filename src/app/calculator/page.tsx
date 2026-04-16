@@ -194,12 +194,12 @@ function getBarColor(
   minCost: number,
   maxCost: number
 ): string {
-  if (maxCost === minCost) return "bg-emerald-500";
+  if (maxCost === minCost) return "bg-apple-accent";
   const ratio = (totalCost - minCost) / (maxCost - minCost);
-  if (ratio < 0.25) return "bg-emerald-500";
-  if (ratio < 0.5) return "bg-lime-500";
-  if (ratio < 0.75) return "bg-amber-500";
-  return "bg-red-500";
+  if (ratio < 0.25) return "bg-apple-accent";
+  if (ratio < 0.5) return "bg-apple-text-tertiary";
+  if (ratio < 0.75) return "bg-apple-text-tertiary";
+  return "bg-foreground";
 }
 
 /* ------------------------------------------------------------------ */
@@ -209,9 +209,9 @@ function getBarColor(
 function planBadgeClass(planType: string): string {
   switch (planType) {
     case "api":
-      return "bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-400";
+      return "bg-apple-surface-elevated text-apple-text-secondary border border-apple-divider";
     case "subscription":
-      return "bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-400";
+      return "bg-apple-surface-elevated text-apple-text-secondary border border-apple-divider";
     default:
       return "";
   }
@@ -368,7 +368,7 @@ export default function CalculatorPage() {
           <div className="mt-6 space-y-2">
             <div className="flex items-center justify-between">
               <label className="text-sm font-medium">缓存命中率</label>
-              <span className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+              <span className="text-sm font-semibold text-apple-accent">
                 {cacheHitRate}%
               </span>
             </div>
@@ -379,7 +379,7 @@ export default function CalculatorPage() {
               step={5}
               value={cacheHitRate}
               onChange={(e) => setCacheHitRate(Number(e.target.value))}
-              className="w-full h-2 bg-muted rounded-full appearance-none cursor-pointer accent-emerald-600"
+              className="w-full h-2 bg-muted rounded-full appearance-none cursor-pointer accent-apple-accent"
             />
             <p className="text-xs text-muted-foreground">
               开启缓存后，重复的输入内容可享受更低价格。仅部分模型支持缓存折扣（如 Claude、Gemini、GLM）
@@ -395,7 +395,7 @@ export default function CalculatorPage() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-3 mt-6 pt-6 border-t">
+          <div className="flex items-center gap-3 mt-6 pt-6 border-t border-apple-divider">
             <Button
               onClick={handleCalculate}
               disabled={inputNum === 0 && outputNum === 0}
@@ -423,10 +423,10 @@ export default function CalculatorPage() {
           {/* Insights */}
           <div className="grid gap-4 sm:grid-cols-2 mb-8">
             {/* Best value */}
-            <Card className="border-emerald-200 dark:border-emerald-900">
+            <Card className="border-apple-accent/30">
               <CardContent className="p-5">
                 <div className="flex items-start gap-2">
-                  <Sparkles className="size-4 text-emerald-600 mt-0.5 shrink-0" />
+                  <Sparkles className="size-4 text-apple-accent mt-0.5 shrink-0" />
                   <div className="space-y-1">
                     {cheapest && (
                       <p className="text-sm">
@@ -437,7 +437,7 @@ export default function CalculatorPage() {
                           {planTypeLabel(cheapest.planType)}
                         </Badge>
                         {" — "}
-                        <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                        <span className="font-semibold text-apple-accent">
                           {formatCNY(cheapest.totalCNY)}/月
                         </span>
                       </p>
@@ -454,10 +454,10 @@ export default function CalculatorPage() {
 
             {/* Subscription tips */}
             {subBetterThanApi.length > 0 && (
-              <Card className="border-purple-200 dark:border-purple-900">
+              <Card className="border-apple-divider">
                 <CardContent className="p-5">
                   <div className="flex items-start gap-2">
-                    <Info className="size-4 text-purple-600 mt-0.5 shrink-0" />
+                    <Info className="size-4 text-apple-text-tertiary mt-0.5 shrink-0" />
                     <div className="space-y-1">
                       <p className="text-sm font-medium">订阅更划算</p>
                       <p className="text-xs text-muted-foreground">
@@ -478,10 +478,10 @@ export default function CalculatorPage() {
 
             {/* Free tier note */}
             {freeResults.length > 0 && (
-              <Card className="border-amber-200 dark:border-amber-900">
+              <Card className="border-apple-divider">
                 <CardContent className="p-5">
                   <div className="flex items-start gap-2">
-                    <Sparkles className="size-4 text-amber-600 mt-0.5 shrink-0" />
+                    <Sparkles className="size-4 text-apple-text-tertiary mt-0.5 shrink-0" />
                     <div className="space-y-1">
                       <p className="text-sm font-medium">免费方案</p>
                       <p className="text-xs text-muted-foreground">
@@ -505,7 +505,7 @@ export default function CalculatorPage() {
               <Card>
                 <CardContent className="p-5">
                   <div className="flex items-start gap-2">
-                    <Calculator className="size-4 text-blue-600 mt-0.5 shrink-0" />
+                    <Calculator className="size-4 text-apple-accent mt-0.5 shrink-0" />
                     <div className="space-y-1">
                       <p className="text-sm font-medium">最省 API 调用</p>
                       <p className="text-xs text-muted-foreground">
@@ -545,7 +545,7 @@ export default function CalculatorPage() {
                           key={r.plan.id}
                           className={
                             isCheapest
-                              ? "bg-emerald-50/50 dark:bg-emerald-950/20"
+                              ? "bg-apple-accent/5"
                               : ""
                           }
                         >
@@ -567,7 +567,7 @@ export default function CalculatorPage() {
                                   {r.plan.name}
                                 </span>
                                 {isCheapest && (
-                                  <Badge className="ml-1 text-xs bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 shrink-0">
+                                  <Badge className="ml-1 text-xs bg-apple-accent/10 text-apple-accent shrink-0">
                                     最省钱
                                   </Badge>
                                 )}
@@ -585,11 +585,11 @@ export default function CalculatorPage() {
                           <TableCell className="text-right text-sm">
                             {r.planType === "subscription" ? "-" : formatCNY(r.outputCostCNY)}
                           </TableCell>
-                          <TableCell className="text-right text-sm text-emerald-600 dark:text-emerald-400">
+                          <TableCell className="text-right text-sm text-apple-accent">
                             {r.cacheSavingsCNY > 0 ? `-${formatCNY(r.cacheSavingsCNY)}` : "-"}
                           </TableCell>
                           <TableCell className="text-right">
-                            <span className={`font-semibold text-sm ${r.isFree ? "text-emerald-600 dark:text-emerald-400" : ""}`}>
+                            <span className={`font-semibold text-sm ${r.isFree ? "text-apple-accent" : ""}`}>
                               {formatCNY(r.totalCNY)}
                             </span>
                             {r.originalCurrency !== "CNY" && r.planType === "api" && (

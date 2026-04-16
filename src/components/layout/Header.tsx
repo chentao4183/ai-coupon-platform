@@ -16,24 +16,21 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "首页" },
-  { href: "/coding", label: "编程套餐" },
+  { href: "/coding", label: "Coding 套餐" },
   { href: "/pricing", label: "API 按量" },
   { href: "/lobster", label: "龙虾" },
-  { href: "/compare", label: "对比" },
-  { href: "/recommend", label: "推荐" },
-  { href: "/calculator", label: "成本计算" },
 ];
 
 export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 w-full nav-frosted">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Layers className="size-5 text-primary" strokeWidth={2} />
-          <span>AI模型比价</span>
+          <span>AIdeals</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -43,7 +40,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "nav-link rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                "nav-link rounded-md px-3 py-2 text-xs font-normal transition-colors hover:bg-accent hover:text-accent-foreground",
                 pathname === link.href
                   ? "text-foreground active"
                   : "text-muted-foreground"
@@ -66,7 +63,7 @@ export function Header() {
               <SheetHeader>
                 <SheetTitle className="flex items-center gap-2">
                   <Layers className="size-5" />
-                  AI模型比价
+                  AIdeals
                 </SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-1 px-4 pt-2">
@@ -75,7 +72,7 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "rounded-md px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground min-h-[44px] flex items-center",
+                      "rounded-md px-3 py-2.5 text-sm font-normal transition-colors hover:bg-accent hover:text-accent-foreground min-h-[44px] flex items-center",
                       pathname === link.href
                         ? "bg-accent text-foreground"
                         : "text-muted-foreground"

@@ -142,7 +142,7 @@ export default async function ModelDetailPage({ params }: PageProps) {
             <p
               className={`text-lg font-semibold ${
                 price.isFree
-                  ? "text-emerald-600 dark:text-emerald-400"
+                  ? "text-apple-accent"
                   : ""
               }`}
             >
@@ -168,7 +168,7 @@ export default async function ModelDetailPage({ params }: PageProps) {
 
       {/* Related models */}
       {relatedModels.length > 0 && (
-        <section className="border-t pt-8">
+        <section className="border-t border-apple-divider pt-8">
           <h2 className="text-lg font-semibold mb-4">
             同地区相关模型
             {company && (
@@ -218,7 +218,7 @@ export default async function ModelDetailPage({ params }: PageProps) {
                         <span
                           className={`text-sm font-semibold ${
                             rp.isFree
-                              ? "text-emerald-600 dark:text-emerald-400"
+                              ? "text-apple-accent"
                               : ""
                           }`}
                         >
