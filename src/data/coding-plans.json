@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-15",
+  "lastUpdated": "2026-04-29",
   "description": "专为AI编程设计的订阅/API计划对比数据，包含编程工具支持、配额限制、模型访问等编程专用维度",
   "plans": [
     {
@@ -253,14 +253,14 @@
       ],
       "popular": true,
       "claudeProEquivalent": "1x (基准)",
-      "claudeProPriceRatio": 1.0
+      "claudeProPriceRatio": 1
     },
     {
       "id": "claude-max-coding",
       "providerId": "anthropic",
       "providerName": "Anthropic",
       "providerLogo": "/logos/anthropic.ico",
-      "name": "Claude Max",
+      "name": "Claude Max 5x",
       "tier": "max",
       "pricing": {
         "currency": "USD",
@@ -270,7 +270,7 @@
       "quota": {
         "promptsPer5h": null,
         "promptsPerWeek": null,
-        "description": "海量使用额度（5x Pro）"
+        "description": "更高使用额度，约 5x Pro"
       },
       "models": [
         "Claude 4 Opus",
@@ -311,7 +311,66 @@
       ],
       "popular": false,
       "claudeProEquivalent": "约5x Claude Pro用量",
-      "claudeProPriceRatio": 5.0
+      "claudeProPriceRatio": 5
+    },
+    {
+      "id": "claude-max-20x-coding",
+      "providerId": "anthropic",
+      "providerName": "Anthropic",
+      "providerLogo": "/logos/anthropic.ico",
+      "name": "Claude Max 20x",
+      "tier": "ultra",
+      "pricing": {
+        "currency": "USD",
+        "price": 200,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "最高个人使用额度，约 20x Pro"
+      },
+      "models": [
+        "Claude 4 Opus",
+        "Claude 4 Sonnet"
+      ],
+      "modelsNote": "Max 20x 提供最高会话用量，适合长期高频 Claude Code 工作流",
+      "supportedTools": [
+        "Claude Code",
+        "Cursor",
+        "Continue",
+        "Cline",
+        "Aider"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "200K上下文",
+        "Claude 4 Opus大量额度",
+        "所有Pro功能",
+        "最高优先级"
+      ],
+      "contextLength": "200K",
+      "website": "https://www.anthropic.com",
+      "buyUrl": "https://claude.ai/upgrade?from=menu",
+      "tags": [
+        "国际",
+        "高端",
+        "重度"
+      ],
+      "bestFor": "极重度 Claude Code 用户，多项目并行与长时间编码任务",
+      "pros": [
+        "20x Pro会话用量",
+        "最高个人使用额度",
+        "Opus与Sonnet大量可用",
+        "适合重度Agent工作流"
+      ],
+      "cons": [
+        "价格高（$200/月）",
+        "仍受会话窗口与公平使用限制"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约20x Claude Pro用量",
+      "claudeProPriceRatio": 10
     },
     {
       "id": "chatgpt-plus-coding",
@@ -373,15 +432,77 @@
       ],
       "popular": true,
       "claudeProEquivalent": "约1x Claude Pro用量",
-      "claudeProPriceRatio": 1.0
+      "claudeProPriceRatio": 1
+    },
+    {
+      "id": "chatgpt-pro-100-coding",
+      "providerId": "openai",
+      "providerName": "OpenAI",
+      "providerLogo": "/logos/openai.svg",
+      "name": "ChatGPT Pro $100",
+      "tier": "max",
+      "pricing": {
+        "currency": "USD",
+        "price": 100,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "更高个人使用额度，约 5x Plus；Codex 限时更高"
+      },
+      "models": [
+        "o3",
+        "GPT-4o",
+        "o1"
+      ],
+      "modelsNote": "Pro $100 介于 Plus 与 Pro $200 之间，面向更重度 Codex 使用",
+      "supportedTools": [
+        "GitHub Copilot",
+        "Cursor",
+        "Continue",
+        "Cline",
+        "Aider"
+      ],
+      "toolCount": "5+",
+      "mcpFeatures": [
+        "128K上下文",
+        "o3完整访问",
+        "GPT-4o无限制",
+        "所有Plus功能",
+        "最高优先级",
+        "扩展计算资源"
+      ],
+      "contextLength": "128K",
+      "website": "https://openai.com",
+      "buyUrl": "https://chatgpt.com/gg/69c643abc830819a90a58628f3a8b174#pricing",
+      "tags": [
+        "国际",
+        "Codex",
+        "重度"
+      ],
+      "bestFor": "需要更高 Codex/ChatGPT 使用额度，但暂不需要 $200 档的开发者",
+      "pros": [
+        "5x Plus用量",
+        "Codex额度高于Plus",
+        "比$200档门槛更低",
+        "覆盖OpenAI高级工具"
+      ],
+      "cons": [
+        "价格高于Plus五倍",
+        "不如$200档用量充足"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约5x ChatGPT Plus用量",
+      "claudeProPriceRatio": 5
     },
     {
       "id": "chatgpt-pro-coding",
       "providerId": "openai",
       "providerName": "OpenAI",
       "providerLogo": "/logos/openai.svg",
-      "name": "ChatGPT Pro",
-      "tier": "max",
+      "name": "ChatGPT Pro $200",
+      "tier": "ultra",
       "pricing": {
         "currency": "USD",
         "price": 200,
@@ -390,14 +511,14 @@
       "quota": {
         "promptsPer5h": null,
         "promptsPerWeek": null,
-        "description": "扩展计算资源，o3/o1更多额度"
+        "description": "最高个人使用额度，约 20x Plus；Codex 额度显著高于 Plus"
       },
       "models": [
         "o3",
         "GPT-4o",
         "o1"
       ],
-      "modelsNote": "o3完整访问，GPT-4o无限制",
+      "modelsNote": "Pro $200 为最高个人档，约 20x Plus 用量",
       "supportedTools": [
         "GitHub Copilot",
         "Cursor",
@@ -433,8 +554,8 @@
         "编程非核心定位"
       ],
       "popular": false,
-      "claudeProEquivalent": "约10x Claude Pro用量",
-      "claudeProPriceRatio": 10.0
+      "claudeProEquivalent": "约20x ChatGPT Plus用量",
+      "claudeProPriceRatio": 10
     },
     {
       "id": "copilot-pro",
@@ -451,14 +572,14 @@
       "quota": {
         "promptsPer5h": null,
         "promptsPerWeek": null,
-        "description": "无限代码补全+多模型对话额度"
+        "description": "无限代码补全 + 300 次/月 premium requests；新注册暂时暂停"
       },
       "models": [
         "GPT-4o",
         "Claude 3.5 Sonnet",
         "Gemini Pro"
       ],
-      "modelsNote": "可在VS Code中切换多模型",
+      "modelsNote": "Pro 含 300 次/月 premium requests，GitHub 计划 2026-06-01 调整计费体系",
       "supportedTools": [
         "VS Code",
         "Visual Studio",
@@ -498,6 +619,67 @@
       "claudeProPriceRatio": 0.5
     },
     {
+      "id": "copilot-pro-plus",
+      "providerId": "openai",
+      "providerName": "GitHub/Microsoft",
+      "providerLogo": "/logos/openai.svg",
+      "name": "GitHub Copilot Pro+",
+      "tier": "max",
+      "pricing": {
+        "currency": "USD",
+        "price": 39,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "无限代码补全 + 1,500 次/月 premium requests"
+      },
+      "models": [
+        "GPT-4o",
+        "Claude 3.5 Sonnet",
+        "Gemini Pro"
+      ],
+      "modelsNote": "Pro+ 提供更高 premium requests，并解锁更多高级模型；新注册暂时暂停",
+      "supportedTools": [
+        "VS Code",
+        "Visual Studio",
+        "JetBrains IDE",
+        "Neovim",
+        "Xcode"
+      ],
+      "toolCount": "5+ (IDE集成)",
+      "mcpFeatures": [
+        "IDE内代码补全",
+        "Chat对话",
+        "多模型切换",
+        "PR摘要",
+        "CLI辅助"
+      ],
+      "contextLength": "128K",
+      "website": "https://github.com/features/copilot",
+      "buyUrl": "https://github.com/features/copilot/plans",
+      "tags": [
+        "国际",
+        "IDE集成",
+        "高额度"
+      ],
+      "bestFor": "需要更多 Copilot Chat/Agent 高级模型请求的开发者",
+      "pros": [
+        "1,500次/月premium requests",
+        "更多高级模型访问",
+        "原生IDE与GitHub生态集成"
+      ],
+      "cons": [
+        "新注册暂时暂停",
+        "2026-06-01起计费体系将变化",
+        "仍主要局限于Copilot生态"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约5x Copilot Pro高级请求",
+      "claudeProPriceRatio": 1.95
+    },
+    {
       "id": "cursor-pro",
       "providerId": "cursor",
       "providerName": "Cursor",
@@ -512,7 +694,7 @@
       "quota": {
         "promptsPer5h": 500,
         "promptsPerWeek": null,
-        "description": "每月500次高级请求（fast/strong模式）"
+        "description": "扩展 Agent 使用额度，支持 frontier models、MCP、skills、hooks、cloud agents"
       },
       "models": [
         "Claude 3.5 Sonnet",
@@ -520,7 +702,7 @@
         "o1",
         "o3-mini"
       ],
-      "modelsNote": "可切换多种后端模型",
+      "modelsNote": "Pro 为基础付费档，适合日常 Agent 使用",
       "supportedTools": [
         "Cursor Editor"
       ],
@@ -553,7 +735,122 @@
       ],
       "popular": true,
       "claudeProEquivalent": "约1x Claude Pro用量",
-      "claudeProPriceRatio": 1.0
+      "claudeProPriceRatio": 1
+    },
+    {
+      "id": "cursor-pro-plus",
+      "providerId": "cursor",
+      "providerName": "Cursor",
+      "providerLogo": "/logos/cursor.svg",
+      "name": "Cursor Pro+",
+      "tier": "max",
+      "pricing": {
+        "currency": "USD",
+        "price": 60,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "Pro 全部能力 + OpenAI/Claude/Gemini 模型 3x 使用量"
+      },
+      "models": [
+        "Claude 3.5 Sonnet",
+        "GPT-4o",
+        "o1",
+        "o3-mini"
+      ],
+      "modelsNote": "Pro+ 提供 Pro 的 3x 模型用量",
+      "supportedTools": [
+        "Cursor Editor"
+      ],
+      "toolCount": "1 (专属IDE)",
+      "mcpFeatures": [
+        "AI代码编辑器",
+        "Composer多文件编辑",
+        "Codebase理解",
+        "Tab补全",
+        "Chat对话"
+      ],
+      "contextLength": "128K",
+      "website": "https://cursor.com",
+      "buyUrl": "https://cursor.com/pricing",
+      "tags": [
+        "国际",
+        "编程IDE",
+        "重度"
+      ],
+      "bestFor": "日常高频使用 Cursor Agent 的开发者",
+      "pros": [
+        "3x Pro模型用量",
+        "支持frontier models",
+        "Cloud agents",
+        "AI原生IDE体验"
+      ],
+      "cons": [
+        "价格为Pro三倍",
+        "需要使用Cursor编辑器"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约3x Cursor Pro用量",
+      "claudeProPriceRatio": 3
+    },
+    {
+      "id": "cursor-ultra",
+      "providerId": "cursor",
+      "providerName": "Cursor",
+      "providerLogo": "/logos/cursor.svg",
+      "name": "Cursor Ultra",
+      "tier": "ultra",
+      "pricing": {
+        "currency": "USD",
+        "price": 200,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "Pro 全部能力 + OpenAI/Claude/Gemini 模型 20x 使用量"
+      },
+      "models": [
+        "Claude 3.5 Sonnet",
+        "GPT-4o",
+        "o1",
+        "o3-mini"
+      ],
+      "modelsNote": "Ultra 提供 Pro 的 20x 模型用量，并优先访问新功能",
+      "supportedTools": [
+        "Cursor Editor"
+      ],
+      "toolCount": "1 (专属IDE)",
+      "mcpFeatures": [
+        "AI代码编辑器",
+        "Composer多文件编辑",
+        "Codebase理解",
+        "Tab补全",
+        "Chat对话"
+      ],
+      "contextLength": "128K",
+      "website": "https://cursor.com",
+      "buyUrl": "https://cursor.com/pricing",
+      "tags": [
+        "国际",
+        "编程IDE",
+        "高端"
+      ],
+      "bestFor": "Cursor Agent 极重度用户与多项目并行开发",
+      "pros": [
+        "20x Pro模型用量",
+        "优先访问新功能",
+        "适合高频Agent工作流"
+      ],
+      "cons": [
+        "价格高（$200/月）",
+        "需要使用Cursor编辑器"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约20x Cursor Pro用量",
+      "claudeProPriceRatio": 10
     },
     {
       "id": "windsurf-pro",
@@ -564,20 +861,20 @@
       "tier": "pro",
       "pricing": {
         "currency": "USD",
-        "price": 15,
+        "price": 20,
         "period": "month"
       },
       "quota": {
         "promptsPer5h": null,
         "promptsPerWeek": null,
-        "description": "不限次数（Cascade模式）"
+        "description": "新 usage-based 体系下的 Pro 档，含标准个人使用额度"
       },
       "models": [
         "Claude 3.5 Sonnet",
         "GPT-4o",
         "Gemini Pro"
       ],
-      "modelsNote": "Cascade流式推理引擎",
+      "modelsNote": "2026-03 后新用户 Pro 价格调整为 $20/月，老用户可能保留旧价",
       "supportedTools": [
         "Windsurf Editor"
       ],
@@ -604,13 +901,70 @@
         "终端集成"
       ],
       "cons": [
-        "需使用Windsurf编辑器",
-        "模型能力略弱于Cursor",
-        "社区生态较小"
+        "新用户价格已涨至$20/月",
+        "需要使用Windsurf编辑器",
+        "额度体系经历调整，老用户与新用户可能不同"
       ],
       "popular": false,
       "claudeProEquivalent": "约1x Claude Pro用量",
-      "claudeProPriceRatio": 0.75
+      "claudeProPriceRatio": 1
+    },
+    {
+      "id": "windsurf-max",
+      "providerId": "windsurf",
+      "providerName": "Windsurf (Codeium)",
+      "providerLogo": "/logos/windsurf.svg",
+      "name": "Windsurf Max",
+      "tier": "ultra",
+      "pricing": {
+        "currency": "USD",
+        "price": 200,
+        "period": "month"
+      },
+      "quota": {
+        "promptsPer5h": null,
+        "promptsPerWeek": null,
+        "description": "更高 usage-based 额度，面向 Agent power users"
+      },
+      "models": [
+        "Claude 3.5 Sonnet",
+        "GPT-4o",
+        "Gemini Pro"
+      ],
+      "modelsNote": "Max 面向高频 Cascade/Agent 使用，提供更高额度",
+      "supportedTools": [
+        "Windsurf Editor"
+      ],
+      "toolCount": "1 (专属IDE)",
+      "mcpFeatures": [
+        "Cascade流式推理",
+        "多文件编辑",
+        "代码库理解",
+        "Tab补全",
+        "终端集成"
+      ],
+      "contextLength": "128K",
+      "website": "https://codeium.com/windsurf",
+      "buyUrl": "https://codeium.com/pricing",
+      "tags": [
+        "国际",
+        "编程IDE",
+        "高端"
+      ],
+      "bestFor": "Windsurf/Cascade 极重度用户",
+      "pros": [
+        "更高Agent使用额度",
+        "Cascade多文件编程体验",
+        "适合高频开发工作流"
+      ],
+      "cons": [
+        "价格高（$200/月）",
+        "需要使用Windsurf编辑器",
+        "新旧额度体系差异较大"
+      ],
+      "popular": false,
+      "claudeProEquivalent": "约10x Windsurf Pro用量",
+      "claudeProPriceRatio": 10
     },
     {
       "id": "minimax-starter",
@@ -625,16 +979,14 @@
         "period": "month"
       },
       "quota": {
-        "promptsPer5h": 100,
+        "promptsPer5h": 600,
         "promptsPerWeek": null,
-        "description": "100 prompts / 5小时，标准版 M2.7 (~50TPS)"
+        "description": "600 次请求 / 5小时，标准版 M2.7"
       },
       "models": [
-        "M2.7",
-        "M2.1",
-        "M2"
+        "M2.7"
       ],
-      "modelsNote": "标准版 M2.7 约50TPS",
+      "modelsNote": "标准版 M2.7",
       "supportedTools": [
         "Claude Code",
         "Roo Code",
@@ -653,7 +1005,7 @@
         "联网搜索 MCP",
         "100+ TPS (极速版)"
       ],
-      "contextLength": "1M",
+      "contextLength": "200K",
       "website": "https://www.minimaxi.com",
       "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
       "tags": [
@@ -689,16 +1041,14 @@
         "period": "month"
       },
       "quota": {
-        "promptsPer5h": 300,
+        "promptsPer5h": 1500,
         "promptsPerWeek": null,
-        "description": "300 prompts / 5小时，3倍 Starter 用量"
+        "description": "1,500 次请求 / 5小时，标准版 M2.7，Plus 起含语音/图片等多模态日配额"
       },
       "models": [
-        "M2.7",
-        "M2.1",
-        "M2"
+        "M2.7"
       ],
-      "modelsNote": "标准版 M2.7 (~50TPS)",
+      "modelsNote": "标准版 M2.7",
       "supportedTools": [
         "Claude Code",
         "Roo Code",
@@ -717,7 +1067,7 @@
         "联网搜索 MCP",
         "100+ TPS (极速版)"
       ],
-      "contextLength": "1M",
+      "contextLength": "200K",
       "website": "https://www.minimaxi.com",
       "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
       "tags": [
@@ -751,16 +1101,14 @@
         "period": "month"
       },
       "quota": {
-        "promptsPer5h": 1000,
+        "promptsPer5h": 4500,
         "promptsPerWeek": null,
-        "description": "1000 prompts / 5小时，10倍 Starter 用量"
+        "description": "4,500 次请求 / 5小时，标准版 M2.7，含更高多模态日配额"
       },
       "models": [
-        "M2.7",
-        "M2.1",
-        "M2"
+        "M2.7"
       ],
-      "modelsNote": "标准版 M2.7 (~50TPS)",
+      "modelsNote": "标准版 M2.7",
       "supportedTools": [
         "Claude Code",
         "Roo Code",
@@ -779,7 +1127,7 @@
         "联网搜索 MCP",
         "100+ TPS (极速版)"
       ],
-      "contextLength": "1M",
+      "contextLength": "200K",
       "website": "https://www.minimaxi.com",
       "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
       "tags": [
@@ -812,14 +1160,14 @@
         "period": "month"
       },
       "quota": {
-        "promptsPer5h": 300,
+        "promptsPer5h": 1500,
         "promptsPerWeek": null,
-        "description": "300 prompts / 5小时，约100 TPS 极速推理"
+        "description": "1,500 次请求 / 5小时，专属支持 M2.7-highspeed 极速推理"
       },
       "models": [
         "M2.7-highspeed"
       ],
-      "modelsNote": "极速版 M2.7-highspeed (~100TPS)",
+      "modelsNote": "极速版 M2.7-highspeed",
       "supportedTools": [
         "Claude Code",
         "Roo Code",
@@ -838,7 +1186,7 @@
         "联网搜索 MCP",
         "100+ TPS 极速推理"
       ],
-      "contextLength": "1M",
+      "contextLength": "200K",
       "website": "https://www.minimaxi.com",
       "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
       "tags": [
@@ -872,14 +1220,14 @@
         "period": "month"
       },
       "quota": {
-        "promptsPer5h": 1000,
+        "promptsPer5h": 4500,
         "promptsPerWeek": null,
-        "description": "1000 prompts / 5小时，约100 TPS 极速推理，超值之选"
+        "description": "4,500 次请求 / 5小时，专属支持 M2.7-highspeed 极速推理，超值之选"
       },
       "models": [
         "M2.7-highspeed"
       ],
-      "modelsNote": "极速版 M2.7-highspeed (~100TPS)",
+      "modelsNote": "极速版 M2.7-highspeed",
       "supportedTools": [
         "Claude Code",
         "Roo Code",
@@ -898,7 +1246,7 @@
         "联网搜索 MCP",
         "100+ TPS 极速推理"
       ],
-      "contextLength": "1M",
+      "contextLength": "200K",
       "website": "https://www.minimaxi.com",
       "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
       "tags": [
@@ -927,18 +1275,18 @@
       "tier": "ultra",
       "pricing": {
         "currency": "CNY",
-        "price": 399,
+        "price": 899,
         "period": "month"
       },
       "quota": {
-        "promptsPer5h": 2000,
+        "promptsPer5h": 30000,
         "promptsPerWeek": null,
-        "description": "2000 prompts / 5小时，20倍 Starter 用量，极速畅用"
+        "description": "30,000 次请求 / 5小时，专属支持 M2.7-highspeed 极速畅用，含最高多模态日配额"
       },
       "models": [
         "M2.7-highspeed"
       ],
-      "modelsNote": "极速版 M2.7-highspeed (~100TPS)",
+      "modelsNote": "极速版 M2.7-highspeed",
       "supportedTools": [
         "Claude Code",
         "Roo Code",
@@ -957,7 +1305,7 @@
         "联网搜索 MCP",
         "100+ TPS 极速推理"
       ],
-      "contextLength": "1M",
+      "contextLength": "200K",
       "website": "https://www.minimaxi.com",
       "buyUrl": "https://platform.minimaxi.com/subscribe/token-plan?code=CtXxhdeqpi&source=link",
       "tags": [
@@ -967,17 +1315,17 @@
       ],
       "bestFor": "极速畅用，团队重度编程",
       "pros": [
-        "2000 prompts/5h",
-        "100 TPS 极速推理",
-        "20倍 Starter 用量",
-        "1M超长上下文"
+        "30,000 次请求/5h",
+        "M2.7-highspeed 极速推理",
+        "最高多模态日配额",
+        "适合极高频 Agent 工作流"
       ],
       "cons": [
-        "价格最高(¥399/月)"
+        "价格最高（¥899/月）"
       ],
       "popular": false,
-      "claudeProEquivalent": "约10x Claude Pro用量",
-      "claudeProPriceRatio": 1.995
+      "claudeProEquivalent": "约50x Claude Pro用量",
+      "claudeProPriceRatio": 4.495
     },
     {
       "id": "kimi-andante",
@@ -1220,7 +1568,7 @@
       ],
       "popular": false,
       "claudeProEquivalent": "Claude Max 数倍",
-      "claudeProPriceRatio": 1.0
+      "claudeProPriceRatio": 1
     },
     {
       "id": "aliyun-pro",
@@ -1280,7 +1628,7 @@
       ],
       "popular": false,
       "claudeProEquivalent": "约 Claude Max 数倍",
-      "claudeProPriceRatio": 1.0
+      "claudeProPriceRatio": 1
     },
     {
       "id": "tencent-lite",
@@ -1403,7 +1751,7 @@
       ],
       "popular": false,
       "claudeProEquivalent": "约 Claude Max 数倍",
-      "claudeProPriceRatio": 1.0
+      "claudeProPriceRatio": 1
     },
     {
       "id": "baidu-lite",
@@ -1511,7 +1859,7 @@
       ],
       "popular": false,
       "claudeProEquivalent": "Claude Max 的3倍",
-      "claudeProPriceRatio": 1.0
+      "claudeProPriceRatio": 1
     }
   ]
 }
