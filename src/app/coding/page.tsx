@@ -197,14 +197,22 @@ function ProviderSection({ group }: { group: ProviderGroup }) {
       </div>
 
       {/* Plans Table — T7: clean Apple table */}
-      <table className="w-full text-sm">
+      <div className="overflow-x-auto">
+        <table className="min-w-[980px] w-full table-fixed text-sm">
+          <colgroup>
+            <col className="w-[120px]" />
+            <col className="w-[220px]" />
+            <col className="w-[180px]" />
+            <col />
+            <col className="w-[180px]" />
+          </colgroup>
         <thead>
           <tr className="label-text text-apple-text-tertiary">
-            <th className="px-6 py-3 text-left sm:px-8 w-[90px]">档位</th>
+            <th className="px-6 py-3 text-left sm:px-8">档位</th>
             <th className="px-6 py-3 text-left sm:px-8 whitespace-nowrap">配额</th>
             <th className="px-6 py-3 text-left sm:px-8 whitespace-nowrap">等效用量</th>
-            <th className="px-6 py-3 text-left sm:px-8 whitespace-nowrap">亮点</th>
-            <th className="px-6 py-3 text-right sm:px-8 w-[140px]">价格</th>
+            <th className="px-6 py-3 text-left sm:px-8">亮点</th>
+            <th className="px-6 py-3 text-right sm:px-8">价格</th>
             </tr>
           </thead>
           <tbody>
@@ -218,6 +226,7 @@ function ProviderSection({ group }: { group: ProviderGroup }) {
             ))}
           </tbody>
         </table>
+      </div>
     </div>
   );
 }
@@ -241,7 +250,7 @@ function PlanRow({
     >
       {/* Tier */}
       <td className="px-6 py-3.5 sm:px-8">
-        <div className="flex items-center gap-1.5">
+        <div className="flex flex-nowrap items-center gap-1.5 whitespace-nowrap">
           <span className="inline-flex items-center rounded-full bg-apple-accent/10 px-2 py-0.5 text-xs font-semibold text-apple-accent">
             {tierLabel}
           </span>
@@ -254,36 +263,36 @@ function PlanRow({
       </td>
 
       {/* Quota */}
-      <td className="px-6 py-3.5 sm:px-8 whitespace-nowrap">
-        <span className="font-medium text-foreground">
+      <td className="px-6 py-3.5 sm:px-8">
+        <span className="block whitespace-normal break-words font-medium text-foreground">
           {plan.quota.promptsPer5h
             ? `${plan.quota.promptsPer5h.toLocaleString()} 次/5h`
             : plan.quota.description.split("，")[0]}
         </span>
         {plan.quota.promptsPerWeek && (
-          <span className="ml-2 caption-text text-apple-text-tertiary">
+          <span className="caption-text mt-0.5 block text-apple-text-tertiary">
             {plan.quota.promptsPerWeek.toLocaleString()} 次/周
           </span>
         )}
       </td>
 
       {/* Claude Equivalent */}
-      <td className="px-6 py-3.5 caption-text text-apple-text-tertiary sm:px-8 whitespace-nowrap">
+      <td className="px-6 py-3.5 caption-text whitespace-normal break-words text-apple-text-tertiary sm:px-8">
         {plan.claudeProEquivalent}
       </td>
 
       {/* Highlights */}
-      <td className="px-6 py-3.5 sm:px-8 whitespace-nowrap">
+      <td className="px-6 py-3.5 sm:px-8">
         {plan.pricing.discount ? (
-          <span className="inline-flex items-center rounded-full bg-apple-accent/10 px-2 py-0.5 text-xs font-medium text-apple-accent">
+          <span className="inline-flex max-w-full items-center whitespace-normal break-words rounded-full bg-apple-accent/10 px-2 py-0.5 text-xs font-medium leading-relaxed text-apple-accent">
             {plan.pricing.discount}
           </span>
         ) : plan.modelsNote && plan.modelsNote !== defaultModelsNote ? (
-          <span className="caption-text text-apple-text-tertiary">
+          <span className="caption-text block max-w-full whitespace-normal break-words text-apple-text-tertiary">
             {plan.modelsNote}
           </span>
         ) : (
-          <span className="caption-text text-apple-text-tertiary">
+          <span className="caption-text block max-w-full whitespace-normal break-words text-apple-text-tertiary">
             {plan.mcpFeatures[0]}
           </span>
         )}
@@ -461,16 +470,24 @@ function QuickComparisonTable({ plans }: { plans: (typeof allPlans)[number][] })
         </span>
       </div>
 
-      <div className="rounded-xl bg-apple-surface">
-        <table className="w-full text-sm">
+      <div className="overflow-x-auto rounded-xl bg-apple-surface">
+        <table className="min-w-[980px] w-full table-fixed text-sm">
+          <colgroup>
+            <col className="w-[180px]" />
+            <col className="w-[240px]" />
+            <col className="w-[220px]" />
+            <col className="w-[170px]" />
+            <col className="w-[100px]" />
+            <col className="w-[170px]" />
+          </colgroup>
           <thead>
             <tr className="label-text text-apple-text-tertiary">
-              <th className="px-5 py-3 text-left min-w-[120px]">厂商</th>
+              <th className="px-5 py-3 text-left">厂商</th>
               <th className="px-5 py-3 text-left">模型</th>
               <th className="px-5 py-3 text-left">配额</th>
               <th className="px-5 py-3 text-left">等效用量</th>
               <th className="px-5 py-3 text-left">上下文</th>
-              <th className="px-5 py-3 text-right min-w-[100px]">价格</th>
+              <th className="px-5 py-3 text-right">价格</th>
             </tr>
           </thead>
           <tbody>
@@ -499,20 +516,20 @@ function QuickComparisonTable({ plans }: { plans: (typeof allPlans)[number][] })
                 </td>
 
                 {/* Models */}
-                <td className="px-5 py-3 caption-text text-apple-text-tertiary">
+                <td className="px-5 py-3 caption-text whitespace-normal break-words text-apple-text-tertiary">
                   {plan.models.slice(0, 2).join("、")}
                   {plan.models.length > 2 && ` +${plan.models.length - 2}`}
                 </td>
 
                 {/* Quota */}
-                <td className="px-5 py-3 caption-text text-apple-text-tertiary whitespace-nowrap">
+                <td className="px-5 py-3 caption-text whitespace-normal break-words text-apple-text-tertiary">
                   {plan.quota.promptsPer5h
                     ? `${plan.quota.promptsPer5h.toLocaleString()} 次/5h`
                     : plan.quota.description.split("，")[0]}
                 </td>
 
                 {/* Equivalent */}
-                <td className="px-5 py-3 caption-text text-apple-text-tertiary">
+                <td className="px-5 py-3 caption-text whitespace-normal break-words text-apple-text-tertiary">
                   {plan.claudeProEquivalent}
                 </td>
 
@@ -527,7 +544,7 @@ function QuickComparisonTable({ plans }: { plans: (typeof allPlans)[number][] })
                     {formatPrice(plan)}
                   </span>
                   {plan.pricing.discount && (
-                    <p className="text-[10px] text-apple-accent/70 truncate">{plan.pricing.discount}</p>
+                    <p className="mt-0.5 whitespace-normal break-words text-[10px] leading-snug text-apple-accent/70">{plan.pricing.discount}</p>
                   )}
                 </td>
               </tr>
